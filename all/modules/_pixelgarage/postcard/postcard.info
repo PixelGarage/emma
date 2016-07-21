@@ -1,0 +1,11 @@
+name = Postcard
+description = Postcard - a tool to create pdf postcards
+core = 7.x
+package = Pixelgarage
+version = "7.x-1.0"
+
+; Dependencies
+dependencies[] = webform (>=7.x-4.0)
+
+; Include files
+

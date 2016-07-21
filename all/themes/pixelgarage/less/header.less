@@ -1,0 +1,229 @@
+/*
+ *  Header section (navigation)
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+
+// Mixins
+// -------------------------
+
+
+
+// Main settings
+// -------------------------
+header#navbar {
+  margin: 0;
+  border-bottom: none;
+  background: @pxl-color-blue none;
+
+  .navbar-top-container > .container {
+    padding: 0 @grid-gutter-width / 2;
+    height: auto;
+
+    .navbar-meta {
+      position: relative;
+
+      .block-locale {
+        position: absolute;
+        right: @grid-gutter-width / 2;
+        top: 20px;
+        font-family: @pxl-text-font-bold;
+        font-size: @font-size-large;
+      }
+    }
+
+    .navbar-header {
+      float: none;
+      margin: 0;
+      text-align: left;
+
+      // header (branding)
+      a.logo {
+        display: inline-block;
+        margin: 10px;
+        padding: 0;
+        outline: none;
+
+        img {
+          margin: 0;
+          width: 160px;
+          height: auto;
+          max-width: 100%;
+          max-height: none;
+
+          @media @narrow {
+            width: 200px;
+          }
+          @media @tablet {
+            width: 350px;
+          }
+          @media @normal {
+            width: 450px;
+          }
+        }
+      }
+
+      .region-navigation {
+        display: inline-block;
+
+        ul.menu {
+          float: none;
+          margin: 0 auto;
+          padding: 0;
+          line-height: 1;
+
+          >li {
+            display: inline-block;
+            float: none;
+            padding: 0;
+            line-height: 1;
+
+            a, span {
+              cursor: pointer;
+              display: inline-block;
+              padding: 3px 5px 0;
+              font-family: @pxl-text-font-bold;
+              font-size: 11px;
+              line-height: 1;
+              letter-spacing: 1px;
+              color: white;
+              outline: none;
+
+              &:hover,
+              &.active,
+              &.checked {
+                color: @pxl-color-main;
+                background: none;
+              }
+
+              @media @narrow {
+                padding: 3px 10px 0;
+                font-size: @font-size-small;
+              }
+              @media @tablet {
+                padding: 3px 15px 0;
+                font-size: 18px;
+              }
+              @media @normal {
+                padding: 3px 15px 0;
+                font-size: @font-size-large;
+              }
+
+            }
+
+            &.first  a {
+              padding: 7px 15px 3px;
+              color: white;
+              #pxl-mixins.border-radius(3px);
+              border: 1px solid @pxl-color-green;
+              background-color: @pxl-color-green;
+
+              &:hover, &.active, &.checked {
+                color: @pxl-color-green;
+                background: none;
+              }
+            }
+
+          }
+        }
+      }
+
+      .navbar-toggle {
+        // navbar toggle with burger
+        float: right;
+        margin: 20px 0 0;
+        padding: 5px 10px;
+        font-size: 30px;
+        color: #fff;
+        border: none;
+        background: none;
+
+        &:hover {
+          color: @pxl-color-green;
+        }
+      }
+
+    }
+
+    // collapse part
+    .navbar-collapse {
+      padding: 5px 0;
+      background: none;
+
+      nav {
+        text-align: center;
+
+        ul.menu {
+          display: inline-block;
+          float: none;
+          margin: 0 auto;
+          padding: 0;
+          line-height: 1;
+
+          >li {
+            display: block;
+            float: none;
+            padding: 0;
+            line-height: 1;
+
+            a, span {
+              cursor: pointer;
+              display: inline-block;
+              padding: 15px 20px ;
+              font-family: @pxl-text-font-bold;
+              font-size: 40px;
+              line-height: 1;
+              letter-spacing: 1px;
+              color: #fff;
+              outline: none;
+
+              &:hover,
+              &.active,
+              &.checked {
+                color: @pxl-color-green;
+                background: none;
+              }
+            }
+
+            &.last a {
+              border-right: none;
+            }
+
+          }
+        }
+      }
+      @media @tablet {
+        display: inline-block;
+        margin-top: -40px;
+        padding: 10px 0;
+        nav {
+          text-align: right;
+
+          ul.menu {
+            li {
+              display: inline-block;
+              a, span {
+                padding: 3px 10px 0;
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+      @media @normal {
+        nav {
+          ul.menu {
+            li {
+              a, span {
+                padding: 3px 15px 0;
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

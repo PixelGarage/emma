@@ -1,0 +1,84 @@
+/*
+ *  Node / block webform component
+ * --------------------------------------------------*/
+
+// Variables
+// -------------------------
+@newsletter-height: 24px;
+
+
+// Mixins
+// -------------------------
+
+
+
+// General settings
+// -------------------------
+//
+//
+// webform
+.node.node-webform {
+  padding-bottom: 30px;
+
+  .row {
+    .col-sm-12 {
+      padding: 50px 20px 50px;
+
+      @media @narrow {
+        padding: 50px 30px 50px;
+      }
+
+      @media @tablet {
+        padding: 75px 80px 50px;
+      }
+
+      @media @normal {
+        padding: 75px 100px 50px;
+      }
+
+
+      .field-name-title {
+        //display: none;
+      }
+
+      .field-name-field-slogan {
+        .field-item {
+          font-family: @pxl-title-font;
+          font-size: 34px;
+          line-height: 38px;
+          letter-spacing: -0.02em;
+          text-align: center;
+
+          @media @tablet {
+            font-size: 52px;
+            line-height: 58px;
+            letter-spacing: -0.02em;
+            text-align: left;
+          }
+        }
+      }
+
+      .field-name-field-image {
+        img {
+          margin: 0 auto;
+          width: 90%;
+          height: auto;
+        }
+      }
+
+      .field-name-body {
+        #pxl-mixins.wysiwyg-body;
+        text-align: center;
+
+        @media @tablet {
+          text-align: left;
+        }
+      }
+
+      .webform-client-form {
+        // see webform-xxx.less
+      }
+    }
+  }
+}
+

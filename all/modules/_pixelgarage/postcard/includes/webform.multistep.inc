@@ -26,48 +26,43 @@
  * Implements a multi-step form submission presave.
  */
 function postcard_webform_submission_presave($node, &$submission) {
-  // get the master form (translation by string)
+  //
+  // perform the submission presave for the specific step (webform node)
   $master = postcard_webform_master_form($node);
+  $step_info = _get_step_info($master);
+  $step_form = node_load($step_info['nid']);
+  $step_master = postcard_webform_master_form($step_form);
+  $step_key = _get_step_key($master);
 
   //
-  // perform the submission presave for the specific steps
-  $steps = _postcard_multi_step_webform_info();
-  foreach($steps as $key => $step_info) {
-    // load step webform master
-    $step_form = node_load($step_info['nid']);
-    $step_master = postcard_webform_master_form($step_form);
+  // alter submission before saving
+  drupal_alter('postcard_multi_step_submission_presave', $step_key, $step_info, $step_master, $submission);
 
-    //
-    // handle submission presave of step
-    if ($master->nid == $step_master->nid) {
-      //
-      // alter submission before saving
-      drupal_alter('postcard_multi_step_submission_presave', $key, $step_info, $step_master, $submission);
+  //
+  // save webform and submission id in session for next step
+  $session_data = &postcard_session_data();
+  $session_data[$step_key] = array(
+    'nid' => $step_master->nid,
+    'sid' => $submission->sid,
+  );
+  $session_data['last_step'] = $step_key;
 
-      //
-      // save webform and submission id in session for next step
-      $session_data = &postcard_session_data();
-      $session_data[$key] = array(
-        'nid' => $step_master->nid,
-        'sid' => $submission->sid,
-      );
-      $session_data['last_step'] = $key;
-      
-      //
-      // store previous submission permanently to database, if any
-      $prev_step = $step_info['prev step'];
-      if ($prev_step && isset($session_data[$prev_step])) {
-        $record  = array(
-          'nid' => $step_master->nid,
-          'sid' => $submission->sid,
-          'prev nid' => $session_data[$prev_step]['nid'],
-          'prev sid' => $session_data[$prev_step]['sid'],
-        );
-        drupal_write_record('postcard_webform_multistep', $record);
-      }
+  //
+  // store previous submission permanently to database, if any
+  $prev_step = $step_info['prev step'];
+  if ($prev_step && isset($session_data[$prev_step])) {
+    $record  = array(
+      'nid' => $step_master->nid,
+      'sid' => $submission->sid,
+      'prev nid' => $session_data[$prev_step]['nid'],
+      'prev sid' => $session_data[$prev_step]['sid'],
+    );
+    drupal_write_record('postcard_webform_multistep', $record);
+  }
 
-      break;
-    }
+  // delete session data for last step
+  if (!$step_info['next step']) {
+    unset($session_data);
   }
 }
 
@@ -120,12 +115,13 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
       postcard_create_anonym_submission_link($next_step['nid'], $next_step['sid'], 'anonym_edit', false);
 
   }
-  else if ($next_step = _get_step_info($master)) {
+  else if ($next_step = _get_step_info($master, 'next')) {
     global $language;
 
     $next_form = node_load($next_step['nid']);
     $next_master = postcard_webform_master_form($next_form);
-    $lang_nid = translation_node_get_translations($next_master->nid)[$language->language]['nid'];
+    $transl_arr = translation_node_get_translations($next_master->nid);
+    $lang_nid = !empty($transl_arr) ? $transl_arr[$language->language]->nid : $next_master->nid;
 
     $form['#node']->webform['redirect_url'] = "node/{$lang_nid}";
 
@@ -158,12 +154,16 @@ function _postcard_multi_step_webform_info() {
 }
 
 /**
- * Gets the step info array of the given master node (language independent)
+ * Gets the step key of the given master node (language independent)
  *
- * @param $master
- * @return bool|mixed
+ * @param $master   object
+ *    The master webform node (tnid)
+ * @param $step   string
+ *     Step key to return, e.g. 'current' | 'prev' | 'next', default is 'current'
+ * @return string
+ *    The step key string.
  */
-function _get_step_info($master) {
+function _get_step_key($master, $step = 'current') {
   $steps = _postcard_multi_step_webform_info();
   foreach($steps as $key => $step_info) {
     // load step webform master
@@ -171,7 +171,48 @@ function _get_step_info($master) {
     $step_master = postcard_webform_master_form($step_form);
 
     if ($master->nid == $step_master->nid) {
-      return $step_info;
+      switch ($step) {
+        case 'current':
+          return $key;
+        case 'prev':
+          $key = $step_info['prev step'];
+          return $key ? $key : false;
+        case 'next':
+          $key = $step_info['next step'];
+          return $key ? $key : false;
+      }
+    }
+  }
+  return false;
+}
+
+/**
+ * Gets the step info array of the given master node (language independent)
+ *
+ * @param $master   object
+ *    The master webform node (tnid)
+ * @param $step   string
+ *     Step info to return, e.g. 'current' | 'prev' | 'next', default is 'current'
+ * @return bool|mixed
+ */
+function _get_step_info($master, $step = 'current') {
+  $steps = _postcard_multi_step_webform_info();
+  foreach($steps as $key => $step_info) {
+    // load step webform master
+    $step_form = node_load($step_info['nid']);
+    $step_master = postcard_webform_master_form($step_form);
+
+    if ($master->nid == $step_master->nid) {
+      switch ($step) {
+        case 'current':
+          return $step_info;
+        case 'prev':
+          $key = $step_info['prev step'];
+          return $key ? $steps[$key] : false;
+        case 'next':
+          $key = $step_info['next step'];
+          return $key ? $steps[$key] : false;
+      }
     }
   }
   return false;

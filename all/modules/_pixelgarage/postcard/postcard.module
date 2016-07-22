@@ -169,17 +169,18 @@ function postcard_create_anonym_submission_link($nid, $sid, $op, $html = true, $
   $node = node_load($nid);
   $master = postcard_webform_master_form($node);
   $submission = webform_get_submission($master->nid, $sid);
-  $token = webform_get_submission_access_token($submission);
-  $lang_nid = translation_node_get_translations($master->nid)[$language->language]['nid'];
-  $url = "postcard/{$lang_nid}/submission/{$sid}/" . $op;
+  $transl_arr = translation_node_get_translations($master->nid);
+  $lang_nid = !empty($transl_arr) ? $transl_arr[$language->language]->nid : $master->nid;
 
   // create html or text link
+  $token = webform_get_submission_access_token($submission);
+  $url = "postcard/{$lang_nid}/submission/{$sid}/" . $op;
   if ($html) {
     $text = $title ? t($title) : t('Back');
     return l($text, $url, array('query' => array('token' => $token)));
   }
   else {
-    return $url . '/?token=' . $token;
+    return $url . '?token=' . $token;
   }
 
 }

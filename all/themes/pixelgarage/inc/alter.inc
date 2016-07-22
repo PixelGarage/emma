@@ -104,13 +104,16 @@ function pixelgarage_postcard_multi_step_submission_presave_alter($step, $step_i
   // process the multi-step webform submissions according to the step
   switch ($step) {
     case 'postcard data':
-      _post_data_submission_presave($step, $step_info, $node, $submission);
+      _post_data_step_presave($step, $step_info, $node, $submission);
+      break;
+    case 'postcard delivery':
+      _post_delivery_step_presave($step, $step_info, $node, $submission);
       break;
   }
 
 }
 
-function _post_data_submission_presave($step, $step_info, $node, &$submission) {
+function _post_data_step_presave($step, $step_info, $node, &$submission) {
   //
   // POSTCARD DATA SUBMISSION PRESAVE:
   // create or update submission related node with submitted values
@@ -153,3 +156,5 @@ function _post_data_submission_presave($step, $step_info, $node, &$submission) {
   
 }
 
+function _post_delivery_step_presave($step, $step_info, $node, $submission) {
+}

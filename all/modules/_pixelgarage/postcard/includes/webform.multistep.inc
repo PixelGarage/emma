@@ -30,41 +30,30 @@ function postcard_webform_submission_presave($node, &$submission) {
   // perform the submission presave for the specific step (webform node)
   $master = postcard_webform_master_form($node);
   $step_info = _get_step_info($master);
-  $step_form = node_load($step_info['nid']);
-  $step_master = postcard_webform_master_form($step_form);
   $step_key = _get_step_key($master);
 
   //
   // alter submission before saving
-  drupal_alter('postcard_multi_step_submission_presave', $step_key, $step_info, $step_master, $submission);
+  drupal_alter('postcard_multi_step_submission_presave', $step_key, $step_info, $master, $submission);
 
-  //
-  // save webform and submission id in session for next step
-  $session_data = &postcard_session_data();
-  $session_data[$step_key] = array(
-    'nid' => $step_master->nid,
-    'sid' => $submission->sid,
-  );
-  $session_data['last_step'] = $step_key;
-
-  //
-  // store previous submission permanently to database, if any
-  $prev_step = $step_info['prev step'];
-  if ($prev_step && isset($session_data[$prev_step])) {
-    $record  = array(
-      'nid' => $step_master->nid,
-      'sid' => $submission->sid,
-      'prev nid' => $session_data[$prev_step]['nid'],
-      'prev sid' => $session_data[$prev_step]['sid'],
-    );
-    drupal_write_record('postcard_webform_multistep', $record);
-  }
-
-  // delete session data for last step
-  if (!$step_info['next step']) {
-    unset($session_data);
-  }
 }
+
+/**
+ * Implements hook_webform_submission_insert().
+ * Called after the submission has been saved.
+ */
+function postcard_webform_submission_insert($node, $submission) {
+  _store_step_submission($node, $submission);
+}
+
+/**
+ * Implements hook_webform_submission_insert().
+ * Called after the submission has been saved.
+ */
+function postcard_webform_submission_update($node, $submission) {
+  _store_step_submission($node, $submission);
+}
+
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -90,11 +79,12 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
     $next_step = _get_next_step_submission($master->nid, $submission->sid);
 
   }
-  else if (isset($session_data['last_step'])) {
+  else if (isset($session_data['multistep']['last_step'])) {
     //
     // CALLED DURING MULTI-STEP PROCESS
-    // get the previous step from session (no db entry yet)
-    $prev_step = $session_data[$session_data['last_step']];
+    // get the previous step from session (no db entry yet), no processed next step
+    $last_step = $session_data['multistep']['last_step'];
+    $prev_step = $session_data['multistep'][$last_step];
   }
 
   //
@@ -130,12 +120,13 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
 
 
 /* --------------------------------------------------
- * Postcard multi-step webform helper
+ * Multi-step webform helper
  * --------------------------------------------------*/
+
 /**
  * Load postcard multi-step webform info from 3rd party modules.
  */
-function _postcard_multi_step_webform_info() {
+function _multi_step_webform_info() {
   $info = &drupal_static(__FUNCTION__);
   if (!isset($info)) {
     $info = array();
@@ -164,7 +155,7 @@ function _postcard_multi_step_webform_info() {
  *    The step key string.
  */
 function _get_step_key($master, $step = 'current') {
-  $steps = _postcard_multi_step_webform_info();
+  $steps = _multi_step_webform_info();
   foreach($steps as $key => $step_info) {
     // load step webform master
     $step_form = node_load($step_info['nid']);
@@ -196,7 +187,7 @@ function _get_step_key($master, $step = 'current') {
  * @return bool|mixed
  */
 function _get_step_info($master, $step = 'current') {
-  $steps = _postcard_multi_step_webform_info();
+  $steps = _multi_step_webform_info();
   foreach($steps as $key => $step_info) {
     // load step webform master
     $step_form = node_load($step_info['nid']);
@@ -217,6 +208,10 @@ function _get_step_info($master, $step = 'current') {
   }
   return false;
 }
+
+/* --------------------------------------------------
+ * Multi-step db access helper
+ * --------------------------------------------------*/
 
 /**
  * Gets the node and submission id of the previous step in a multi-step webform from the database.
@@ -272,6 +267,50 @@ function _get_next_step_submission($nid, $sid) {
   }
 
   return !empty($prev_step_submission) ? $prev_step_submission : false;
+}
+
+/**
+ * Stores webform and submission of step permanently, either in db or session.
+ * @param $node
+ * @param $sid
+ */
+function _store_step_submission($node, $submission) {
+  //
+  // perform the submission insert for the specific step (webform node)
+  $master = postcard_webform_master_form($node);
+  $step_info = _get_step_info($master);
+  $step_key = _get_step_key($master);
+
+  //
+  // save webform and submission id in session, cleanup in last step
+  $session_data = &postcard_session_data();
+  if ($step_info['next step']) {
+    // save webform and submission id for current step in session
+    $session_data['multistep'][$step_key] = array(
+      'nid' => $master->nid,
+      'sid' => $submission->sid,
+    );
+    $session_data['multistep']['last_step'] = $step_key;
+
+  }
+  else {
+    // delete session data for last step
+    unset($session_data['multistep']);
+  }
+
+  //
+  // store previous submission permanently to database, if any
+  $prev_step = $step_info['prev step'];
+  if ($prev_step && isset($session_data['multistep'][$prev_step])) {
+    $record  = array(
+      'nid' => $master->nid,
+      'sid' => $submission->sid,
+      'prev nid' => $session_data['multistep'][$prev_step]['nid'],
+      'prev sid' => $session_data['multistep'][$prev_step]['sid'],
+    );
+    drupal_write_record('postcard_webform_multistep', $record);
+  }
+
 }
 
 

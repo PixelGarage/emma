@@ -118,7 +118,11 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
   // POSTCARD DATA SUBMISSION PRESAVE:
   // create or update submission related node with submitted values
   $status = (!empty($node->field_publish_immediately) && $node->field_publish_immediately[LANGUAGE_NONE][0]['value'] == 1) ? 1 : 0;
-  $post_nid = _webform_submission_value($node, 'post_nid', $submission);
+  foreach ($node->webform['components'] as $key => $data) {
+    if ($data['form_key'] == 'post_nid') {
+      $post_nid = !empty($submission->data[$key]) ? $submission->data[$key][0] : '';
+    }
+  }
 
   if ($post_nid) {
     // update existing post
@@ -152,9 +156,15 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
 
   //
   // add related post id to submission
-  _webform_set_submission_value($node, 'post_nid', $submission, $post->nid);
-  
+  foreach ($node->webform['components'] as $key => $data) {
+    if ($data['form_key'] == 'post_nid') {
+      $submission->data[$key][0] = $post->nid;
+      break;
+    }
+  }
+
 }
 
 function _post_delivery_step_presave($step, $step_info, $node, $submission) {
+  
 }

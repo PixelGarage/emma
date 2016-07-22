@@ -45,12 +45,13 @@ function postcard_webform_submission_presave($node, &$submission) {
       drupal_alter('postcard_multi_step_submission_presave', $key, $step_info, $step_master, $submission);
 
       //
-      // keep webform and submission id for next step
+      // save webform and submission id in session for next step
       $session_data = &postcard_session_data();
       $session_data[$key] = array(
         'nid' => $step_master->nid,
         'sid' => $submission->sid,
       );
+      $session_data['last_step'] = $key;
       
       //
       // store previous submission permanently to database, if any
@@ -77,9 +78,58 @@ function postcard_webform_submission_presave($node, &$submission) {
  */
 
 function postcard_form_webform_client_form_alter (&$form, &$form_state) {
+  $session_data = &postcard_session_data();
   $node = $form['#node'];
+  $master = postcard_webform_master_form($node);
   $submission = $form['#submission'];
+
+  //
+  // find the previous / next step (webform) of the multi-step webform
+  $prev_step = false;
+  $next_step = false;
+  if ($submission) {
+    //
+    // OPENED VIA ANONYMOUS ACCESS LINK
+    // get previous and next step from database, if available
+    $prev_step = _get_previous_step_submission($master->nid, $submission->sid);
+    $next_step = _get_next_step_submission($master->nid, $submission->sid);
+
+  }
+  else if (isset($session_data['last_step'])) {
+    //
+    // CALLED DURING MULTI-STEP PROCESS
+    // get the previous step from session (no db entry yet)
+    $prev_step = $session_data[$session_data['last_step']];
+  }
+
+  //
+  // define the back link, if a previous webform exists
+  if ($prev_step) {
+    $form['actions']['back'] = array(
+      '#markup' => postcard_create_anonym_submission_link($prev_step['nid'], $prev_step['sid'], 'anonym_edit'),
+      '#attributes' => array(
+        'class' => array('back-link', 'button-primary'),
+      ),
+    );
+  }
   
+  //
+  // set the language dependent redirect url of the form. Set anonymous link, if next step is known!
+  if ($next_step) {
+    $form['#node']->webform['redirect_url'] =
+      postcard_create_anonym_submission_link($next_step['nid'], $next_step['sid'], 'anonym_edit', false);
+
+  }
+  else if ($next_step = _get_step_info($master)) {
+    global $language;
+
+    $next_form = node_load($next_step['nid']);
+    $next_master = postcard_webform_master_form($next_form);
+    $lang_nid = translation_node_get_translations($next_master->nid)[$language->language]['nid'];
+
+    $form['#node']->webform['redirect_url'] = "node/{$lang_nid}";
+
+  }
 }
 
 
@@ -103,33 +153,37 @@ function _postcard_multi_step_webform_info() {
     }
     drupal_alter('postcard_multi_step_webform_info', $info);
 
-    //
-    // add redirect url to step webform (next step's webform)
-    foreach($info as $key => $step_info) {
-      // load step webform master
-      $step_form = node_load($step_info['nid']);
-      $step_master = postcard_webform_master_form($step_form);
-
-      //
-      // add redirect url to step webform (points to next step's webform)
-      if ($step_info['next step']) {
-        $next_nid = $steps[$step_info['next step']]['nid'];
-        $step_master->webform['redirect_url'] = "node/{$next_nid}";
-        node_save($step_master);
-      }
-    }
-
   }
   return $info;
 }
 
 /**
- * Gets the node and submission id of the previous step submission in a multi-step webform.
+ * Gets the step info array of the given master node (language independent)
+ *
+ * @param $master
+ * @return bool|mixed
+ */
+function _get_step_info($master) {
+  $steps = _postcard_multi_step_webform_info();
+  foreach($steps as $key => $step_info) {
+    // load step webform master
+    $step_form = node_load($step_info['nid']);
+    $step_master = postcard_webform_master_form($step_form);
+
+    if ($master->nid == $step_master->nid) {
+      return $step_info;
+    }
+  }
+  return false;
+}
+
+/**
+ * Gets the node and submission id of the previous step in a multi-step webform from the database.
  *
  * @param $nid  int   Node id of current webform.
  * @param $sid  int   Submission id of current submission.
  * @return array mixed
- *    Array with nid and sid of previous step or false, if no result has been found.
+ *    Associated array with nid and sid of previous step or false, if no result has been found.
  */
 function _get_previous_step_submission($nid, $sid) {
   //
@@ -139,6 +193,34 @@ function _get_previous_step_submission($nid, $sid) {
     ->fields('wm', array('prev_nid', 'prev_sid'))
     ->condition('wm.nid', $nid)
     ->condition('wm.sid', $sid)
+    ->range(0, 1);
+  $result = $query->execute();
+
+  $prev_step_submission = array();
+  foreach ($result as $row) {
+    $prev_step_submission['nid'] = $row->prev_nid;
+    $prev_step_submission['sid'] = $row->prev_sid;
+  }
+
+  return !empty($prev_step_submission) ? $prev_step_submission : false;
+}
+
+/**
+ * Gets the node and submission id of the next step in a multi-step webform from the database.
+ *
+ * @param $nid  int   Node id of current webform.
+ * @param $sid  int   Submission id of current submission.
+ * @return array mixed
+ *    Associated array with nid and sid of next step or false, if no result has been found.
+ */
+function _get_next_step_submission($nid, $sid) {
+  //
+  // Query the next node and submission id.
+  $query = db_select('postcard_webform_multistep', 'wm');
+  $query
+    ->fields('wm', array('nid', 'sid'))
+    ->condition('wm.prev_nid', $nid)
+    ->condition('wm.prev_sid', $sid)
     ->range(0, 1);
   $result = $query->execute();
 

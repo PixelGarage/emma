@@ -35,22 +35,6 @@ function &postcard_session_data() {
  * --------------------------------------------------*/
 
 /**
- * Implements hook_init().
- *
- * Redirects all node pages to the defined proximity container.
- */
-function postcard_init() {
-  return; // no redirection
-
-  // search for node/%nid routes and send them to modal dialog
-  $pattern = '/^node\/\d+$/';
-  if (preg_match($pattern, $_GET['q'])) {
-    $param = str_replace('/', '-', $_GET['q']);
-    drupal_goto('proximity-container-item/0/' . $param);
-  }
-}
-
-/**
  * Implements hook_menu().
  *
  * Define the postcard menu as top node of the admin menu.
@@ -163,6 +147,41 @@ function postcard_webform_master_form($node) {
   // if integer, load node first
   $tnid = $node->tnid ? $node->tnid : $node->nid;
   return node_load($tnid);
+}
+
+/**
+ * Creates a HTML link to a specific submission, that can be access by an anonymous user.
+ * The created link is language dependent, meaning the translated form is opened.
+ * If html flag is set to false, a plain text url is returned.
+ *
+ * @param $nid   int
+ *    The master webform node id
+ * @param $sid   int
+ *    The submission id
+ * @param $op   string
+ *    Operation to be performed on submission, e.g. anonym_view, anonym_edit, anonym_delete
+ * @return string
+ *    HTML or plain text string containing a link to the submission accessible by anonymous users.
+ */
+function postcard_create_anonym_submission_link($nid, $sid, $op, $html = true, $title = false) {
+  global $language;
+
+  $node = node_load($nid);
+  $master = postcard_webform_master_form($node);
+  $submission = webform_get_submission($master->nid, $sid);
+  $token = webform_get_submission_access_token($submission);
+  $lang_nid = translation_node_get_translations($master->nid)[$language->language]['nid'];
+  $url = "postcard/{$lang_nid}/submission/{$sid}/" . $op;
+
+  // create html or text link
+  if ($html) {
+    $text = $title ? t($title) : t('Back');
+    return l($text, $url, array('query' => array('token' => $token)));
+  }
+  else {
+    return $url . '/?token=' . $token;
+  }
+
 }
 
 

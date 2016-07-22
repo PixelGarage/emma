@@ -41,5 +41,6 @@ $schema['postcard_webform_multistep'] = array(
   'primary key' => array('nid', 'sid'),
   'indexes' => array(
     'nid_sid' => array('nid', 'sid'),
+    'prev_nid_prev_sid' => array('prev_nid', 'prev_sid'),
   ),
 );

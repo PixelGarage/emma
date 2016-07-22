@@ -1,11 +1,12 @@
 name = Postcard
-description = Postcard - a tool to create pdf postcards
+description = Postcard - a tool creating pdf postcards with a definable multi-step webform
 core = 7.x
 package = Pixelgarage
 version = "7.x-1.0"
 
 ; Dependencies
 dependencies[] = webform (>=7.x-4.0)
+dependencies[] = tcpdf_document
 
 ; Include files
 

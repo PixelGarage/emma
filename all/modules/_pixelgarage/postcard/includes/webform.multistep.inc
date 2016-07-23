@@ -43,15 +43,9 @@ function postcard_webform_submission_presave($node, &$submission) {
  * Called after the submission has been saved.
  */
 function postcard_webform_submission_insert($node, $submission) {
-  _store_step_submission($node, $submission);
-}
-
-/**
- * Implements hook_webform_submission_insert().
- * Called after the submission has been saved.
- */
-function postcard_webform_submission_update($node, $submission) {
-  _store_step_submission($node, $submission);
+  //
+  // create multi-step submission chain in db for later use
+  _save_step_submission($node, $submission);
 }
 
 /**
@@ -100,8 +94,8 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
   }
   else if (isset($session_data['multistep']['last_step'])) {
     //
-    // CALLED DURING MULTI-STEP PROCESS
-    // get the previous step from session (no db entry yet), no processed next step
+    // CALLED DURING MULTI-STEP WEBFORM CREATION PROCESS
+    // get the previous step from session (no db entry yet), no next step available
     $last_step = $session_data['multistep']['last_step'];
     $prev_step = $session_data['multistep'][$last_step];
   }
@@ -303,25 +297,28 @@ function _get_next_step_submission($nid, $sid) {
     ->range(0, 1);
   $result = $query->execute();
 
-  $prev_step_submission = array();
+  $next_step_submission = array();
   foreach ($result as $row) {
-    $prev_step_submission['nid'] = $row->prev_nid;
-    $prev_step_submission['sid'] = $row->prev_sid;
+    $next_step_submission['nid'] = $row->nid;
+    $next_step_submission['sid'] = $row->sid;
   }
 
-  return !empty($prev_step_submission) ? $prev_step_submission : false;
+  return !empty($next_step_submission) ? $next_step_submission : false;
 }
 
 /**
- * Stores webform and submission of step permanently, either in db or session.
- * REMARK: In a multi-lingual site, the translation set master id's of a webform (tnid) are stored (db and session).
+ * Saves the submission (webform) of a new step in a multi-step webform permanently.
+ * This allows to recreate the multi-step form with all submissions later.
+ *
+ * REMARK: In a multi-lingual site, the translation set master id's of a webform (tnid) are stored.
  *
  * @param $node
  * @param $sid
  */
-function _store_step_submission($node, $submission) {
+function _save_step_submission($node, $submission) {
   //
   // perform the submission insert for the specific step (webform node)
+  $session_data = &postcard_session_data();
   $master = postcard_webform_master_form($node);
   $step_key = _get_step_key($master);
   $step_info = _get_step_info($master);
@@ -333,8 +330,8 @@ function _store_step_submission($node, $submission) {
     $record  = array(
       'nid' => $master->nid,
       'sid' => $submission->sid,
-      'prev nid' => $session_data['multistep'][$prev_step]['nid'],
-      'prev sid' => $session_data['multistep'][$prev_step]['sid'],
+      'prev_nid' => $session_data['multistep'][$prev_step]['nid'],
+      'prev_sid' => $session_data['multistep'][$prev_step]['sid'],
     );
     drupal_write_record('postcard_webform_multistep', $record);
   }
@@ -342,7 +339,6 @@ function _store_step_submission($node, $submission) {
   //
   // save webform and submission id in session (to be saved in next step)
   // cleanup in last step
-  $session_data = &postcard_session_data();
   if ($step_info['next step']) {
     // save webform and submission id for current step in session
     $session_data['multistep'][$step_key] = array(
@@ -353,7 +349,7 @@ function _store_step_submission($node, $submission) {
 
   }
   else {
-    // cleanup session data in first and last step
+    // cleanup session data in last step
     unset($session_data['multistep']);
 
   }

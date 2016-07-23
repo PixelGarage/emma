@@ -118,7 +118,7 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
   // POSTCARD DATA SUBMISSION PRESAVE:
   // create or update submission related node with submitted values
   $master = postcard_webform_master_form($node);
-  $status = (!empty($master->field_publish_immediately) && $master->field_publish_immediately[LANGUAGE_NONE][0]['value'] == 1) ? 1 : 0;
+  $status = (!empty($master->field_publish_post_immediately) && $master->field_publish_post_immediately[LANGUAGE_NONE][0]['value'] == 1) ? 1 : 0;
 
   //
   // check if a post exists already, and update or create the post accordingly
@@ -132,7 +132,7 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
   if ($post_nid) {
     // update existing post
     $post = node_load($post_nid);
-    $post->status = $status;
+    $post->status = 0;
 
   } else {
     // create post node and save it in the submission
@@ -140,7 +140,7 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
     $post->type = $step_info['related node type'];
     $post->language = LANGUAGE_NONE;
     $post->uid = 1;
-    $post->status = $status;
+    $post->status = 0;
     $post->comment = 0;
     $post->promote = 0;
     node_object_prepare($post);
@@ -150,7 +150,6 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
   // update submission data on the offer and save it
   // fill the node properties and save it to the database
   $post->title = $submission->data[17][0] . " for " . $submission->data[4][0]; // create node title
-  $post->field_e_mail[$post->language][0]['email'] = $submission->data[2][0]; // email
   $post->field_name[$post->language][0]['value'] = $submission->data[4][0]; // child name
   $post->field_your_name[$post->language][0]['value'] = $submission->data[17][0]; // your name
   $post->field_quote[$post->language][0]['value'] = substr($submission->data[5][0], 0, 70); // Quote
@@ -167,9 +166,41 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
       break;
     }
   }
+  
+  //
+  // add post node to session (with status)
+  $session_data = &pixelgarage_session_data();
+  $session_data['post_info'] = array(
+    'nid' => $post->nid,
+    'status' => $status,
+  );
+  
+  //
+  // add postcard to next webform node
+  
 
 }
 
 function _post_delivery_step_presave($step, $step_info, $node, $submission) {
+  //
+  // POSTCARD DELIVERY SUBMISSION PRESAVE:
+  // multi-step form is finished, publish post
+  $session_data = &pixelgarage_session_data();
+  $post_info = $session_data['post_info'];
+
+  if (!empty($post_info)) {
+    //
+    // publish existing post
+    $post = node_load($post_info['nid']);
+    $post->status = $post_info['status'] ? $post_info['status'] : 0;
+    $post->field_e_mail[$post->language][0]['email'] = $submission->data[20][0]; // email
+    node_save($post);
+
+    //
+    // update submission with postcard data
+  }
+
+  // cleanup session dat
+  unset($session_data['post_info']);
 
 }

@@ -25,26 +25,6 @@ function pixelgarage_preprocess_page(&$vars) {
 
   // replace logo with .svg
   $vars['logo'] = str_replace('.jpg', '.svg', $vars['logo']);
-
-  // add node category class, if node = 'post' in full mode
-  if (isset($vars['node']) && $vars['node']->type == 'post') {
-    $node = $vars['node'];
-    $vars['post_category_class'] = '';
-    $tid = (!empty($node->field_category) && $node->field_category[LANGUAGE_NONE][0]['tid']) ? $node->field_category[LANGUAGE_NONE][0]['tid'] : null;
-    $query = new EntityFieldQuery();
-    $query->entityCondition('entity_type', 'taxonomy_term')
-      ->entityCondition('bundle', 'category')
-      ->propertyCondition('tid', $tid);
-    $result = $query->execute();
-
-    if (isset($result['taxonomy_term'])) {
-      $tids = array_keys($result['taxonomy_term']);
-      $terms = taxonomy_term_load_multiple($tids);
-      foreach ($terms as $term) {
-        $vars['post_category_class'] = ' class="' . drupal_clean_css_identifier( $term->field_css_class[LANGUAGE_NONE][0]['value']) . '"';
-      }
-    }
-  }
 }
 
 /**
@@ -76,22 +56,7 @@ function pixelgarage_preprocess_views_exposed_form(&$vars) {
  * Implements template_preprocess_webform_confirmation().
  */
 function pixelgarage_preprocess_webform_confirmation(&$vars) {
-  // because we have translated webform nodes, we have to get the submissions
-  // of the original node of the translation set, set in the "tnid" property
-  if (!isset($vars['node']) || !isset($vars['sid'])) return;
 
-  $webform = $vars['node'];
-  $tnid = $webform->tnid ? $webform->tnid : $webform->nid;
-
-  $submissions = webform_get_submissions(array('nid' => $tnid, 'sid' => $vars['sid']));
-  $submission = $submissions[$vars['sid']];
-
-  // get node and render it
-  $term = taxonomy_term_load($submission->data[11][0]); // category tid
-  $vars['post_category_class'] = drupal_clean_css_identifier( $term->field_css_class[LANGUAGE_NONE][0]['value']);
-
-  $post = node_load($submission->data[16][0]);
-  $vars['post'] = node_view($post, 'full');
 }
 
 

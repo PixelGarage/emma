@@ -29,12 +29,12 @@ function postcard_webform_submission_presave($node, &$submission) {
   //
   // perform the submission presave for the specific step (webform node)
   $master = postcard_webform_master_form($node);
-  $step_info = _get_step_info($master);
   $step_key = _get_step_key($master);
+  $step_info = _get_step_info($master);
 
   //
   // alter submission before saving
-  drupal_alter('postcard_multi_step_submission_presave', $step_key, $step_info, $master, $submission);
+  drupal_alter('postcard_multi_step_submission_presave', $step_key, $step_info, $node, $submission);
 
 }
 
@@ -54,6 +54,13 @@ function postcard_webform_submission_update($node, $submission) {
   _store_step_submission($node, $submission);
 }
 
+/**
+ * Menu title callback; Return the submission step as a title.
+ */
+function postcard_webform_submission_title($node, $submission) {
+  return t('Edit @title', array('@title' => $node->title));
+}
+
 
 /**
  * Implements hook_form_FORM_ID_alter().
@@ -64,8 +71,12 @@ function postcard_webform_submission_update($node, $submission) {
 function postcard_form_webform_client_form_alter (&$form, &$form_state) {
   $session_data = &postcard_session_data();
   $node = $form['#node'];
-  $master = postcard_webform_master_form($node);
   $submission = $form['#submission'];
+  $master = postcard_webform_master_form($node);
+
+  // return, if form is not part of a mult-step form
+  $tnids = _get_all_multistep_webforms();
+  if (!in_array($master->nid, $tnids)) return;
 
   //
   // find the previous / next step (webform) of the multi-step webform
@@ -78,6 +89,14 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
     $prev_step = _get_previous_step_submission($master->nid, $submission->sid);
     $next_step = _get_next_step_submission($master->nid, $submission->sid);
 
+    //
+    // mark form as not finished to edit step with submission values set
+    // This flag has to be false, that the redirect url is not overridden
+    $form['details']['finished']['#value'] = false;
+
+    //
+    // set submission page title
+    drupal_set_title(postcard_webform_submission_title($node, $submission));
   }
   else if (isset($session_data['multistep']['last_step'])) {
     //
@@ -88,7 +107,7 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
   }
 
   //
-  // define the back link, if a previous webform exists
+  // define the back link, if a previous webform exists in the multi-step process
   if ($prev_step) {
     $form['actions']['back'] = array(
       '#markup' => postcard_create_anonym_submission_link($prev_step['nid'], $prev_step['sid'], 'anonym_edit'),
@@ -97,7 +116,12 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
       ),
     );
   }
-  
+  else {
+    // cleanup session data in first step
+    unset($session_data['multistep']);
+
+  }
+
   //
   // set the language dependent redirect url of the form. Set anonymous link, if next step is known!
   if ($next_step) {
@@ -120,7 +144,7 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
 
 
 /* --------------------------------------------------
- * Multi-step webform helper
+ * Multi-step info helper
  * --------------------------------------------------*/
 
 /**
@@ -209,14 +233,32 @@ function _get_step_info($master, $step = 'current') {
   return false;
 }
 
+/**
+ * Returns the tnid's from all multi-step webforms.
+ * @return array
+ *    An array of all tnid's.
+ */
+function _get_all_multistep_webforms() {
+  $steps = _multi_step_webform_info();
+  $tnids = array();
+  foreach($steps as $key => $step_info) {
+    // load step webform master
+    $step_form = node_load($step_info['nid']);
+    $step_master = postcard_webform_master_form($step_form);
+    $tnids[] = $step_master->nid;
+  }
+  return $tnids;
+}
+
 /* --------------------------------------------------
  * Multi-step db access helper
  * --------------------------------------------------*/
 
 /**
  * Gets the node and submission id of the previous step in a multi-step webform from the database.
+ * REMARK: The database contains the translation set master id's of a webform (tnid) in a multi-lingual site.
  *
- * @param $nid  int   Node id of current webform.
+ * @param $nid  int   Node id of current webform (tnid).
  * @param $sid  int   Submission id of current submission.
  * @return array mixed
  *    Associated array with nid and sid of previous step or false, if no result has been found.
@@ -243,8 +285,9 @@ function _get_previous_step_submission($nid, $sid) {
 
 /**
  * Gets the node and submission id of the next step in a multi-step webform from the database.
+ * REMARK: The database contains the translation set master id's of a webform (tnid) in a multi-lingual site.
  *
- * @param $nid  int   Node id of current webform.
+ * @param $nid  int   Node id of current webform (tnid).
  * @param $sid  int   Submission id of current submission.
  * @return array mixed
  *    Associated array with nid and sid of next step or false, if no result has been found.
@@ -271,6 +314,8 @@ function _get_next_step_submission($nid, $sid) {
 
 /**
  * Stores webform and submission of step permanently, either in db or session.
+ * REMARK: In a multi-lingual site, the translation set master id's of a webform (tnid) are stored (db and session).
+ *
  * @param $node
  * @param $sid
  */
@@ -278,28 +323,11 @@ function _store_step_submission($node, $submission) {
   //
   // perform the submission insert for the specific step (webform node)
   $master = postcard_webform_master_form($node);
-  $step_info = _get_step_info($master);
   $step_key = _get_step_key($master);
+  $step_info = _get_step_info($master);
 
   //
-  // save webform and submission id in session, cleanup in last step
-  $session_data = &postcard_session_data();
-  if ($step_info['next step']) {
-    // save webform and submission id for current step in session
-    $session_data['multistep'][$step_key] = array(
-      'nid' => $master->nid,
-      'sid' => $submission->sid,
-    );
-    $session_data['multistep']['last_step'] = $step_key;
-
-  }
-  else {
-    // delete session data for last step
-    unset($session_data['multistep']);
-  }
-
-  //
-  // store previous submission permanently to database, if any
+  // save previous submission in database, if any
   $prev_step = $step_info['prev step'];
   if ($prev_step && isset($session_data['multistep'][$prev_step])) {
     $record  = array(
@@ -311,39 +339,48 @@ function _store_step_submission($node, $submission) {
     drupal_write_record('postcard_webform_multistep', $record);
   }
 
+  //
+  // save webform and submission id in session (to be saved in next step)
+  // cleanup in last step
+  $session_data = &postcard_session_data();
+  if ($step_info['next step']) {
+    // save webform and submission id for current step in session
+    $session_data['multistep'][$step_key] = array(
+      'nid' => $master->nid,
+      'sid' => $submission->sid,
+    );
+    $session_data['multistep']['last_step'] = $step_key;
+
+  }
+  else {
+    // cleanup session data in first and last step
+    unset($session_data['multistep']);
+
+  }
+
 }
 
 
 
 /* ---------------------------------------------------------------------
- * Webform submission access by anonymous user (offer actions, access rights)
+ * Multi-step webform submission access by anonymous user (offer actions, access rights)
  * ---------------------------------------------------------------------*/
 
 /**
  * Implements hook_webform_webform_submission_actions().
  *
- * Adds actions to edit or delete the corresponding submission by an anonymous user (token enabled access).
+ * Adds action to allow deletion of the corresponding submission by an anonymous user (token enabled access).
  */
 function postcard_webform_submission_actions($node, $submission) {
   $actions = array();
   $token_access = $submission && isset($_GET['token']) && $_GET['token'] == webform_get_submission_access_token($submission);
 
+  //
+  // show submission actions only for anonymous users with token access
+  // and secure the action callbacks with token too
   if ($token_access) {
-    //
-    // show submission actions only for anonymous users with token access
-    // and secure the action callbacks with token too
-    $actions['view'] = array(
-      'title' => t('View submission'),
-      'href' => 'postcard/' . $node->nid . '/submission/' . $submission->sid . '/anonym_view',
-      'query' => drupal_get_query_parameters(),
-    );
-    $actions['edit'] = array(
-      'title' => t('Edit submission'),
-      'href' => 'postcard/' . $node->nid . '/submission/' . $submission->sid . '/anonym_edit',
-      'query' => drupal_get_query_parameters(),
-    );
     $actions['remove'] = array(
-      'title' => t('Remove submission'),
+      'title' => t('Remove post'),
       'href' => 'postcard/' . $node->nid . '/submission/' . $submission->sid . '/anonym_remove',
       'query' => drupal_get_query_parameters(),
     );
@@ -380,7 +417,7 @@ function postcard_webform_submission_remove_form($form, $form_state, $master, $s
 
   $question = t('Are you sure you want to remove this submission?');
   $query = drupal_http_build_query(array('token' => $_GET['token']));
-  $cancel_redirect = "postcard/{$master->nid}/submission/{$submission->sid}/anonym_view" . '?' . $query;
+  $cancel_redirect = "postcard/{$master->nid}/submission/{$submission->sid}/anonym_view?" . $query;
 
   return confirm_form($form, NULL, $cancel_redirect, $question, t('Remove'), t('Cancel'));
 }
@@ -390,12 +427,14 @@ function postcard_webform_submission_remove_form_submit($form, &$form_state) {
   $submission = webform_get_submission($form_state['values']['details']['nid'], $form_state['values']['details']['sid']);
   $post_nid = _webform_submission_value($master, 'post_nid', $submission);
 
+  // TODO: remove all submissions of the multi-step webform
+
   // unpublish post
   $post = node_load($post_nid);
   $post->status = 0;
   node_save($post);
 
-  drupal_set_message(t('Submission successfully removed.'));
+  drupal_set_message(t('Post successfully removed.'));
 
   // redirect to home
   $form_state['redirect'] = '/';
@@ -414,15 +453,16 @@ function postcard_webform_submission_remove_form_submit($form, &$form_state) {
  *    The defined form key of the component.
  * @param object $submission
  *    The form submission with the submitted values.
- * @return string The value of the webform component or an empty string, if not set.
- *    The value of the webform component or an empty string, if not set.
+ * @return mixed
+ *    The value of the webform component or false, if not set.
  */
 function _webform_submission_value($master, $form_key, $submission) {
   foreach ($master->webform['components'] as $key => $data) {
     if ($data['form_key'] == $form_key) {
-      return !empty($submission->data[$key]) ? $submission->data[$key][0] : '';
+      return !empty($submission->data[$key]) ? $submission->data[$key][0] : false;
     }
   }
+  return false;
 }
 
 /**

@@ -117,10 +117,15 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
   //
   // POSTCARD DATA SUBMISSION PRESAVE:
   // create or update submission related node with submitted values
-  $status = (!empty($node->field_publish_immediately) && $node->field_publish_immediately[LANGUAGE_NONE][0]['value'] == 1) ? 1 : 0;
-  foreach ($node->webform['components'] as $key => $data) {
+  $master = postcard_webform_master_form($node);
+  $status = (!empty($master->field_publish_immediately) && $master->field_publish_immediately[LANGUAGE_NONE][0]['value'] == 1) ? 1 : 0;
+
+  //
+  // check if a post exists already, and update or create the post accordingly
+  $post_nid = false;
+  foreach ($master->webform['components'] as $key => $data) {
     if ($data['form_key'] == 'post_nid') {
-      $post_nid = !empty($submission->data[$key]) ? $submission->data[$key][0] : '';
+      $post_nid = !empty($submission->data[$key]) ? $submission->data[$key][0] : false;
     }
   }
 
@@ -156,7 +161,7 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
 
   //
   // add related post id to submission
-  foreach ($node->webform['components'] as $key => $data) {
+  foreach ($master->webform['components'] as $key => $data) {
     if ($data['form_key'] == 'post_nid') {
       $submission->data[$key][0] = $post->nid;
       break;
@@ -166,5 +171,5 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
 }
 
 function _post_delivery_step_presave($step, $step_info, $node, $submission) {
-  
+
 }

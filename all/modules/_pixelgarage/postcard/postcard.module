@@ -134,9 +134,10 @@ function postcard_anonym_submission_access($node, $submission, $op = 'anonym_vie
  * Postcard helpers
  * --------------------------------------------------*/
 /**
- * Gets the master webform of a webform.
- * Used for webforms, which are localized by string to access all webform related data,
- * e.g. submissions, components etc. which are only available on the master.
+ * Gets the master webform of a translation set.
+ *
+ * Webforms, which are localized by string store all webform related data,
+ * e.g. submissions, components etc. only on the master.
  *
  * @param   $node   object
  *    The webform node (translated or master webform node)
@@ -144,14 +145,15 @@ function postcard_anonym_submission_access($node, $submission, $op = 'anonym_vie
  *    Returns the master webform or false, if not found.
  */
 function postcard_webform_master_form($node) {
-  // if integer, load node first
+  // get the relevant node id
   $tnid = $node->tnid ? $node->tnid : $node->nid;
   return node_load($tnid);
 }
 
 /**
  * Creates a HTML link to a specific submission, that can be access by an anonymous user.
- * The created link is language dependent, meaning the translated form is opened.
+ * The created link is language aware, meaning the form is opened in the current language.
+ *
  * If html flag is set to false, a plain text url is returned.
  *
  * @param $nid   int

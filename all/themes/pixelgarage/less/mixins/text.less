@@ -57,10 +57,10 @@
 
   // responsive font size with minimum and maximum size
   .font-size-responsive(@max-size: @resp-font-size-max; @min-size: @resp-font-size-min) {
-    font-size: max(@resp-font-size-min, @max-size*5/8);   // min = 480 / 768 * max
+    font-size: max(@min-size, @max-size*5/8);   // min = 480 / 768 * max
 
     @media @narrow {
-      font-size: max(unit(@max-size/7.68, vw), unit(@resp-font-size-min/4.8, vw));
+      font-size: max(unit(@max-size/7.68, vw), unit(@min-size/4.8, vw));
     }
     @media @tablet {
       font-size: @max-size;

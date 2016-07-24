@@ -102,7 +102,7 @@
         <?php if (!empty($primary_nav) || !empty($secondary_nav)): ?>
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only"><?php print t('Toggle navigation'); ?></span>
-            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+            <span class="fa fa-bars" aria-hidden="true"></span>
           </button>
         <?php endif; ?>
       </div>
@@ -119,6 +119,7 @@
           </nav>
         </div>
       <?php endif; ?>
+
     </div>
   </div>
 </header>

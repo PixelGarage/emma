@@ -5,7 +5,6 @@
 // Variables
 // -------------------------
 @pxl-text-color-back: #fff;
-@pxl-padding-card-back: 15px;
 @pxl-name-field-bg-color-left: @pxl-color-main;
 @pxl-name-field-bg-color-right: @pxl-color-main;
 @pxl-name-field-color: #fff;
@@ -13,14 +12,6 @@
 
 // Mixins
 // -------------------------
-.bottom-img-lang() {
-  .i18n-de .image-me & { background: #fff url('../images/d_ich.svg') no-repeat center bottom/contain; }
-
-  .i18n-en .image-me & { background: #fff url('../images/e_ich.svg') no-repeat center bottom/contain; }
-
-  .i18n-fr .image-me & { background: #fff url('../images/f_moi.svg') no-repeat center bottom/contain; }
-}
-
 
 
 // General settings
@@ -28,13 +19,13 @@
 .node-post {
   position: relative;
   margin: 0;
-  padding-bottom: 4900%/35%;
+  padding-bottom: 140%;
   width: 100%;
   height: 0;
   overflow: hidden;
+  background-color: @pxl-color-green;
 
   &.view-mode-teaser {
-    .bottom-img-lang;
 
     div.row {
       margin: 0;
@@ -52,37 +43,81 @@
 
         .field-name-field-name {
           position: absolute;
-          top: 56.9%;
-          left: -2%;
-          padding: 0.2em 1em 0;
-          width: auto;
-          font-family: @pxl-text-font-light;
-          font-size: 16px;
-          text-transform: uppercase;
-          text-align: center;
-          letter-spacing: 1px;
-          line-height: 1.2em;
-          color: @pxl-name-field-color;
-          background-color: @pxl-name-field-bg-color-left;
+          top: 70%;
+          left: 50%;
+          #pxl-mixins.transform(translate(-50%) rotate(-2deg));
+          z-index: 10;
+
+          .field-item {
+            font-family: @pxl-text-font-handwriter;
+            #pxl-mixins.font-size-responsive(20px, 15px);
+            text-align: center;
+            letter-spacing: 1px;
+            line-height: 1.1;
+            color: @pxl-color-green;
+
+            @media @mobile {
+              font-size: 6.5vw;
+            }
+            @media @normal {
+              font-size: 25px;
+            }
+            @media @wide {
+              font-size: 28px;
+            }
+          }
+        }
+
+        .field-name-field-your-name {
+          position: absolute;
+          bottom: 3%;
+          #pxl-mixins.center-horizontally;
+          padding: 0;
+
+          .field-item {
+            width: auto;
+            font-family: @pxl-text-font-light;
+            #pxl-mixins.font-size-responsive(14px, 11px);
+            letter-spacing: 1px;
+            line-height: 1.1;
+            color: white;
+            white-space: nowrap;
+
+            @media @mobile {
+              font-size: 14px;
+            }
+            @media @normal {
+              font-size: 14px;
+            }
+            @media @wide {
+              font-size: 14px;
+            }
+
+            &:before, &:after {
+              content: '-';
+              padding: 0 3px;
+            }
+          }
         }
 
         .field-name-field-quote {
           position: absolute;
           overflow: hidden;
-          top: 73%;
-          right: 0;
-          width: 54%;
+          top: 80%;
+          left: 5%;
+          width: 90%;
           height: auto;
-          line-height: 16px;
-          text-align: center;
-          #pxl-mixins.hyphenate(auto);
 
           .field-item {
-            font-family: @pxl-text-font-light;
-            font-size: 14px;
+            font-family: @pxl-text-font-bold;
+            #pxl-mixins.font-size-responsive(15px, 10px);
+            color: white;
+            line-height: 1.1;
+            text-align: center;
+            #pxl-mixins.hyphenate(auto);
 
-            @media @narrow {
-              font-size: 14px;
+            @media @mobile {
+              font-size: 4.5vw;
             }
             @media @tablet {
               font-size: 15px;
@@ -90,8 +125,32 @@
             @media @normal {
               font-size: 15px;
             }
+            @media @wide {
+              font-size: 17px;
+            }
           }
         }
+
+        .slogan-wrapper {
+          img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .banner-wrapper {
+          img {
+            position: absolute;
+            top: 56%;
+            left: 5%;
+            width: 90%;
+            height: auto;
+          }
+        }
+
       }
     }
   }
@@ -124,7 +183,6 @@
       &.left-region {
         padding-bottom: 144.82%; // 420/290
         height: 0;
-        .bottom-img-lang;
 
         @media @tablet {
           padding-bottom: 72.41%; // only half of width = 420/290/2

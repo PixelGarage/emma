@@ -14,8 +14,6 @@
 // -------------------------
 #block-locale-language {
   display: none;
-  font-family: @pxl-text-font;
-  font-size: @font-size-base;
 
   @media @tablet {
     display:inline-block;
@@ -31,26 +29,26 @@
       margin: 0 -2px;
 
       a.language-link {
-        padding: 3px 0 0 5px;
+        display: inline-block;
+        padding: 0 5px;
+        font-family: @pxl-text-font;
+        font-size: 22px;
         text-transform: uppercase;
         text-decoration: none;
-        color: @pxl-color-gold;
-        line-height: 1;
+        color: white;
+        letter-spacing: 1.5px;
+        line-height: 0.9;
         outline: none;
+        border-right: 1px solid #fff;
 
         &.active, &:hover {
           font-family: @pxl-text-font-bold;
-          text-decoration: none;
-          color: @pxl-color-main;
-        }
-
-        &::after {
-          content: '/';
-          padding-left: 5px;
+          letter-spacing: 1px;
         }
       }
-      &.last a::after {
-        content: '';
+
+      &:last-child a {
+        border: none;
       }
 
       span.locale-untranslated {

@@ -17,59 +17,74 @@
 @pxl-icon-font: 'fontawesome';
 
 // title font
-@pxl-title-font: 'UniversLTStd', sans-serif;
+@pxl-title-font: 'MuseoSans_900', sans-serif;
 
 // text fonts
-@pxl-text-font: 'UniversLTStdCn', sans-serif;
-@pxl-text-font-light: 'UniversLTStdCn', sans-serif;
-@pxl-text-font-medium: 'UniversLTStdCn', sans-serif;
-@pxl-text-font-bold: 'UniversRoman', sans-serif;
-@pxl-text-font-italic: 'UniversLTStdCn', sans-serif;
-@pxl-text-font-light-italic: 'UniversLight', sans-serif;
-@pxl-text-font-bold-italics: 'UniversRoman', sans-serif;
+@pxl-text-font: 'MuseoSans_700', sans-serif;
+@pxl-text-font-light: 'MuseoSans_300', sans-serif;
+@pxl-text-font-medium: 'MuseoSans_700', sans-serif;
+@pxl-text-font-bold: 'MuseoSans_900', sans-serif;
+@pxl-text-font-italic: 'MuseoSans_700', sans-serif;
+@pxl-text-font-light-italic: 'MuseoSans_300', sans-serif;
+@pxl-text-font-bold-italics: 'MuseoSans_900_Italic', sans-serif;
+
+// handwriter font
+@pxl-text-font-handwriter: 'Pacifico', cursive;
+
+// monospace font
+@pxl-text-font-mono: 'Courier', monospace;
 
 // form font
 @pxl-form-font: @pxl-text-font;
 
 // overrides
-@font-family-base: @pxl-title-font;
+@font-family-base: @pxl-text-font;
 
 //
 // font faces
 //
 @font-face {
-  font-family: 'UniversLight';
-  src: url('@{pxl-font-path}/UniversLight/UniversLight.eot');
-  src: url('@{pxl-font-path}/UniversLight/UniversLight.eot') format('embedded-opentype'),
-  url('@{pxl-font-path}/UniversLight/UniversLight.woff2') format('woff2'),
-  url('@{pxl-font-path}/UniversLight/UniversLight.woff') format('woff'),
-  url('@{pxl-font-path}/UniversLight/UniversLight.ttf') format('truetype'),
-  url('@{pxl-font-path}/UniversLight/UniversLight.svg#UniversLight') format('svg');
+  font-family: 'MuseoSans_300';
+  src: url('@{pxl-font-path}/MuseoSans_300/MuseoSans_300.eot');
+  src: url('@{pxl-font-path}/MuseoSans_300/MuseoSans_300.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/MuseoSans_300/MuseoSans_300.woff2') format('woff2'),
+  url('@{pxl-font-path}/MuseoSans_300/MuseoSans_300.woff') format('woff'),
+  url('@{pxl-font-path}/MuseoSans_300/MuseoSans_300.ttf') format('truetype'),
+  url('@{pxl-font-path}/MuseoSans_300/MuseoSans_300.svg#MuseoSans_300') format('svg');
 }
 @font-face {
-  font-family: 'UniversRoman';
-  src: url('@{pxl-font-path}/UniversRoman/UniversRoman.eot');
-  src: url('@{pxl-font-path}/UniversRoman/UniversRoman.eot') format('embedded-opentype'),
-  url('@{pxl-font-path}/UniversRoman/UniversRoman.woff2') format('woff2'),
-  url('@{pxl-font-path}/UniversRoman/UniversRoman.woff') format('woff'),
-  url('@{pxl-font-path}/UniversRoman/UniversRoman.ttf') format('truetype'),
-  url('@{pxl-font-path}/UniversRoman/UniversRoman.svg#UniversRoman') format('svg');
+  font-family: 'MuseoSans_700';
+  src: url('@{pxl-font-path}/MuseoSans_700/MuseoSans_700.eot');
+  src: url('@{pxl-font-path}/MuseoSans_700/MuseoSans_700.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/MuseoSans_700/MuseoSans_700.woff2') format('woff2'),
+  url('@{pxl-font-path}/MuseoSans_700/MuseoSans_700.woff') format('woff'),
+  url('@{pxl-font-path}/MuseoSans_700/MuseoSans_700.ttf') format('truetype'),
+  url('@{pxl-font-path}/MuseoSans_700/MuseoSans_700.svg#MuseoSans_700') format('svg');
 }
 @font-face {
-  font-family: 'UniversLTStd';
-  src: url('@{pxl-font-path}/UniversLTStd/UniversLTStd.eot');
-  src: url('@{pxl-font-path}/UniversLTStd/UniversLTStd.eot') format('embedded-opentype'),
-  url('@{pxl-font-path}/UniversLTStd/UniversLTStd.woff2') format('woff2'),
-  url('@{pxl-font-path}/UniversLTStd/UniversLTStd.woff') format('woff'),
-  url('@{pxl-font-path}/UniversLTStd/UniversLTStd.ttf') format('truetype'),
-  url('@{pxl-font-path}/UniversLTStd/UniversLTStd.svg#UniversLTStd') format('svg');
+  font-family: 'MuseoSans_900';
+  src: url('@{pxl-font-path}/MuseoSans_900/MuseoSans_900.eot');
+  src: url('@{pxl-font-path}/MuseoSans_900/MuseoSans_900.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/MuseoSans_900/MuseoSans_900.woff2') format('woff2'),
+  url('@{pxl-font-path}/MuseoSans_900/MuseoSans_900.woff') format('woff'),
+  url('@{pxl-font-path}/MuseoSans_900/MuseoSans_900.ttf') format('truetype'),
+  url('@{pxl-font-path}/MuseoSans_900/MuseoSans_900.svg#MuseoSans_900') format('svg');
 }
 @font-face {
-  font-family: 'UniversLTStdCn';
-  src: url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.eot');
-  src: url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.eot') format('embedded-opentype'),
-  url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.woff2') format('woff2'),
-  url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.woff') format('woff'),
-  url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.ttf') format('truetype'),
-  url('@{pxl-font-path}/UniversLTStdCn/UniversLTStdCn.svg#UniversLTStdCn') format('svg');
+  font-family: 'MuseoSans_900_Italic';
+  src: url('@{pxl-font-path}/MuseoSans_900_Italic/MuseoSans_900_Italic.eot');
+  src: url('@{pxl-font-path}/MuseoSans_900_Italic/MuseoSans_900_Italic.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/MuseoSans_900_Italic/MuseoSans_900_Italic.woff2') format('woff2'),
+  url('@{pxl-font-path}/MuseoSans_900_Italic/MuseoSans_900_Italic.woff') format('woff'),
+  url('@{pxl-font-path}/MuseoSans_900_Italic/MuseoSans_900_Italic.ttf') format('truetype'),
+  url('@{pxl-font-path}/MuseoSans_900_Italic/MuseoSans_900_Italic.svg#MuseoSans_900_Italic') format('svg');
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('@{pxl-font-path}/Pacifico/Pacifico.eot');
+  src: url('@{pxl-font-path}/Pacifico/Pacifico.eot') format('embedded-opentype'),
+  url('@{pxl-font-path}/Pacifico/Pacifico.woff2') format('woff2'),
+  url('@{pxl-font-path}/Pacifico/Pacifico.woff') format('woff'),
+  url('@{pxl-font-path}/Pacifico/Pacifico.ttf') format('truetype'),
+  url('@{pxl-font-path}/Pacifico/Pacifico.svg#Pacifico') format('svg');
 }

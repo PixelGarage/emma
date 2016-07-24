@@ -20,10 +20,9 @@
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
 
-@pxl-color-blue: #4481AF;
-@pxl-color-green: #80AD15;
-@pxl-color-orange: #ff5f00;
-@pxl-color-gold: #9e834f;
+@pxl-color-blue: #0e659d;
+@pxl-color-blue-light: #ebf0f8;
+@pxl-color-green: #79B731;
 @pxl-color-border: #ddd;
 @pxl-color-border-active: @pxl-color-blue;
 @pxl-color-main: @pxl-color-blue;
@@ -58,7 +57,7 @@
 //
 // responsive font sizes
 @resp-font-size:          2vw;
-@resp-font-size-min:      15px;
+@resp-font-size-min:      12px;
 @resp-font-size-max:      16px;
 
 @resp-subtitle-size:      2.6vw;
@@ -91,22 +90,24 @@
 
 // Extra small screen / phone
 //** Deprecated `@screen-xs-min` as of v3.2.0
-@screen-xs-min:              30em;
+@screen-xs-min:              30em; // 480px
 // Small screen / tablet
-@screen-sm-min:              48em;
+@screen-sm-min:              48em; // 768px
 // Medium screen / desktop
-@screen-md-min:              64em;
+@screen-md-min:              64em; // 1024px
 // Large screen / wide desktop
-@screen-lg-min:              80em;
+@screen-lg-min:              80em; // 1280px
 // So media queries don't overlap when required, provide a maximum
-@screen-xs-max:              (@screen-sm-min - 1);
-@screen-sm-max:              (@screen-md-min - 1);
-@screen-md-max:              (@screen-lg-min - 1);
+@screen-xss-max:  (@screen-xs-min - 0.0625em);
+@screen-xs-max:   (@screen-sm-min - 0.0625em);
+@screen-sm-max:   (@screen-md-min - 0.0625em);
+@screen-md-max:   (@screen-lg-min - 0.0625em);
 
 
 //== Media queries
 //
 //## Define your custom media queries.
+@mobile:  ~"screen and (max-width: @{screen-xss-max})";
 @narrow:  ~"screen and (min-width: @{screen-xs-min})";
 @tablet:  ~"screen and (min-width: @{screen-sm-min})";
 @normal:  ~"screen and (min-width: @{screen-md-min})";

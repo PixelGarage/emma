@@ -8874,20 +8874,14 @@ form#user-login {
     display: block;
   }
 }
-.a2a_kit .a2a_button_facebook,
-.a2a_kit .a2a_button_twitter,
-.a2a_kit .a2a_button_google_plus {
+.a2a_kit a {
   margin: 0 0 10px;
   padding: 0;
 }
-.a2a_kit .a2a_button_facebook .a2a_label,
-.a2a_kit .a2a_button_twitter .a2a_label,
-.a2a_kit .a2a_button_google_plus .a2a_label {
+.a2a_kit a .a2a_label {
   display: none;
 }
-.a2a_kit .a2a_button_facebook .a2a_svg,
-.a2a_kit .a2a_button_twitter .a2a_svg,
-.a2a_kit .a2a_button_google_plus .a2a_svg {
+.a2a_kit a .a2a_svg {
   font-family: "SSSocial-Circle";
   font-style: normal;
   font-weight: normal;
@@ -8909,9 +8903,7 @@ form#user-login {
   line-height: 40px;
   background: none !important;
 }
-.a2a_kit .a2a_button_facebook .a2a_svg:hover,
-.a2a_kit .a2a_button_twitter .a2a_svg:hover,
-.a2a_kit .a2a_button_google_plus .a2a_svg:hover {
+.a2a_kit a .a2a_svg:hover {
   font-family: "SSSocial-Regular";
   font-style: normal;
   font-weight: normal;
@@ -8927,25 +8919,23 @@ form#user-login {
   -webkit-font-smoothing: antialiased;
   opacity: 1.0;
 }
-.a2a_kit .a2a_button_facebook .a2a_svg:before,
-.a2a_kit .a2a_button_twitter .a2a_svg:before,
-.a2a_kit .a2a_button_google_plus .a2a_svg:before {
+.a2a_kit a .a2a_svg:before {
   display: inline-block;
   vertical-align: text-bottom;
 }
-.a2a_kit .a2a_button_facebook .a2a_svg:before {
+.a2a_kit a.a2a_button_facebook .a2a_svg:before {
   content: "\f610";
 }
-.a2a_kit .a2a_button_twitter .a2a_svg:before {
+.a2a_kit a.a2a_button_twitter .a2a_svg:before {
   content: "\f611";
 }
-.a2a_kit .a2a_button_google_plus .a2a_svg:before {
+.a2a_kit a.a2a_button_google_plus .a2a_svg:before {
   content: "\f613";
 }
-.a2a_kit .a2a_button_email .a2a_svg:before {
+.a2a_kit a.a2a_button_email .a2a_svg:before {
   content: '✉';
 }
-.a2a_kit .a2a_button_pinterest .a2a_svg:before {
+.a2a_kit a.a2a_button_pinterest .a2a_svg:before {
   content: "\f650";
 }
 #block-follow-site {
@@ -9078,7 +9068,48 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 /*
  *  Node post component
  * --------------------------------------------------*/
-.node-post {
+.node-post-page-wrapper {
+  margin-bottom: 50px;
+  width: 100%;
+}
+.node-post-page-wrapper .node-post-header {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.node-post-page-wrapper .node-post-header .post-title {
+  margin-bottom: 10px;
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 30px;
+  color: #444444;
+  line-height: 1.1;
+  text-align: center;
+}
+.node-post-page-wrapper .node-post-header .post-heading {
+  margin-bottom: 10px;
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 17px;
+  color: #444444;
+  line-height: 1.1;
+  text-align: center;
+}
+.node-post-page-wrapper .node-post-header .social-share {
+  margin-bottom: 10px;
+  text-align: center;
+}
+.node-post-page-wrapper .node-post-header .social-share .a2a_kit {
+  display: inline-block;
+}
+.node-post-page-wrapper .node-post-header .social-share .a2a_kit a {
+  margin: 0;
+  padding: 0 10px;
+}
+.node-post-page-wrapper .node-post-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.node.node-post {
   position: relative;
   margin: 0;
   padding-bottom: 140%;
@@ -9087,18 +9118,18 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   overflow: hidden;
   background-color: #79b731;
 }
-.node-post.view-mode-teaser div.row {
+.node.node-post div.row {
   margin: 0;
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 {
+.node.node-post div.row div.col-sm-12 {
   position: static;
   padding: 0;
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-image img {
+.node.node-post div.row div.col-sm-12 .field-name-field-image img {
   width: 100%;
   height: auto;
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-name {
+.node.node-post div.row div.col-sm-12 .field-name-field-name {
   position: absolute;
   top: 70%;
   left: 50%;
@@ -9109,7 +9140,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   transform: translate(-50%) rotate(-2deg);
   z-index: 10;
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-name .field-item {
+.node.node-post div.row div.col-sm-12 .field-name-field-name .field-item {
   font-family: 'Pacifico', cursive;
   font-size: 15px;
   text-align: center;
@@ -9118,31 +9149,31 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   color: #79b731;
 }
 @media screen and (min-width: 30em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-name .field-item {
     font-size: 3.125vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-name .field-item {
     font-size: 20px;
   }
 }
 @media screen and (max-width: 29.9375em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-name .field-item {
     font-size: 6.5vw;
   }
 }
 @media screen and (min-width: 64em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-name .field-item {
     font-size: 25px;
   }
 }
 @media screen and (min-width: 80em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-name .field-item {
     font-size: 28px;
   }
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-your-name {
+.node.node-post div.row div.col-sm-12 .field-name-field-your-name {
   position: absolute;
   bottom: 3%;
   left: 50%;
@@ -9151,7 +9182,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   transform: translateX(-50%);
   padding: 0;
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-your-name .field-item {
+.node.node-post div.row div.col-sm-12 .field-name-field-your-name .field-item {
   width: auto;
   font-family: 'MuseoSans_300', sans-serif;
   font-size: 11px;
@@ -9161,36 +9192,36 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   white-space: nowrap;
 }
 @media screen and (min-width: 30em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-your-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-your-name .field-item {
     font-size: 2.29166667vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-your-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-your-name .field-item {
     font-size: 14px;
   }
 }
 @media screen and (max-width: 29.9375em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-your-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-your-name .field-item {
     font-size: 4.5vw;
   }
 }
 @media screen and (min-width: 64em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-your-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-your-name .field-item {
     font-size: 14px;
   }
 }
 @media screen and (min-width: 80em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-your-name .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-your-name .field-item {
     font-size: 14px;
   }
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-your-name .field-item:before,
-.node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-your-name .field-item:after {
+.node.node-post div.row div.col-sm-12 .field-name-field-your-name .field-item:before,
+.node.node-post div.row div.col-sm-12 .field-name-field-your-name .field-item:after {
   content: '-';
   padding: 0 3px;
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-quote {
+.node.node-post div.row div.col-sm-12 .field-name-field-quote {
   position: absolute;
   overflow: hidden;
   top: 80%;
@@ -9198,7 +9229,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   width: 90%;
   height: auto;
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-quote .field-item {
+.node.node-post div.row div.col-sm-12 .field-name-field-quote .field-item {
   font-family: 'MuseoSans_900', sans-serif;
   font-size: 10px;
   color: white;
@@ -9213,147 +9244,78 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   hyphens: auto;
 }
 @media screen and (min-width: 30em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-quote .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-quote .field-item {
     font-size: 2.08333333vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-quote .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-quote .field-item {
     font-size: 15px;
   }
 }
 @media screen and (max-width: 29.9375em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-quote .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-quote .field-item {
     font-size: 4.5vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-quote .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-quote .field-item {
     font-size: 11px;
   }
 }
 @media screen and (min-width: 64em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-quote .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-quote .field-item {
     font-size: 15px;
   }
 }
 @media screen and (min-width: 80em) {
-  .node-post.view-mode-teaser div.row div.col-sm-12 .field-name-field-quote .field-item {
+  .node.node-post div.row div.col-sm-12 .field-name-field-quote .field-item {
     font-size: 17px;
   }
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .slogan-wrapper img {
+.node.node-post div.row div.col-sm-12 .slogan-wrapper img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: auto;
 }
-.node-post.view-mode-teaser div.row div.col-sm-12 .banner-wrapper img {
+.node.node-post div.row div.col-sm-12 .banner-wrapper img {
   position: absolute;
   top: 56%;
   left: 5%;
   width: 90%;
   height: auto;
 }
-.node-post.view-mode-full {
-  position: relative;
-  width: 100%;
+@media screen and (min-width: 30em) {
+  .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-name .field-item {
+    font-size: 4.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-name .field-item {
+    font-size: 35px;
+  }
 }
 @media screen and (min-width: 30em) {
-  .node-post.view-mode-full {
-    width: 50%;
+  .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-your-name .field-item {
+    font-size: 3vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-post.view-mode-full {
-    width: 75%;
+  .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-your-name .field-item {
+    font-size: 18px;
   }
-}
-.node-post.view-mode-full div.row {
-  margin: 0;
-  height: 100%;
-}
-.node-post.view-mode-full div.row div.col-sm-6 {
-  padding: 30px 0 0;
-  margin: 0;
-}
-.node-post.view-mode-full div.row div.col-sm-6.left-region {
-  padding-bottom: 144.82%;
-  height: 0;
-}
-@media screen and (min-width: 48em) {
-  .node-post.view-mode-full div.row div.col-sm-6.left-region {
-    padding-bottom: 72.41%;
-  }
-}
-.node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-image img {
-  width: 100%;
-}
-.node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-name {
-  position: absolute;
-  top: 56.9%;
-  left: -2%;
-  padding: 0.2em 1em 0;
-  width: auto;
-  font-family: 'MuseoSans_300', sans-serif;
-  font-size: 16px;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 1px;
-  line-height: 1.2em;
-  color: #ffffff;
-  background-color: #0e659d;
-}
-.node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-quote {
-  position: absolute;
-  overflow: hidden;
-  top: 74%;
-  right: 0;
-  width: 54%;
-  height: auto;
-  -ms-word-break: break-all;
-  word-break: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
-  text-align: center;
-}
-.node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-quote .field-item {
-  font-family: 'MuseoSans_700', sans-serif;
-  font-size: 4.5vw;
 }
 @media screen and (min-width: 30em) {
-  .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-quote .field-item {
-    font-size: 2.5vw;
+  .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-quote .field-item {
+    font-size: 3.25vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-quote .field-item {
-    font-size: 16px;
+  .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-quote .field-item {
+    font-size: 25px;
   }
-}
-@media screen and (min-width: 64em) {
-  .node-post.view-mode-full div.row div.col-sm-6.left-region .field-name-field-quote .field-item {
-    font-size: 20px;
-  }
-}
-@media screen and (min-width: 48em) {
-  .node-post.view-mode-full div.row div.col-sm-6.right-region {
-    padding-left: 20px;
-  }
-}
-.node-post.view-mode-full div.row div.col-sm-6.right-region .field-name-title h2 {
-  margin: 0;
-  font-family: 'MuseoSans_700', sans-serif;
-  font-size: 45px;
-  color: #444444;
-  border-bottom: 2px solid #444444;
-}
-.node-post.view-mode-full div.row div.col-sm-6.right-region .sharethis-buttons {
-  margin-top: 15px;
 }
 /*
  *  Node / block webform component

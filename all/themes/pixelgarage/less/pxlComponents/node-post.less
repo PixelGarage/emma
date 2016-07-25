@@ -16,7 +16,63 @@
 
 // General settings
 // -------------------------
-.node-post {
+//
+// full mode wrappers implemented in template
+.node-post-page-wrapper {
+  margin-bottom: 50px;
+  width: 100%;
+
+  .node-post-header {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+
+    .post-title {
+      margin-bottom: 10px;
+      font-family: @pxl-text-font-bold;
+      font-size: 30px;
+      color: @text-color;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .post-heading {
+      margin-bottom: 10px;
+      font-family: @pxl-text-font;
+      font-size: 17px;
+      color: @text-color;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .social-share {
+      margin-bottom: 10px;
+      text-align: center;
+
+      .a2a_kit {
+        display: inline-block;
+
+        a {
+          margin: 0;
+          padding: 0 10px;
+        }
+        // see block-social.less
+      }
+    }
+  }
+
+  .node-post-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+}
+
+
+//
+// Node Post
+.node.node-post {
   position: relative;
   margin: 0;
   padding-bottom: 140%;
@@ -25,238 +81,174 @@
   overflow: hidden;
   background-color: @pxl-color-green;
 
-  &.view-mode-teaser {
+  div.row {
+    margin: 0;
 
-    div.row {
-      margin: 0;
+    div.col-sm-12 {
+      position:static;
+      padding: 0;
 
-      div.col-sm-12 {
-        position:static;
-        padding: 0;
+      .field-name-field-image {
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
 
-        .field-name-field-image {
-          img {
-            width: 100%;
-            height: auto;
+      .field-name-field-name {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        #pxl-mixins.transform(translate(-50%) rotate(-2deg));
+        z-index: 10;
+
+        .field-item {
+          font-family: @pxl-text-font-handwriter;
+          #pxl-mixins.font-size-responsive(20px, 15px);
+          text-align: center;
+          letter-spacing: 1px;
+          line-height: 1.1;
+          color: @pxl-color-green;
+
+          @media @mobile {
+            font-size: 6.5vw;
+          }
+          @media @normal {
+            font-size: 25px;
+          }
+          @media @wide {
+            font-size: 28px;
           }
         }
+      }
 
-        .field-name-field-name {
+      .field-name-field-your-name {
+        position: absolute;
+        bottom: 3%;
+        #pxl-mixins.center-horizontally;
+        padding: 0;
+
+        .field-item {
+          width: auto;
+          font-family: @pxl-text-font-light;
+          #pxl-mixins.font-size-responsive(14px, 11px);
+          letter-spacing: 1px;
+          line-height: 1.1;
+          color: white;
+          white-space: nowrap;
+
+          @media @mobile {
+            font-size: 4.5vw;
+          }
+          @media @normal {
+            font-size: 14px;
+          }
+          @media @wide {
+            font-size: 14px;
+          }
+
+          &:before, &:after {
+            content: '-';
+            padding: 0 3px;
+          }
+        }
+      }
+
+      .field-name-field-quote {
+        position: absolute;
+        overflow: hidden;
+        top: 80%;
+        left: 5%;
+        width: 90%;
+        height: auto;
+
+        .field-item {
+          font-family: @pxl-text-font-bold;
+          #pxl-mixins.font-size-responsive(15px, 10px);
+          color: white;
+          line-height: 1.1;
+          text-align: center;
+          #pxl-mixins.hyphenate(auto);
+
+          @media @mobile {
+            font-size: 4.5vw;
+          }
+          @media @tablet {
+            font-size: 11px;
+          }
+          @media @normal {
+            font-size: 15px;
+          }
+          @media @wide {
+            font-size: 17px;
+          }
+        }
+      }
+
+      .slogan-wrapper {
+        img {
           position: absolute;
-          top: 70%;
-          left: 50%;
-          #pxl-mixins.transform(translate(-50%) rotate(-2deg));
-          z-index: 10;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: auto;
+        }
+      }
 
+      .banner-wrapper {
+        img {
+          position: absolute;
+          top: 56%;
+          left: 5%;
+          width: 90%;
+          height: auto;
+        }
+      }
+
+    }
+  }
+
+  //
+  // Full mode post
+  //
+  &.view-mode-full {
+    div.row {
+      div.col-sm-12 {
+        .field-name-field-name {
           .field-item {
-            font-family: @pxl-text-font-handwriter;
-            #pxl-mixins.font-size-responsive(20px, 15px);
-            text-align: center;
-            letter-spacing: 1px;
-            line-height: 1.1;
-            color: @pxl-color-green;
-
-            @media @mobile {
-              font-size: 6.5vw;
+            @media @narrow {
+              font-size: 4.5vw;
             }
-            @media @normal {
-              font-size: 25px;
-            }
-            @media @wide {
-              font-size: 28px;
+            @media @tablet {
+              font-size: 35px;
             }
           }
         }
 
         .field-name-field-your-name {
-          position: absolute;
-          bottom: 3%;
-          #pxl-mixins.center-horizontally;
-          padding: 0;
-
           .field-item {
-            width: auto;
-            font-family: @pxl-text-font-light;
-            #pxl-mixins.font-size-responsive(14px, 11px);
-            letter-spacing: 1px;
-            line-height: 1.1;
-            color: white;
-            white-space: nowrap;
-
-            @media @mobile {
-              font-size: 4.5vw;
-            }
-            @media @normal {
-              font-size: 14px;
-            }
-            @media @wide {
-              font-size: 14px;
-            }
-
-            &:before, &:after {
-              content: '-';
-              padding: 0 3px;
-            }
-          }
-        }
-
-        .field-name-field-quote {
-          position: absolute;
-          overflow: hidden;
-          top: 80%;
-          left: 5%;
-          width: 90%;
-          height: auto;
-
-          .field-item {
-            font-family: @pxl-text-font-bold;
-            #pxl-mixins.font-size-responsive(15px, 10px);
-            color: white;
-            line-height: 1.1;
-            text-align: center;
-            #pxl-mixins.hyphenate(auto);
-
-            @media @mobile {
-              font-size: 4.5vw;
-            }
-            @media @tablet {
-              font-size: 11px;
-            }
-            @media @normal {
-              font-size: 15px;
-            }
-            @media @wide {
-              font-size: 17px;
-            }
-          }
-        }
-
-        .slogan-wrapper {
-          img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: auto;
-          }
-        }
-
-        .banner-wrapper {
-          img {
-            position: absolute;
-            top: 56%;
-            left: 5%;
-            width: 90%;
-            height: auto;
-          }
-        }
-
-      }
-    }
-  }
-}
-
-//
-// full mode (social links)
-//
-.node-post.view-mode-full {
-  position: relative;
-  //overflow: hidden;
-  width: 100%;
-
-  @media @narrow {
-    width: 50%;
-  }
-  @media @tablet {
-    width: 75%;
-  }
-
-  div.row {
-    margin: 0;
-    height: 100%;
-
-    div.col-sm-6 {
-      padding: 30px 0 0;
-      margin: 0;
-
-
-      &.left-region {
-        padding-bottom: 144.82%; // 420/290
-        height: 0;
-
-        @media @tablet {
-          padding-bottom: 72.41%; // only half of width = 420/290/2
-        }
-
-        .field-name-field-image {
-          img {
-            width: 100%;
-          }
-        }
-
-        .field-name-field-name {
-          position: absolute;
-          top: 56.9%;
-          left: -2%;
-          padding: 0.2em 1em 0;
-          width: auto;
-          font-family: @pxl-text-font-light;
-          font-size: 16px;
-          text-transform: uppercase;
-          text-align: center;
-          letter-spacing: 1px;
-          line-height: 1.2em;
-          color: @pxl-name-field-color;
-          background-color: @pxl-name-field-bg-color-left;
-        }
-
-        .field-name-field-quote {
-          position: absolute;
-          overflow: hidden;
-          top: 74%;
-          right: 0;
-          width: 54%;
-          height: auto;
-          #pxl-mixins.hyphenate(auto);
-          text-align: center;
-
-          .field-item {
-            font-family: @pxl-text-font;
-            font-size: 4.5vw;
-
             @media @narrow {
-              font-size: 2.5vw;
+              font-size: 3vw;
             }
             @media @tablet {
-              font-size: 16px;
-            }
-            @media @normal {
-              font-size: 20px;
+              font-size: 18px;
             }
           }
         }
-      }
 
-      &.right-region {
-        @media @tablet {
-          padding-left: 20px;
-        }
-
-        .field-name-title {
-          h2 {
-            margin: 0;
-            font-family: @pxl-text-font;
-            font-size: 45px;
-            color: @text-color;
-            border-bottom: 2px solid @text-color;
+        .field-name-field-quote {
+          .field-item {
+            @media @narrow {
+              font-size: 3.25vw;
+            }
+            @media @tablet {
+              font-size: 25px;
+            }
           }
         }
 
-        .sharethis-buttons {
-          margin-top: 15px;
-          // see block-social for styling
-        }
       }
     }
   }
 }
+

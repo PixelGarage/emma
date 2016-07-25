@@ -44,21 +44,25 @@ $post_heading = t('Share this post with your friends and family members!')
 
 
 <?php if (!$teaser): ?>
-  <div class="title-post">
-    <?php print $post_title ?>
-  </div>
-  <div class="title-heading">
-    <?php print $post_heading ?>
-  </div>
-  <div class="social-share">
-    <!-- AddtoAny social share buttons -->
-    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-      <a class="a2a_button_facebook"></a>
-      <a class="a2a_button_twitter"></a>
-      <a class="a2a_button_google_plus"></a>
+<div class="node-post-page-wrapper">
+    <div class="node-post-header">
+      <div class="post-title">
+        <?php print $post_title ?>
+      </div>
+      <div class="post-heading">
+        <?php print $post_heading ?>
+      </div>
+      <div class="social-share">
+        <!-- AddtoAny social share buttons -->
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+          <a class="a2a_button_facebook"></a>
+          <a class="a2a_button_twitter"></a>
+          <a class="a2a_button_google_plus"></a>
+        </div>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+      </div>
     </div>
-    <script async src="https://static.addtoany.com/menu/page.js"></script>
-  </div>
+    <div class="node-post-wrapper">
 <?php endif; ?>
 
 <<?php print $layout_wrapper; print $layout_attributes; ?> class="<?php print $classes; ?>">
@@ -73,6 +77,13 @@ $post_heading = t('Share this post with your friends and family members!')
     </<?php print $central_wrapper; ?>>
   </div>
 </<?php print $layout_wrapper ?>>
+
+<?php if (!$teaser): ?>
+  <!-- close node wrapper and node-page-wrapper-->
+  </div>
+</div>
+<?php endif; ?>
+
 
 
 <!-- Needed to activate display suite support on forms -->

@@ -50,6 +50,7 @@ function pixelgarage_preprocess_views_exposed_form(&$vars) {
     $text = ($page_total == 1) ? '%hits hit' : '%hits hits';
     $vars['total_rows'] = t($text, array('%hits' => $page_total));
   }
+
 }
 
 /**

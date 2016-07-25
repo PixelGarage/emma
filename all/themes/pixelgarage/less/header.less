@@ -16,6 +16,7 @@ header#navbar {
   margin: 0;
   border-bottom: none;
   background: @pxl-color-blue none;
+  #pxl-mixins.box-shadow(0 4px 3px -4px gray);
 
   .navbar-top-container > .container {
     position: relative;
@@ -24,6 +25,7 @@ header#navbar {
 
     .navbar-meta {
       position: relative;
+      z-index: 10;
 
       .block-locale {
         position: absolute;
@@ -36,6 +38,7 @@ header#navbar {
     }
 
     .navbar-header {
+      position: relative;
       float: none;
       margin: 0;
       text-align: left;
@@ -49,13 +52,13 @@ header#navbar {
 
         img {
           margin: 0;
-          width: 160px;
+          width: 100px;
           height: auto;
           max-width: 100%;
           max-height: none;
 
           @media @narrow {
-            width: 160px;
+            width: 200px;
           }
           @media @tablet {
             width: 300px;
@@ -68,9 +71,19 @@ header#navbar {
 
       .region-navigation {
         display: inline-block;
-        position: absolute;
-        right: @grid-gutter-width / 2;
-        bottom: 15px;
+        position: static;
+        margin-left: 10px;
+        vertical-align: middle;
+
+        @media @tablet {
+          position: absolute;
+          right: 0;
+          bottom: 10px;
+          margin: 0;
+        }
+        @media @normal {
+          bottom: 20px;
+        }
 
         // SPECIAL MENU: Image upload
         ul.menu {
@@ -127,16 +140,19 @@ header#navbar {
 
       .navbar-toggle {
         // navbar toggle with burger
-        float: right;
-        margin: 20px 0 0;
-        padding: 5px 10px;
+        float: none;
+        #pxl-mixins.center-vertically(absolute);
+        right: 0;
+        margin: 0;
+        padding: 0;
         font-size: 30px;
         color: #fff;
         border: none;
         background: none;
+        opacity: 1.0;
 
         &:hover {
-          color: @pxl-color-green;
+          opacity: 0.6;
         }
       }
 
@@ -149,12 +165,14 @@ header#navbar {
 
       nav {
         text-align: center;
+        width: 100%;
 
         ul.menu {
           display: inline-block;
           float: none;
           margin: 0 auto;
           padding: 0;
+          width: auto;
           line-height: 1;
 
           >li {
@@ -187,20 +205,28 @@ header#navbar {
       @media @tablet {
         #pxl-mixins.center-vertically(absolute);
         right: @grid-gutter-width / 2;
-        padding: 10px 0;
+        padding: 0;
+        width: 54%;
+
         nav {
           text-align: right;
 
           ul.menu {
+            width: 100%;
+            text-align: justify;
+
+            &:after {
+              // justify's last line is not justified, therefore add one
+              content: '';
+              display: inline-block;
+              width: 100%;
+            }
+
             li {
               display: inline-block;
               a, span {
-                padding: 3px 10px 0;
+                padding: 3px 0;
                 font-size: 16px;
-
-                &:last-child {
-                  padding-right: 0;
-                }
               }
             }
           }
@@ -211,12 +237,15 @@ header#navbar {
           ul.menu {
             li {
               a, span {
-                padding: 3px 15px 0;
+                padding: 3px 0;
                 font-size: 22px;
               }
             }
           }
         }
+      }
+      @media @wide {
+        width: 45%;
       }
     }
   }

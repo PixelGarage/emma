@@ -16,6 +16,10 @@
 // -------------------------
 .container {
   //
+  // sharpen fonts
+  #pxl-mixins.sharp-fonts();
+
+  //
   // general link without outline
   a {
     outline: none;
@@ -27,60 +31,35 @@
 }
 
 body.navbar-is-fixed-top {
-  padding-top: 129px !important;
+  padding-top: 60px !important;
+  padding-bottom: 50px !important;
 
   &.admin-menu {
-    padding-top: 129px !important;
+    padding-top: 60px !important;
   }
 
   @media @narrow {
-    padding-top: 154px !important;
+    padding-top: 100px !important;
+    padding-bottom: 50px !important;
 
     &.admin-menu {
-      padding-top: 154px !important;
+      padding-top: 100px !important;
     }
   }
   @media @tablet {
-    padding-top: 190px !important;
+    padding-top: 140px !important;
+    padding-bottom: 200px !important;
 
     &.admin-menu {
-      padding-top: 190px !important;
+      padding-top: 140px !important;
     }
   }
   @media @normal {
-    padding-top: 248px !important;
+    padding-top: 180px !important;
+    padding-bottom: 200px !important;
 
     &.admin-menu {
-      padding-top: 248px !important;
-    }
-  }
-}
-body.not-front.navbar-is-fixed-top {
-  padding-top: 95px !important;
-
-  &.admin-menu {
-    padding-top: 95px !important;
-  }
-
-  @media @narrow {
-    padding-top: 105px !important;
-
-    &.admin-menu {
-      padding-top: 105px !important;
-    }
-  }
-  @media @tablet {
-    padding-top: 142px !important;
-
-    &.admin-menu {
-      padding-top: 142px !important;
-    }
-  }
-  @media @normal {
-    padding-top: 186px !important;
-
-    &.admin-menu {
-      padding-top: 186px !important;
+      padding-top: 180px !important;
     }
   }
 }
@@ -143,7 +122,7 @@ body {
         }
 
         .region-content {
-
+          // see specific content
         }
 
       } // section

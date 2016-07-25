@@ -183,6 +183,8 @@
 
   </div>
 </div>
-<footer class="footer container">
-  <?php print render($page['footer']); ?>
+<footer class="footer">
+  <div class="container">
+    <?php print render($page['footer']); ?>
+  </div>
 </footer>

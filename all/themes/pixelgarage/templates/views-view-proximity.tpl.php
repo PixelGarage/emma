@@ -76,7 +76,6 @@
   <a class="a2a_button_facebook"></a>
   <a class="a2a_button_twitter"></a>
   <a class="a2a_button_google_plus"></a>
-  <a class="a2a_button_email"></a>
 </div>
 
-<script async src="http://static.addtoany.com/menu/page.js"></script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>

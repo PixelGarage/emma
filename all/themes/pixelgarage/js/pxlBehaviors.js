@@ -9,7 +9,6 @@
   /**
    * This behavior adds shadow to header on scroll.
    *
-   */
   Drupal.behaviors.addHeaderShadow = {
     attach: function (context) {
       var isFixedHeader = true;
@@ -63,6 +62,7 @@
       });
     }
   };
+   */
 
   /**
    * Allows full size clickable cards (open node in full size).

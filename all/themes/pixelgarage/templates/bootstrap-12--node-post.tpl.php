@@ -4,7 +4,7 @@
  * Bootstrap 12 template for Display Suite.
  */
 //
-// create banner and slogan images language dependent
+// create language dependent banner and slogan images
 global $language;
 
 switch ($language->language) {
@@ -36,8 +36,30 @@ $slogan_params = array(
 );
 $slogan_img = theme_image($slogan_params);
 
+//
+// set language dependent heading
+$post_title = t('Do you like it?');
+$post_heading = t('Share this post with your friends and family members!')
 ?>
 
+
+<?php if (!$teaser): ?>
+  <div class="title-post">
+    <?php print $post_title ?>
+  </div>
+  <div class="title-heading">
+    <?php print $post_heading ?>
+  </div>
+  <div class="social-share">
+    <!-- AddtoAny social share buttons -->
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_google_plus"></a>
+    </div>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+  </div>
+<?php endif; ?>
 
 <<?php print $layout_wrapper; print $layout_attributes; ?> class="<?php print $classes; ?>">
   <?php if (isset($title_suffix['contextual_links'])): ?>

@@ -149,7 +149,7 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
   //
   // update submission data on the offer and save it
   // fill the node properties and save it to the database
-  $post->title = $submission->data[17][0] . " for " . $submission->data[4][0]; // create node title
+  $post->title = t('@you for @name', array('@you' => $submission->data[17][0], '@name' => $submission->data[4][0])); // create node title
   $post->field_name[$post->language][0]['value'] = $submission->data[4][0]; // child name
   $post->field_your_name[$post->language][0]['value'] = $submission->data[17][0]; // your name
   $post->field_quote[$post->language][0]['value'] = substr($submission->data[5][0], 0, 70); // Quote

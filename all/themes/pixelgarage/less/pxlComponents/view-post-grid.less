@@ -15,8 +15,138 @@
 // General settings
 // -------------------------
 .view-post-grid {
-  margin: 20px auto 0;
+  margin: 0 auto;
   width: 100%;
+
+  .views-exposed-form {
+    padding: 0;
+    width: 100%;
+
+    .views-exposed-widgets {
+      margin: 0 auto;
+      padding: 10px 0;
+
+      @media @narrow {
+        padding: 15px 0;
+      }
+      @media @normal {
+        padding: 20px 0;
+      }
+
+      .views-exposed-widget {
+        display: inline-block;
+        float: none;
+        padding: 0;
+        vertical-align: top;
+        text-align: center;
+
+        &.views-widget-filter-combine {
+          > label {
+            display: none;
+          }
+
+          .views-widget {
+            .form-item {
+              input.form-text {
+                padding: 0 10px;
+                height: 24px;
+                max-width: 150px;
+                font-family: @pxl-text-font-light;
+                font-size: 12px;
+                line-height: 12px;
+                color: @text-color;
+                .placeholder(@text-color-field);
+                #pxl-mixins.border-radius(@border-radius-base);
+                .border-right-radius(0);
+                border: 1px solid @pxl-color-green-light;
+                background-color: @pxl-color-green-light;
+                #pxl-mixins.box-shadow(none);
+
+                &:focus {
+                  border: 1px solid @pxl-color-green;
+                  #pxl-mixins.box-shadow(0 0 2px @pxl-color-green inset);
+                }
+
+                @media @narrow {
+                  height: 28px;
+                  font-size: 14px;
+                  line-height: 14px;
+                }
+                @media @normal {
+                  height: 32px;
+                  font-size: 17px;
+                  line-height: 17px;
+                }
+              }
+            }
+          }
+        }
+
+        &.views-submit-button {
+          margin: 0 0 0 -4px;
+          padding: 0;
+
+          button {
+            display: inline-block;
+            margin: 0;
+            padding: 0 10px;
+            height: 24px;
+            font-family: @pxl-text-font-bold;
+            font-size: 12px;
+            line-height: 12px;
+            letter-spacing: 1.5px;
+            text-transform: lowercase;
+            color: #fff;
+            outline: none;
+            #pxl-mixins.border-radius(@border-radius-base);
+            .border-left-radius(0);
+            border: 1px solid @pxl-color-green;
+            background-color: @pxl-color-green;
+            opacity: 1.0;
+
+            @media @narrow {
+              padding: 0 12px;
+              height: 28px;
+              font-size: 14px;
+              line-height: 14px;
+            }
+            @media @normal {
+              padding: 0 15px;
+              height: 32px;
+              font-size: 17px;
+              line-height: 17px;
+            }
+
+            &:hover {
+              opacity: 0.6;
+            }
+          }
+        }
+
+        &.views-total-rows {
+          height: 24px;
+          padding: 3px 0 0 10px;
+          font-family: @pxl-text-font-light;
+          font-size: 12px;
+
+          @media @narrow {
+            padding: 6px 0 0 10px;
+            height: 28px;
+            font-size: 14px;
+          }
+          @media @normal {
+            padding: 6px 0 0 10px;
+            height: 32px;
+            font-size: 17px;
+          }
+
+          em {
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
 
   .view-content {
     > .pe-container {

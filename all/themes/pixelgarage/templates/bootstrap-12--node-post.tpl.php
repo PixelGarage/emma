@@ -11,11 +11,15 @@ switch ($language->language) {
   case 'de':
   default:
     $banner_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner_d.png';
-    $slogan_path = drupal_get_path('theme', 'pixelgarage') . '/images/post_header_d.svg';
+    $slogan_path = drupal_get_path('theme', 'pixelgarage') . '/images/post_header_d.png';
     break;
   case 'fr':
-    $banner_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner_d.png';
-    $slogan_path = drupal_get_path('theme', 'pixelgarage') . '/images/post_header_d.png';
+    $banner_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner_f.png';
+    $slogan_path = drupal_get_path('theme', 'pixelgarage') . '/images/post_header_f.png';
+    break;
+  case 'en':
+    $banner_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner_e.png';
+    $slogan_path = drupal_get_path('theme', 'pixelgarage') . '/images/post_header_e.png';
     break;
 }
 $params = array(

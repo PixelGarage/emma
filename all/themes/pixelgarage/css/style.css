@@ -1314,10 +1314,10 @@ mark,
   color: #777777;
 }
 .text-primary {
-  color: #337ab7;
+  color: #0e659d;
 }
 a.text-primary:hover {
-  color: #286090;
+  color: #0a476e;
 }
 .text-success {
   color: #3c763d;
@@ -1345,10 +1345,10 @@ a.text-danger:hover {
 }
 .bg-primary {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #0e659d;
 }
 a.bg-primary:hover {
-  background-color: #286090;
+  background-color: #0a476e;
 }
 .bg-success {
   background-color: #dff0d8;
@@ -3049,8 +3049,8 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #0e659d;
+  border-color: #0c5686;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -3059,8 +3059,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #0a476e;
+  border-color: #07324d;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -3085,17 +3085,17 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  background-color: #0e659d;
+  border-color: #0c5686;
 }
 .btn-primary .badge {
-  color: #337ab7;
+  color: #0e659d;
   background-color: #ffffff;
 }
 .btn-success {
   color: #ffffff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #e0edc4;
+  border-color: #d6e7b0;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -3104,8 +3104,8 @@ fieldset[disabled] .btn-primary.active {
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   color: #ffffff;
-  background-color: #449d44;
-  border-color: #398439;
+  background-color: #cbe19d;
+  border-color: #bdd982;
 }
 .btn-success:active,
 .btn-success.active,
@@ -3130,17 +3130,17 @@ fieldset[disabled] .btn-success:active,
 .btn-success.disabled.active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #e0edc4;
+  border-color: #d6e7b0;
 }
 .btn-success .badge {
-  color: #5cb85c;
+  color: #e0edc4;
   background-color: #ffffff;
 }
 .btn-info {
   color: #ffffff;
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #ebf0f8;
+  border-color: #d8e2f1;
 }
 .btn-info:hover,
 .btn-info:focus,
@@ -3149,8 +3149,8 @@ fieldset[disabled] .btn-success.active {
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
   color: #ffffff;
-  background-color: #31b0d5;
-  border-color: #269abc;
+  background-color: #c5d4eb;
+  border-color: #abc0e2;
 }
 .btn-info:active,
 .btn-info.active,
@@ -3175,11 +3175,11 @@ fieldset[disabled] .btn-info:active,
 .btn-info.disabled.active,
 .btn-info[disabled].active,
 fieldset[disabled] .btn-info.active {
-  background-color: #5bc0de;
-  border-color: #46b8da;
+  background-color: #ebf0f8;
+  border-color: #d8e2f1;
 }
 .btn-info .badge {
-  color: #5bc0de;
+  color: #ebf0f8;
   background-color: #ffffff;
 }
 .btn-warning {
@@ -3441,7 +3441,7 @@ tbody.collapse.in {
   color: #ffffff;
   text-decoration: none;
   outline: 0;
-  background-color: #337ab7;
+  background-color: #0e659d;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
@@ -3960,7 +3960,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #337ab7;
+  background-color: #0e659d;
 }
 .nav-stacked > li {
   float: none;
@@ -4621,8 +4621,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .active > span:focus {
   z-index: 2;
   color: #0e659d;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #0e659d;
+  border-color: #0e659d;
   cursor: default;
 }
 .pagination > .disabled > span,
@@ -4737,25 +4737,25 @@ a.label:focus {
   background-color: #5e5e5e;
 }
 .label-primary {
-  background-color: #337ab7;
+  background-color: #0e659d;
 }
 .label-primary[href]:hover,
 .label-primary[href]:focus {
-  background-color: #286090;
+  background-color: #0a476e;
 }
 .label-success {
-  background-color: #5cb85c;
+  background-color: #e0edc4;
 }
 .label-success[href]:hover,
 .label-success[href]:focus {
-  background-color: #449d44;
+  background-color: #cbe19d;
 }
 .label-info {
-  background-color: #5bc0de;
+  background-color: #ebf0f8;
 }
 .label-info[href]:hover,
 .label-info[href]:focus {
-  background-color: #31b0d5;
+  background-color: #c5d4eb;
 }
 .label-warning {
   background-color: #f0ad4e;
@@ -4989,7 +4989,7 @@ a.thumbnail.active {
   line-height: 22px;
   color: #ffffff;
   text-align: center;
-  background-color: #337ab7;
+  background-color: #0e659d;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -webkit-transition: width 0.6s ease;
@@ -5010,7 +5010,7 @@ a.thumbnail.active {
   animation: progress-bar-stripes 2s linear infinite;
 }
 .progress-bar-success {
-  background-color: #5cb85c;
+  background-color: #e0edc4;
 }
 .progress-striped .progress-bar-success {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -5018,7 +5018,7 @@ a.thumbnail.active {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .progress-bar-info {
-  background-color: #5bc0de;
+  background-color: #ebf0f8;
 }
 .progress-striped .progress-bar-info {
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
@@ -5141,8 +5141,8 @@ a.list-group-item:focus {
 .list-group-item.active:focus {
   z-index: 2;
   color: #ffffff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #0e659d;
+  border-color: #0e659d;
 }
 .list-group-item.active .list-group-item-heading,
 .list-group-item.active:hover .list-group-item-heading,
@@ -5158,7 +5158,7 @@ a.list-group-item:focus {
 .list-group-item.active .list-group-item-text,
 .list-group-item.active:hover .list-group-item-text,
 .list-group-item.active:focus .list-group-item-text {
-  color: #c7ddef;
+  color: #83c8f4;
 }
 .list-group-item-success {
   color: #3c763d;
@@ -5506,22 +5506,22 @@ a.list-group-item-danger.active:focus {
   border-bottom-color: #dddddd;
 }
 .panel-primary {
-  border-color: #337ab7;
+  border-color: #0e659d;
 }
 .panel-primary > .panel-heading {
   color: #ffffff;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #0e659d;
+  border-color: #0e659d;
 }
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #337ab7;
+  border-top-color: #0e659d;
 }
 .panel-primary > .panel-heading .badge {
-  color: #337ab7;
+  color: #0e659d;
   background-color: #ffffff;
 }
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #337ab7;
+  border-bottom-color: #0e659d;
 }
 .panel-success {
   border-color: #d6e9c6;
@@ -6893,7 +6893,7 @@ ul li.leaf {
   font-size: 120%;
 }
 .form-autocomplete .glyphicon.glyphicon-spin {
-  color: #337ab7;
+  color: #0e659d;
 }
 .form-autocomplete .input-group-addon {
   background-color: #ffffff;
@@ -9321,66 +9321,121 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
  *  Node / block webform component
  * --------------------------------------------------*/
 .node.node-webform {
-  padding-bottom: 30px;
+  margin-bottom: 50px;
 }
-.node.node-webform .row .col-sm-12 .field-name-field-image img {
+.field-name-newsletter .node.node-webform {
+  margin: 0;
+}
+.node.node-webform .row .col-sm-12 .field-name-title h2,
+.node.node-webform .row .col-sm-6 .field-name-title h2 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 22px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #444444;
+}
+@media screen and (min-width: 30em) {
+  .node.node-webform .row .col-sm-12 .field-name-title h2,
+  .node.node-webform .row .col-sm-6 .field-name-title h2 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-webform .row .col-sm-12 .field-name-title h2,
+  .node.node-webform .row .col-sm-6 .field-name-title h2 {
+    font-size: 30px;
+  }
+}
+.node.node-webform .row .col-sm-12 .field-name-field-image,
+.node.node-webform .row .col-sm-6 .field-name-field-image {
+  margin-top: 20px;
+}
+.node.node-webform .row .col-sm-12 .field-name-field-image img,
+.node.node-webform .row .col-sm-6 .field-name-field-image img {
   margin: 0 auto;
   width: 90%;
   height: auto;
 }
-.node.node-webform .row .col-sm-12 .field-name-body {
-  text-align: center;
-}
 .node.node-webform .row .col-sm-12 .field-name-body h1,
+.node.node-webform .row .col-sm-6 .field-name-body h1,
 .node.node-webform .row .col-sm-12 .field-name-body h2,
+.node.node-webform .row .col-sm-6 .field-name-body h2,
 .node.node-webform .row .col-sm-12 .field-name-body h3,
+.node.node-webform .row .col-sm-6 .field-name-body h3,
 .node.node-webform .row .col-sm-12 .field-name-body h4,
+.node.node-webform .row .col-sm-6 .field-name-body h4,
 .node.node-webform .row .col-sm-12 .field-name-body h5,
-.node.node-webform .row .col-sm-12 .field-name-body h6 {
+.node.node-webform .row .col-sm-6 .field-name-body h5,
+.node.node-webform .row .col-sm-12 .field-name-body h6,
+.node.node-webform .row .col-sm-6 .field-name-body h6 {
   font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
   font-size: 18px;
 }
 @media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body h1,
+  .node.node-webform .row .col-sm-6 .field-name-body h1,
   .node.node-webform .row .col-sm-12 .field-name-body h2,
+  .node.node-webform .row .col-sm-6 .field-name-body h2,
   .node.node-webform .row .col-sm-12 .field-name-body h3,
+  .node.node-webform .row .col-sm-6 .field-name-body h3,
   .node.node-webform .row .col-sm-12 .field-name-body h4,
+  .node.node-webform .row .col-sm-6 .field-name-body h4,
   .node.node-webform .row .col-sm-12 .field-name-body h5,
-  .node.node-webform .row .col-sm-12 .field-name-body h6 {
+  .node.node-webform .row .col-sm-6 .field-name-body h5,
+  .node.node-webform .row .col-sm-12 .field-name-body h6,
+  .node.node-webform .row .col-sm-6 .field-name-body h6 {
     font-size: 3.75vw;
   }
 }
 @media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body h1,
+  .node.node-webform .row .col-sm-6 .field-name-body h1,
   .node.node-webform .row .col-sm-12 .field-name-body h2,
+  .node.node-webform .row .col-sm-6 .field-name-body h2,
   .node.node-webform .row .col-sm-12 .field-name-body h3,
+  .node.node-webform .row .col-sm-6 .field-name-body h3,
   .node.node-webform .row .col-sm-12 .field-name-body h4,
+  .node.node-webform .row .col-sm-6 .field-name-body h4,
   .node.node-webform .row .col-sm-12 .field-name-body h5,
-  .node.node-webform .row .col-sm-12 .field-name-body h6 {
-    font-size: 20px;
+  .node.node-webform .row .col-sm-6 .field-name-body h5,
+  .node.node-webform .row .col-sm-12 .field-name-body h6,
+  .node.node-webform .row .col-sm-6 .field-name-body h6 {
+    font-size: 24px;
   }
 }
 .node.node-webform .row .col-sm-12 .field-name-body h1,
+.node.node-webform .row .col-sm-6 .field-name-body h1,
 .node.node-webform .row .col-sm-12 .field-name-body h2,
-.node.node-webform .row .col-sm-12 .field-name-body h3 {
-  font-size: 20px;
+.node.node-webform .row .col-sm-6 .field-name-body h2,
+.node.node-webform .row .col-sm-12 .field-name-body h3,
+.node.node-webform .row .col-sm-6 .field-name-body h3 {
+  font-size: 22px;
 }
 @media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body h1,
+  .node.node-webform .row .col-sm-6 .field-name-body h1,
   .node.node-webform .row .col-sm-12 .field-name-body h2,
-  .node.node-webform .row .col-sm-12 .field-name-body h3 {
-    font-size: 4.16666667vw;
+  .node.node-webform .row .col-sm-6 .field-name-body h2,
+  .node.node-webform .row .col-sm-12 .field-name-body h3,
+  .node.node-webform .row .col-sm-6 .field-name-body h3 {
+    font-size: 4.58333333vw;
   }
 }
 @media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body h1,
+  .node.node-webform .row .col-sm-6 .field-name-body h1,
   .node.node-webform .row .col-sm-12 .field-name-body h2,
-  .node.node-webform .row .col-sm-12 .field-name-body h3 {
-    font-size: 24px;
+  .node.node-webform .row .col-sm-6 .field-name-body h2,
+  .node.node-webform .row .col-sm-12 .field-name-body h3,
+  .node.node-webform .row .col-sm-6 .field-name-body h3 {
+    font-size: 30px;
   }
 }
 .node.node-webform .row .col-sm-12 .field-name-body p,
-.node.node-webform .row .col-sm-12 .field-name-body tbody td {
+.node.node-webform .row .col-sm-6 .field-name-body p,
+.node.node-webform .row .col-sm-12 .field-name-body tbody td,
+.node.node-webform .row .col-sm-6 .field-name-body tbody td {
   font-family: 'MuseoSans_700', sans-serif;
   font-size: 12px;
   -ms-word-break: break-all;
@@ -9393,77 +9448,101 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 }
 @media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body p,
-  .node.node-webform .row .col-sm-12 .field-name-body tbody td {
+  .node.node-webform .row .col-sm-6 .field-name-body p,
+  .node.node-webform .row .col-sm-12 .field-name-body tbody td,
+  .node.node-webform .row .col-sm-6 .field-name-body tbody td {
     font-size: 2.5vw;
   }
 }
 @media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body p,
-  .node.node-webform .row .col-sm-12 .field-name-body tbody td {
-    font-size: 16px;
+  .node.node-webform .row .col-sm-6 .field-name-body p,
+  .node.node-webform .row .col-sm-12 .field-name-body tbody td,
+  .node.node-webform .row .col-sm-6 .field-name-body tbody td {
+    font-size: 17px;
   }
 }
-.node.node-webform .row .col-sm-12 .field-name-body a {
+.node.node-webform .row .col-sm-12 .field-name-body a,
+.node.node-webform .row .col-sm-6 .field-name-body a {
   font-family: 'MuseoSans_700', sans-serif;
   font-size: 12px;
 }
 @media screen and (min-width: 30em) {
-  .node.node-webform .row .col-sm-12 .field-name-body a {
+  .node.node-webform .row .col-sm-12 .field-name-body a,
+  .node.node-webform .row .col-sm-6 .field-name-body a {
     font-size: 2.5vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node.node-webform .row .col-sm-12 .field-name-body a {
-    font-size: 16px;
+  .node.node-webform .row .col-sm-12 .field-name-body a,
+  .node.node-webform .row .col-sm-6 .field-name-body a {
+    font-size: 17px;
   }
 }
 .node.node-webform .row .col-sm-12 .field-name-body a:hover,
-.node.node-webform .row .col-sm-12 .field-name-body a:focus {
+.node.node-webform .row .col-sm-6 .field-name-body a:hover,
+.node.node-webform .row .col-sm-12 .field-name-body a:focus,
+.node.node-webform .row .col-sm-6 .field-name-body a:focus {
   color: #222222;
   text-decoration: none;
   background: none;
 }
 .node.node-webform .row .col-sm-12 .field-name-body pre,
-.node.node-webform .row .col-sm-12 .field-name-body address {
+.node.node-webform .row .col-sm-6 .field-name-body pre,
+.node.node-webform .row .col-sm-12 .field-name-body address,
+.node.node-webform .row .col-sm-6 .field-name-body address {
   font-family: 'MuseoSans_700', sans-serif;
   font-size: 12px;
 }
 @media screen and (min-width: 30em) {
   .node.node-webform .row .col-sm-12 .field-name-body pre,
-  .node.node-webform .row .col-sm-12 .field-name-body address {
+  .node.node-webform .row .col-sm-6 .field-name-body pre,
+  .node.node-webform .row .col-sm-12 .field-name-body address,
+  .node.node-webform .row .col-sm-6 .field-name-body address {
     font-size: 2.5vw;
   }
 }
 @media screen and (min-width: 48em) {
   .node.node-webform .row .col-sm-12 .field-name-body pre,
-  .node.node-webform .row .col-sm-12 .field-name-body address {
-    font-size: 16px;
+  .node.node-webform .row .col-sm-6 .field-name-body pre,
+  .node.node-webform .row .col-sm-12 .field-name-body address,
+  .node.node-webform .row .col-sm-6 .field-name-body address {
+    font-size: 17px;
   }
 }
-.node.node-webform .row .col-sm-12 .field-name-body strong {
+.node.node-webform .row .col-sm-12 .field-name-body strong,
+.node.node-webform .row .col-sm-6 .field-name-body strong {
   font-family: 'MuseoSans_900', sans-serif;
   font-size: 16px;
 }
 @media screen and (min-width: 30em) {
-  .node.node-webform .row .col-sm-12 .field-name-body strong {
+  .node.node-webform .row .col-sm-12 .field-name-body strong,
+  .node.node-webform .row .col-sm-6 .field-name-body strong {
     font-size: 3.33333333vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node.node-webform .row .col-sm-12 .field-name-body strong {
-    font-size: 18px;
+  .node.node-webform .row .col-sm-12 .field-name-body strong,
+  .node.node-webform .row .col-sm-6 .field-name-body strong {
+    font-size: 19px;
   }
 }
-.node.node-webform .row .col-sm-12 .field-name-body hr {
+.node.node-webform .row .col-sm-12 .field-name-body hr,
+.node.node-webform .row .col-sm-6 .field-name-body hr {
   border: 0;
   border-bottom: 2px solid #444444;
   background: none;
 }
 .node.node-webform .row .col-sm-12 .field-name-body img,
+.node.node-webform .row .col-sm-6 .field-name-body img,
 .node.node-webform .row .col-sm-12 .field-name-body embed,
+.node.node-webform .row .col-sm-6 .field-name-body embed,
 .node.node-webform .row .col-sm-12 .field-name-body video,
+.node.node-webform .row .col-sm-6 .field-name-body video,
 .node.node-webform .row .col-sm-12 .field-name-body audio,
-.node.node-webform .row .col-sm-12 .field-name-body iframe {
+.node.node-webform .row .col-sm-6 .field-name-body audio,
+.node.node-webform .row .col-sm-12 .field-name-body iframe,
+.node.node-webform .row .col-sm-6 .field-name-body iframe {
   display: block;
   overflow: hidden;
   margin: 20px auto;
@@ -9473,87 +9552,141 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   height: auto;
   min-height: 350px;
 }
-@media screen and (min-width: 48em) {
-  .node.node-webform .row .col-sm-12 .field-name-body {
-    text-align: left;
-  }
+.node.node-webform .row .col-sm-12 .field-name-body p,
+.node.node-webform .row .col-sm-6 .field-name-body p {
+  line-height: 22px;
+  text-align: left;
 }
 /*
  *  Node page component
  * --------------------------------------------------*/
 .node-page {
-  padding-top: 30px;
-}
-.node-page div.col-sm-12 {
-  width: 100%;
-}
-.node-page div.col-sm-12 .field-name-title h2 {
-  font-family: 'MuseoSans_900', sans-serif;
-  font-size: 21.25px;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: #444444;
+  margin-bottom: 50px;
 }
 @media screen and (min-width: 30em) {
-  .node-page div.col-sm-12 .field-name-title h2 {
-    font-size: 4.42708333vw;
+  .node-page {
+    margin: 0 auto 50px;
+    width: 80%;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-title h2 {
-    font-size: 34px;
+  .node-page {
+    margin: 0 auto 50px;
+    width: 75%;
   }
 }
-.node-page div.col-sm-12 .field-name-body h1,
-.node-page div.col-sm-12 .field-name-body h2,
-.node-page div.col-sm-12 .field-name-body h3,
-.node-page div.col-sm-12 .field-name-body h4,
-.node-page div.col-sm-12 .field-name-body h5,
-.node-page div.col-sm-12 .field-name-body h6 {
+@media screen and (min-width: 64em) {
+  .node-page {
+    margin: 0 auto 50px;
+    width: 70%;
+  }
+}
+@media screen and (min-width: 80em) {
+  .node-page {
+    margin: 0 auto 50px;
+    width: 60%;
+  }
+}
+.node-page .row div.col-sm-12 .field-name-title h2,
+.node-page .row .col-sm-6 .field-name-title h2 {
   font-family: 'MuseoSans_900', sans-serif;
+  font-size: 22px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #444444;
+}
+@media screen and (min-width: 30em) {
+  .node-page .row div.col-sm-12 .field-name-title h2,
+  .node-page .row .col-sm-6 .field-name-title h2 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node-page .row div.col-sm-12 .field-name-title h2,
+  .node-page .row .col-sm-6 .field-name-title h2 {
+    font-size: 30px;
+  }
+}
+.node-page .row div.col-sm-12 .field-name-body h1,
+.node-page .row .col-sm-6 .field-name-body h1,
+.node-page .row div.col-sm-12 .field-name-body h2,
+.node-page .row .col-sm-6 .field-name-body h2,
+.node-page .row div.col-sm-12 .field-name-body h3,
+.node-page .row .col-sm-6 .field-name-body h3,
+.node-page .row div.col-sm-12 .field-name-body h4,
+.node-page .row .col-sm-6 .field-name-body h4,
+.node-page .row div.col-sm-12 .field-name-body h5,
+.node-page .row .col-sm-6 .field-name-body h5,
+.node-page .row div.col-sm-12 .field-name-body h6,
+.node-page .row .col-sm-6 .field-name-body h6 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
   font-size: 18px;
 }
 @media screen and (min-width: 30em) {
-  .node-page div.col-sm-12 .field-name-body h1,
-  .node-page div.col-sm-12 .field-name-body h2,
-  .node-page div.col-sm-12 .field-name-body h3,
-  .node-page div.col-sm-12 .field-name-body h4,
-  .node-page div.col-sm-12 .field-name-body h5,
-  .node-page div.col-sm-12 .field-name-body h6 {
+  .node-page .row div.col-sm-12 .field-name-body h1,
+  .node-page .row .col-sm-6 .field-name-body h1,
+  .node-page .row div.col-sm-12 .field-name-body h2,
+  .node-page .row .col-sm-6 .field-name-body h2,
+  .node-page .row div.col-sm-12 .field-name-body h3,
+  .node-page .row .col-sm-6 .field-name-body h3,
+  .node-page .row div.col-sm-12 .field-name-body h4,
+  .node-page .row .col-sm-6 .field-name-body h4,
+  .node-page .row div.col-sm-12 .field-name-body h5,
+  .node-page .row .col-sm-6 .field-name-body h5,
+  .node-page .row div.col-sm-12 .field-name-body h6,
+  .node-page .row .col-sm-6 .field-name-body h6 {
     font-size: 3.75vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body h1,
-  .node-page div.col-sm-12 .field-name-body h2,
-  .node-page div.col-sm-12 .field-name-body h3,
-  .node-page div.col-sm-12 .field-name-body h4,
-  .node-page div.col-sm-12 .field-name-body h5,
-  .node-page div.col-sm-12 .field-name-body h6 {
-    font-size: 20px;
-  }
-}
-.node-page div.col-sm-12 .field-name-body h1,
-.node-page div.col-sm-12 .field-name-body h2,
-.node-page div.col-sm-12 .field-name-body h3 {
-  font-size: 20px;
-}
-@media screen and (min-width: 30em) {
-  .node-page div.col-sm-12 .field-name-body h1,
-  .node-page div.col-sm-12 .field-name-body h2,
-  .node-page div.col-sm-12 .field-name-body h3 {
-    font-size: 4.16666667vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body h1,
-  .node-page div.col-sm-12 .field-name-body h2,
-  .node-page div.col-sm-12 .field-name-body h3 {
+  .node-page .row div.col-sm-12 .field-name-body h1,
+  .node-page .row .col-sm-6 .field-name-body h1,
+  .node-page .row div.col-sm-12 .field-name-body h2,
+  .node-page .row .col-sm-6 .field-name-body h2,
+  .node-page .row div.col-sm-12 .field-name-body h3,
+  .node-page .row .col-sm-6 .field-name-body h3,
+  .node-page .row div.col-sm-12 .field-name-body h4,
+  .node-page .row .col-sm-6 .field-name-body h4,
+  .node-page .row div.col-sm-12 .field-name-body h5,
+  .node-page .row .col-sm-6 .field-name-body h5,
+  .node-page .row div.col-sm-12 .field-name-body h6,
+  .node-page .row .col-sm-6 .field-name-body h6 {
     font-size: 24px;
   }
 }
-.node-page div.col-sm-12 .field-name-body p,
-.node-page div.col-sm-12 .field-name-body tbody td {
+.node-page .row div.col-sm-12 .field-name-body h1,
+.node-page .row .col-sm-6 .field-name-body h1,
+.node-page .row div.col-sm-12 .field-name-body h2,
+.node-page .row .col-sm-6 .field-name-body h2,
+.node-page .row div.col-sm-12 .field-name-body h3,
+.node-page .row .col-sm-6 .field-name-body h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 30em) {
+  .node-page .row div.col-sm-12 .field-name-body h1,
+  .node-page .row .col-sm-6 .field-name-body h1,
+  .node-page .row div.col-sm-12 .field-name-body h2,
+  .node-page .row .col-sm-6 .field-name-body h2,
+  .node-page .row div.col-sm-12 .field-name-body h3,
+  .node-page .row .col-sm-6 .field-name-body h3 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node-page .row div.col-sm-12 .field-name-body h1,
+  .node-page .row .col-sm-6 .field-name-body h1,
+  .node-page .row div.col-sm-12 .field-name-body h2,
+  .node-page .row .col-sm-6 .field-name-body h2,
+  .node-page .row div.col-sm-12 .field-name-body h3,
+  .node-page .row .col-sm-6 .field-name-body h3 {
+    font-size: 30px;
+  }
+}
+.node-page .row div.col-sm-12 .field-name-body p,
+.node-page .row .col-sm-6 .field-name-body p,
+.node-page .row div.col-sm-12 .field-name-body tbody td,
+.node-page .row .col-sm-6 .field-name-body tbody td {
   font-family: 'MuseoSans_700', sans-serif;
   font-size: 12px;
   -ms-word-break: break-all;
@@ -9565,78 +9698,102 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   hyphens: auto;
 }
 @media screen and (min-width: 30em) {
-  .node-page div.col-sm-12 .field-name-body p,
-  .node-page div.col-sm-12 .field-name-body tbody td {
+  .node-page .row div.col-sm-12 .field-name-body p,
+  .node-page .row .col-sm-6 .field-name-body p,
+  .node-page .row div.col-sm-12 .field-name-body tbody td,
+  .node-page .row .col-sm-6 .field-name-body tbody td {
     font-size: 2.5vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body p,
-  .node-page div.col-sm-12 .field-name-body tbody td {
-    font-size: 16px;
+  .node-page .row div.col-sm-12 .field-name-body p,
+  .node-page .row .col-sm-6 .field-name-body p,
+  .node-page .row div.col-sm-12 .field-name-body tbody td,
+  .node-page .row .col-sm-6 .field-name-body tbody td {
+    font-size: 17px;
   }
 }
-.node-page div.col-sm-12 .field-name-body a {
+.node-page .row div.col-sm-12 .field-name-body a,
+.node-page .row .col-sm-6 .field-name-body a {
   font-family: 'MuseoSans_700', sans-serif;
   font-size: 12px;
 }
 @media screen and (min-width: 30em) {
-  .node-page div.col-sm-12 .field-name-body a {
+  .node-page .row div.col-sm-12 .field-name-body a,
+  .node-page .row .col-sm-6 .field-name-body a {
     font-size: 2.5vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body a {
-    font-size: 16px;
+  .node-page .row div.col-sm-12 .field-name-body a,
+  .node-page .row .col-sm-6 .field-name-body a {
+    font-size: 17px;
   }
 }
-.node-page div.col-sm-12 .field-name-body a:hover,
-.node-page div.col-sm-12 .field-name-body a:focus {
+.node-page .row div.col-sm-12 .field-name-body a:hover,
+.node-page .row .col-sm-6 .field-name-body a:hover,
+.node-page .row div.col-sm-12 .field-name-body a:focus,
+.node-page .row .col-sm-6 .field-name-body a:focus {
   color: #222222;
   text-decoration: none;
   background: none;
 }
-.node-page div.col-sm-12 .field-name-body pre,
-.node-page div.col-sm-12 .field-name-body address {
+.node-page .row div.col-sm-12 .field-name-body pre,
+.node-page .row .col-sm-6 .field-name-body pre,
+.node-page .row div.col-sm-12 .field-name-body address,
+.node-page .row .col-sm-6 .field-name-body address {
   font-family: 'MuseoSans_700', sans-serif;
   font-size: 12px;
 }
 @media screen and (min-width: 30em) {
-  .node-page div.col-sm-12 .field-name-body pre,
-  .node-page div.col-sm-12 .field-name-body address {
+  .node-page .row div.col-sm-12 .field-name-body pre,
+  .node-page .row .col-sm-6 .field-name-body pre,
+  .node-page .row div.col-sm-12 .field-name-body address,
+  .node-page .row .col-sm-6 .field-name-body address {
     font-size: 2.5vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body pre,
-  .node-page div.col-sm-12 .field-name-body address {
-    font-size: 16px;
+  .node-page .row div.col-sm-12 .field-name-body pre,
+  .node-page .row .col-sm-6 .field-name-body pre,
+  .node-page .row div.col-sm-12 .field-name-body address,
+  .node-page .row .col-sm-6 .field-name-body address {
+    font-size: 17px;
   }
 }
-.node-page div.col-sm-12 .field-name-body strong {
+.node-page .row div.col-sm-12 .field-name-body strong,
+.node-page .row .col-sm-6 .field-name-body strong {
   font-family: 'MuseoSans_900', sans-serif;
   font-size: 16px;
 }
 @media screen and (min-width: 30em) {
-  .node-page div.col-sm-12 .field-name-body strong {
+  .node-page .row div.col-sm-12 .field-name-body strong,
+  .node-page .row .col-sm-6 .field-name-body strong {
     font-size: 3.33333333vw;
   }
 }
 @media screen and (min-width: 48em) {
-  .node-page div.col-sm-12 .field-name-body strong {
-    font-size: 18px;
+  .node-page .row div.col-sm-12 .field-name-body strong,
+  .node-page .row .col-sm-6 .field-name-body strong {
+    font-size: 19px;
   }
 }
-.node-page div.col-sm-12 .field-name-body hr {
+.node-page .row div.col-sm-12 .field-name-body hr,
+.node-page .row .col-sm-6 .field-name-body hr {
   border: 0;
   border-bottom: 2px solid #444444;
   background: none;
 }
-.node-page div.col-sm-12 .field-name-body img,
-.node-page div.col-sm-12 .field-name-body embed,
-.node-page div.col-sm-12 .field-name-body video,
-.node-page div.col-sm-12 .field-name-body audio,
-.node-page div.col-sm-12 .field-name-body iframe {
+.node-page .row div.col-sm-12 .field-name-body img,
+.node-page .row .col-sm-6 .field-name-body img,
+.node-page .row div.col-sm-12 .field-name-body embed,
+.node-page .row .col-sm-6 .field-name-body embed,
+.node-page .row div.col-sm-12 .field-name-body video,
+.node-page .row .col-sm-6 .field-name-body video,
+.node-page .row div.col-sm-12 .field-name-body audio,
+.node-page .row .col-sm-6 .field-name-body audio,
+.node-page .row div.col-sm-12 .field-name-body iframe,
+.node-page .row .col-sm-6 .field-name-body iframe {
   display: block;
   overflow: hidden;
   margin: 20px auto;
@@ -9646,25 +9803,21 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   height: auto;
   min-height: 350px;
 }
-@media screen and (min-width: 64em) {
-  .node-page div.col-sm-12 .field-name-body {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    column-count: 2;
-    -webkit-column-gap: 30px;
-    -moz-column-gap: 30px;
-    column-gap: 30px;
-  }
+.node-page .row div.col-sm-12 .field-name-body p,
+.node-page .row .col-sm-6 .field-name-body p {
+  margin-bottom: 30px;
+  line-height: 22px;
 }
-@media screen and (min-width: 80em) {
-  .node-page div.col-sm-12 .field-name-body {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-    -webkit-column-gap: 30px;
-    -moz-column-gap: 30px;
-    column-gap: 30px;
-  }
+.node-page .row div.col-sm-12 .field-name-body a,
+.node-page .row .col-sm-6 .field-name-body a {
+  font-family: 'MuseoSans_900', sans-serif;
+  color: #444444;
+}
+.node-page .row div.col-sm-12 .field-name-body a:focus,
+.node-page .row .col-sm-6 .field-name-body a:focus,
+.node-page .row div.col-sm-12 .field-name-body a:hover,
+.node-page .row .col-sm-6 .field-name-body a:hover {
+  color: #79b731;
 }
 /*
  *  Footer node component
@@ -9971,6 +10124,892 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
     font-size: 23px;
     line-height: 23px;
   }
+}
+/*
+ *  Node donate component
+ * --------------------------------------------------*/
+.node.node-donate {
+  margin-bottom: 50px;
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12,
+  .node.node-donate .row .col-sm-6 {
+    padding-right: 10%;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-title h2,
+.node.node-donate .row .col-sm-6 .field-name-title h2 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 22px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #444444;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-title h2,
+  .node.node-donate .row .col-sm-6 .field-name-title h2 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-title h2,
+  .node.node-donate .row .col-sm-6 .field-name-title h2 {
+    font-size: 30px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-body h1,
+.node.node-donate .row .col-sm-6 .field-name-body h1,
+.node.node-donate .row .col-sm-12 .field-name-body h2,
+.node.node-donate .row .col-sm-6 .field-name-body h2,
+.node.node-donate .row .col-sm-12 .field-name-body h3,
+.node.node-donate .row .col-sm-6 .field-name-body h3,
+.node.node-donate .row .col-sm-12 .field-name-body h4,
+.node.node-donate .row .col-sm-6 .field-name-body h4,
+.node.node-donate .row .col-sm-12 .field-name-body h5,
+.node.node-donate .row .col-sm-6 .field-name-body h5,
+.node.node-donate .row .col-sm-12 .field-name-body h6,
+.node.node-donate .row .col-sm-6 .field-name-body h6 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-body h1,
+  .node.node-donate .row .col-sm-6 .field-name-body h1,
+  .node.node-donate .row .col-sm-12 .field-name-body h2,
+  .node.node-donate .row .col-sm-6 .field-name-body h2,
+  .node.node-donate .row .col-sm-12 .field-name-body h3,
+  .node.node-donate .row .col-sm-6 .field-name-body h3,
+  .node.node-donate .row .col-sm-12 .field-name-body h4,
+  .node.node-donate .row .col-sm-6 .field-name-body h4,
+  .node.node-donate .row .col-sm-12 .field-name-body h5,
+  .node.node-donate .row .col-sm-6 .field-name-body h5,
+  .node.node-donate .row .col-sm-12 .field-name-body h6,
+  .node.node-donate .row .col-sm-6 .field-name-body h6 {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-body h1,
+  .node.node-donate .row .col-sm-6 .field-name-body h1,
+  .node.node-donate .row .col-sm-12 .field-name-body h2,
+  .node.node-donate .row .col-sm-6 .field-name-body h2,
+  .node.node-donate .row .col-sm-12 .field-name-body h3,
+  .node.node-donate .row .col-sm-6 .field-name-body h3,
+  .node.node-donate .row .col-sm-12 .field-name-body h4,
+  .node.node-donate .row .col-sm-6 .field-name-body h4,
+  .node.node-donate .row .col-sm-12 .field-name-body h5,
+  .node.node-donate .row .col-sm-6 .field-name-body h5,
+  .node.node-donate .row .col-sm-12 .field-name-body h6,
+  .node.node-donate .row .col-sm-6 .field-name-body h6 {
+    font-size: 24px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-body h1,
+.node.node-donate .row .col-sm-6 .field-name-body h1,
+.node.node-donate .row .col-sm-12 .field-name-body h2,
+.node.node-donate .row .col-sm-6 .field-name-body h2,
+.node.node-donate .row .col-sm-12 .field-name-body h3,
+.node.node-donate .row .col-sm-6 .field-name-body h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-body h1,
+  .node.node-donate .row .col-sm-6 .field-name-body h1,
+  .node.node-donate .row .col-sm-12 .field-name-body h2,
+  .node.node-donate .row .col-sm-6 .field-name-body h2,
+  .node.node-donate .row .col-sm-12 .field-name-body h3,
+  .node.node-donate .row .col-sm-6 .field-name-body h3 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-body h1,
+  .node.node-donate .row .col-sm-6 .field-name-body h1,
+  .node.node-donate .row .col-sm-12 .field-name-body h2,
+  .node.node-donate .row .col-sm-6 .field-name-body h2,
+  .node.node-donate .row .col-sm-12 .field-name-body h3,
+  .node.node-donate .row .col-sm-6 .field-name-body h3 {
+    font-size: 30px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-body p,
+.node.node-donate .row .col-sm-6 .field-name-body p,
+.node.node-donate .row .col-sm-12 .field-name-body tbody td,
+.node.node-donate .row .col-sm-6 .field-name-body tbody td {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-body p,
+  .node.node-donate .row .col-sm-6 .field-name-body p,
+  .node.node-donate .row .col-sm-12 .field-name-body tbody td,
+  .node.node-donate .row .col-sm-6 .field-name-body tbody td {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-body p,
+  .node.node-donate .row .col-sm-6 .field-name-body p,
+  .node.node-donate .row .col-sm-12 .field-name-body tbody td,
+  .node.node-donate .row .col-sm-6 .field-name-body tbody td {
+    font-size: 17px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-body a,
+.node.node-donate .row .col-sm-6 .field-name-body a {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-body a,
+  .node.node-donate .row .col-sm-6 .field-name-body a {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-body a,
+  .node.node-donate .row .col-sm-6 .field-name-body a {
+    font-size: 17px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-body a:hover,
+.node.node-donate .row .col-sm-6 .field-name-body a:hover,
+.node.node-donate .row .col-sm-12 .field-name-body a:focus,
+.node.node-donate .row .col-sm-6 .field-name-body a:focus {
+  color: #222222;
+  text-decoration: none;
+  background: none;
+}
+.node.node-donate .row .col-sm-12 .field-name-body pre,
+.node.node-donate .row .col-sm-6 .field-name-body pre,
+.node.node-donate .row .col-sm-12 .field-name-body address,
+.node.node-donate .row .col-sm-6 .field-name-body address {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-body pre,
+  .node.node-donate .row .col-sm-6 .field-name-body pre,
+  .node.node-donate .row .col-sm-12 .field-name-body address,
+  .node.node-donate .row .col-sm-6 .field-name-body address {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-body pre,
+  .node.node-donate .row .col-sm-6 .field-name-body pre,
+  .node.node-donate .row .col-sm-12 .field-name-body address,
+  .node.node-donate .row .col-sm-6 .field-name-body address {
+    font-size: 17px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-body strong,
+.node.node-donate .row .col-sm-6 .field-name-body strong {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 16px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-body strong,
+  .node.node-donate .row .col-sm-6 .field-name-body strong {
+    font-size: 3.33333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-body strong,
+  .node.node-donate .row .col-sm-6 .field-name-body strong {
+    font-size: 19px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-body hr,
+.node.node-donate .row .col-sm-6 .field-name-body hr {
+  border: 0;
+  border-bottom: 2px solid #444444;
+  background: none;
+}
+.node.node-donate .row .col-sm-12 .field-name-body img,
+.node.node-donate .row .col-sm-6 .field-name-body img,
+.node.node-donate .row .col-sm-12 .field-name-body embed,
+.node.node-donate .row .col-sm-6 .field-name-body embed,
+.node.node-donate .row .col-sm-12 .field-name-body video,
+.node.node-donate .row .col-sm-6 .field-name-body video,
+.node.node-donate .row .col-sm-12 .field-name-body audio,
+.node.node-donate .row .col-sm-6 .field-name-body audio,
+.node.node-donate .row .col-sm-12 .field-name-body iframe,
+.node.node-donate .row .col-sm-6 .field-name-body iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 350px;
+}
+.node.node-donate .row .col-sm-12 .field-name-body p,
+.node.node-donate .row .col-sm-6 .field-name-body p {
+  line-height: 22px;
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details {
+  margin: 30px auto 0;
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details h1,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details h1,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details h2,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details h2,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details h3,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details h3,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details h4,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details h4,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details h5,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details h5,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details h6,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details h6 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h1,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h1,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h2,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h2,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h3,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h3,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h4,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h4,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h5,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h5,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h6,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h6 {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h1,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h1,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h2,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h2,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h3,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h3,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h4,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h4,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h5,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h5,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h6,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h6 {
+    font-size: 24px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details h1,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details h1,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details h2,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details h2,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details h3,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h1,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h1,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h2,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h2,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h3,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h3 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h1,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h1,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h2,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h2,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details h3,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details h3 {
+    font-size: 30px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details p,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details p,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details tbody td,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details tbody td {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details p,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details p,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details tbody td,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details tbody td {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details p,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details p,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details tbody td,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details tbody td {
+    font-size: 17px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details a,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details a {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details a,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details a {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details a,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details a {
+    font-size: 17px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details a:hover,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details a:hover,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details a:focus,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details a:focus {
+  color: #222222;
+  text-decoration: none;
+  background: none;
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details pre,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details pre,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details address,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details address {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details pre,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details pre,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details address,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details address {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details pre,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details pre,
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details address,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details address {
+    font-size: 17px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details strong,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details strong {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 16px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details strong,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details strong {
+    font-size: 3.33333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-donate .row .col-sm-12 .field-name-field-account-details strong,
+  .node.node-donate .row .col-sm-6 .field-name-field-account-details strong {
+    font-size: 19px;
+  }
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details hr,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details hr {
+  border: 0;
+  border-bottom: 2px solid #444444;
+  background: none;
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details img,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details img,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details embed,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details embed,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details video,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details video,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details audio,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details audio,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details iframe,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 350px;
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details p,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details p {
+  font-family: 'MuseoSans_300', sans-serif;
+  line-height: 22px;
+}
+/*
+ *  Node testimonial component
+ * --------------------------------------------------*/
+.node.node-testimonial {
+  background-color: #ebf0f8;
+}
+.node.node-testimonial .row .col-sm-12,
+.node.node-testimonial .row .col-sm-6 {
+  padding: 15px;
+}
+.node.node-testimonial .row .col-sm-12 .field-name-title h2,
+.node.node-testimonial .row .col-sm-6 .field-name-title h2 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 22px;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #444444;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-title h2,
+  .node.node-testimonial .row .col-sm-6 .field-name-title h2 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-title h2,
+  .node.node-testimonial .row .col-sm-6 .field-name-title h2 {
+    font-size: 30px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .field-name-field-picture img,
+.node.node-testimonial .row .col-sm-6 .field-name-field-picture img {
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body,
+.node.node-testimonial .row .col-sm-6 .field-name-body {
+  margin: 5px auto 0;
+  width: 80%;
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body h1,
+.node.node-testimonial .row .col-sm-6 .field-name-body h1,
+.node.node-testimonial .row .col-sm-12 .field-name-body h2,
+.node.node-testimonial .row .col-sm-6 .field-name-body h2,
+.node.node-testimonial .row .col-sm-12 .field-name-body h3,
+.node.node-testimonial .row .col-sm-6 .field-name-body h3,
+.node.node-testimonial .row .col-sm-12 .field-name-body h4,
+.node.node-testimonial .row .col-sm-6 .field-name-body h4,
+.node.node-testimonial .row .col-sm-12 .field-name-body h5,
+.node.node-testimonial .row .col-sm-6 .field-name-body h5,
+.node.node-testimonial .row .col-sm-12 .field-name-body h6,
+.node.node-testimonial .row .col-sm-6 .field-name-body h6 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body h1,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h1,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h2,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h2,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h3,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h3,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h4,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h4,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h5,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h5,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h6,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h6 {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body h1,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h1,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h2,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h2,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h3,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h3,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h4,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h4,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h5,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h5,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h6,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h6 {
+    font-size: 24px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body h1,
+.node.node-testimonial .row .col-sm-6 .field-name-body h1,
+.node.node-testimonial .row .col-sm-12 .field-name-body h2,
+.node.node-testimonial .row .col-sm-6 .field-name-body h2,
+.node.node-testimonial .row .col-sm-12 .field-name-body h3,
+.node.node-testimonial .row .col-sm-6 .field-name-body h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body h1,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h1,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h2,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h2,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h3,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h3 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body h1,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h1,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h2,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h2,
+  .node.node-testimonial .row .col-sm-12 .field-name-body h3,
+  .node.node-testimonial .row .col-sm-6 .field-name-body h3 {
+    font-size: 30px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body p,
+.node.node-testimonial .row .col-sm-6 .field-name-body p,
+.node.node-testimonial .row .col-sm-12 .field-name-body tbody td,
+.node.node-testimonial .row .col-sm-6 .field-name-body tbody td {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 15.625px;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body p,
+  .node.node-testimonial .row .col-sm-6 .field-name-body p,
+  .node.node-testimonial .row .col-sm-12 .field-name-body tbody td,
+  .node.node-testimonial .row .col-sm-6 .field-name-body tbody td {
+    font-size: 3.25520833vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body p,
+  .node.node-testimonial .row .col-sm-6 .field-name-body p,
+  .node.node-testimonial .row .col-sm-12 .field-name-body tbody td,
+  .node.node-testimonial .row .col-sm-6 .field-name-body tbody td {
+    font-size: 25px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body a,
+.node.node-testimonial .row .col-sm-6 .field-name-body a {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 15.625px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body a,
+  .node.node-testimonial .row .col-sm-6 .field-name-body a {
+    font-size: 3.25520833vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body a,
+  .node.node-testimonial .row .col-sm-6 .field-name-body a {
+    font-size: 25px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body a:hover,
+.node.node-testimonial .row .col-sm-6 .field-name-body a:hover,
+.node.node-testimonial .row .col-sm-12 .field-name-body a:focus,
+.node.node-testimonial .row .col-sm-6 .field-name-body a:focus {
+  color: #222222;
+  text-decoration: none;
+  background: none;
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body pre,
+.node.node-testimonial .row .col-sm-6 .field-name-body pre,
+.node.node-testimonial .row .col-sm-12 .field-name-body address,
+.node.node-testimonial .row .col-sm-6 .field-name-body address {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 15.625px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body pre,
+  .node.node-testimonial .row .col-sm-6 .field-name-body pre,
+  .node.node-testimonial .row .col-sm-12 .field-name-body address,
+  .node.node-testimonial .row .col-sm-6 .field-name-body address {
+    font-size: 3.25520833vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body pre,
+  .node.node-testimonial .row .col-sm-6 .field-name-body pre,
+  .node.node-testimonial .row .col-sm-12 .field-name-body address,
+  .node.node-testimonial .row .col-sm-6 .field-name-body address {
+    font-size: 25px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body strong,
+.node.node-testimonial .row .col-sm-6 .field-name-body strong {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 16.875px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body strong,
+  .node.node-testimonial .row .col-sm-6 .field-name-body strong {
+    font-size: 3.515625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .field-name-body strong,
+  .node.node-testimonial .row .col-sm-6 .field-name-body strong {
+    font-size: 27px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body hr,
+.node.node-testimonial .row .col-sm-6 .field-name-body hr {
+  border: 0;
+  border-bottom: 2px solid #444444;
+  background: none;
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body img,
+.node.node-testimonial .row .col-sm-6 .field-name-body img,
+.node.node-testimonial .row .col-sm-12 .field-name-body embed,
+.node.node-testimonial .row .col-sm-6 .field-name-body embed,
+.node.node-testimonial .row .col-sm-12 .field-name-body video,
+.node.node-testimonial .row .col-sm-6 .field-name-body video,
+.node.node-testimonial .row .col-sm-12 .field-name-body audio,
+.node.node-testimonial .row .col-sm-6 .field-name-body audio,
+.node.node-testimonial .row .col-sm-12 .field-name-body iframe,
+.node.node-testimonial .row .col-sm-6 .field-name-body iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 350px;
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body p,
+.node.node-testimonial .row .col-sm-6 .field-name-body p {
+  font-family: 'MuseoSans_900', sans-serif;
+  color: #0e659d;
+  line-height: 30px;
+  text-align: center;
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim,
+.node.node-testimonial .row .col-sm-6 .campaign-claim {
+  margin: 30px auto;
+  width: 60%;
+  font-family: 'MuseoSans_300', sans-serif;
+  color: #0e659d;
+  line-height: 24px;
+  text-align: center;
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim h1,
+.node.node-testimonial .row .col-sm-6 .campaign-claim h1,
+.node.node-testimonial .row .col-sm-12 .campaign-claim h2,
+.node.node-testimonial .row .col-sm-6 .campaign-claim h2,
+.node.node-testimonial .row .col-sm-12 .campaign-claim h3,
+.node.node-testimonial .row .col-sm-6 .campaign-claim h3,
+.node.node-testimonial .row .col-sm-12 .campaign-claim h4,
+.node.node-testimonial .row .col-sm-6 .campaign-claim h4,
+.node.node-testimonial .row .col-sm-12 .campaign-claim h5,
+.node.node-testimonial .row .col-sm-6 .campaign-claim h5,
+.node.node-testimonial .row .col-sm-12 .campaign-claim h6,
+.node.node-testimonial .row .col-sm-6 .campaign-claim h6 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h1,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h1,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h2,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h2,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h3,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h3,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h4,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h4,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h5,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h5,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h6,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h6 {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h1,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h1,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h2,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h2,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h3,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h3,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h4,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h4,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h5,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h5,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h6,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h6 {
+    font-size: 24px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim h1,
+.node.node-testimonial .row .col-sm-6 .campaign-claim h1,
+.node.node-testimonial .row .col-sm-12 .campaign-claim h2,
+.node.node-testimonial .row .col-sm-6 .campaign-claim h2,
+.node.node-testimonial .row .col-sm-12 .campaign-claim h3,
+.node.node-testimonial .row .col-sm-6 .campaign-claim h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h1,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h1,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h2,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h2,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h3,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h3 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h1,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h1,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h2,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h2,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim h3,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim h3 {
+    font-size: 30px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim p,
+.node.node-testimonial .row .col-sm-6 .campaign-claim p,
+.node.node-testimonial .row .col-sm-12 .campaign-claim tbody td,
+.node.node-testimonial .row .col-sm-6 .campaign-claim tbody td {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 15px;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim p,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim p,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim tbody td,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim tbody td {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim p,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim p,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim tbody td,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim tbody td {
+    font-size: 24px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim a,
+.node.node-testimonial .row .col-sm-6 .campaign-claim a {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 15px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim a,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim a {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim a,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim a {
+    font-size: 24px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim a:hover,
+.node.node-testimonial .row .col-sm-6 .campaign-claim a:hover,
+.node.node-testimonial .row .col-sm-12 .campaign-claim a:focus,
+.node.node-testimonial .row .col-sm-6 .campaign-claim a:focus {
+  color: #222222;
+  text-decoration: none;
+  background: none;
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim pre,
+.node.node-testimonial .row .col-sm-6 .campaign-claim pre,
+.node.node-testimonial .row .col-sm-12 .campaign-claim address,
+.node.node-testimonial .row .col-sm-6 .campaign-claim address {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 15px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim pre,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim pre,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim address,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim address {
+    font-size: 3.125vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim pre,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim pre,
+  .node.node-testimonial .row .col-sm-12 .campaign-claim address,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim address {
+    font-size: 24px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim strong,
+.node.node-testimonial .row .col-sm-6 .campaign-claim strong {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 16.25px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim strong,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim strong {
+    font-size: 3.38541667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-testimonial .row .col-sm-12 .campaign-claim strong,
+  .node.node-testimonial .row .col-sm-6 .campaign-claim strong {
+    font-size: 26px;
+  }
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim hr,
+.node.node-testimonial .row .col-sm-6 .campaign-claim hr {
+  border: 0;
+  border-bottom: 2px solid #444444;
+  background: none;
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim img,
+.node.node-testimonial .row .col-sm-6 .campaign-claim img,
+.node.node-testimonial .row .col-sm-12 .campaign-claim embed,
+.node.node-testimonial .row .col-sm-6 .campaign-claim embed,
+.node.node-testimonial .row .col-sm-12 .campaign-claim video,
+.node.node-testimonial .row .col-sm-6 .campaign-claim video,
+.node.node-testimonial .row .col-sm-12 .campaign-claim audio,
+.node.node-testimonial .row .col-sm-6 .campaign-claim audio,
+.node.node-testimonial .row .col-sm-12 .campaign-claim iframe,
+.node.node-testimonial .row .col-sm-6 .campaign-claim iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 350px;
 }
 /*
  *  Posting view component
@@ -10467,26 +11506,120 @@ form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-expo
 form.webform-client-form {
   margin-top: 20px;
 }
+form.webform-client-form fieldset.panel {
+  margin: 0 auto 30px;
+  border: none;
+  box-shadow: none;
+}
 form.webform-client-form fieldset.panel .panel-heading {
-  background: none;
+  padding: 0;
   border-bottom: none;
+  background: none;
 }
 form.webform-client-form fieldset.panel .panel-heading .panel-title {
   display: block;
   font-family: 'MuseoSans_900', sans-serif;
+  font-size: 22px;
   color: #444444;
-  text-align: center;
-  font-size: 26px;
+  text-align: left;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form fieldset.panel .panel-heading .panel-title {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form fieldset.panel .panel-heading .panel-title {
+    font-size: 30px;
+  }
+}
+form.webform-client-form fieldset.panel .panel-body {
+  padding: 0;
 }
 form.webform-client-form fieldset.panel .panel-body .help-block {
-  display: none;
+  display: block;
+  margin: 10px 0 0;
+  font-family: 'MuseoSans_300', sans-serif;
+  color: #444444;
+  font-size: 13px;
+  line-height: 17px;
+}
+form.webform-client-form fieldset.panel .panel-body .webform-component {
+  margin: 0 auto 10px;
+  width: 100%;
+}
+form.webform-client-form fieldset.panel .panel-body .webform-component[class*="-plz"] {
+  display: inline-block;
+  margin: 0 -2px 30px;
+  padding-right: 20px;
+  width: 30%;
+}
+form.webform-client-form fieldset.panel .panel-body .webform-component[class*="-city"] {
+  display: inline-block;
+  margin: 0 -2px 30px;
+  width: 70%;
+}
+form.webform-client-form fieldset.panel .panel-body fieldset.panel {
+  margin-top: 80px;
+}
+form.webform-client-form fieldset.panel .panel-body fieldset.panel .panel-body fieldset.panel {
+  margin-top: 30px;
+}
+form.webform-client-form fieldset.panel .panel-body .btn.btn-success,
+form.webform-client-form fieldset.panel .panel-body .btn.btn-danger {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0 20px 0 0;
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 14px;
+  letter-spacing: normal;
+  text-align: left;
+  text-transform: none;
+  color: #79b731;
+  border: none;
+  background: none;
+  opacity: 1.0;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form fieldset.panel .panel-body .btn.btn-success,
+  form.webform-client-form fieldset.panel .panel-body .btn.btn-danger {
+    font-size: 2.91666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form fieldset.panel .panel-body .btn.btn-success,
+  form.webform-client-form fieldset.panel .panel-body .btn.btn-danger {
+    font-size: 19px;
+  }
+}
+form.webform-client-form fieldset.panel .panel-body .btn.btn-success:hover,
+form.webform-client-form fieldset.panel .panel-body .btn.btn-danger:hover,
+form.webform-client-form fieldset.panel .panel-body .btn.btn-success:focus,
+form.webform-client-form fieldset.panel .panel-body .btn.btn-danger:focus {
+  opacity: 0.6;
+}
+form.webform-client-form fieldset.panel .panel-body .btn.btn-success:before,
+form.webform-client-form fieldset.panel .panel-body .btn.btn-danger:before {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 10px;
+  font-family: 'fontawesome';
+  font-size: 30px;
+  color: #79b731;
+}
+form.webform-client-form fieldset.panel .panel-body .btn.btn-success:before {
+  content: '\f0fe';
+}
+form.webform-client-form fieldset.panel .panel-body .btn.btn-danger:before {
+  content: '\f146';
 }
 form.webform-client-form [id$=ajax-wrapper] {
-  /* multi-file upload container */
+  /* file upload container */
   overflow: auto;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   max-width: 100%;
-  background-color: #fff;
+  background: none;
 }
 form.webform-client-form [id$=ajax-wrapper] .table-responsive {
   cursor: all-scroll;
@@ -10515,35 +11648,35 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   height: auto;
   display: inline-block;
   margin: 0;
-  padding: 6px 12px;
+  padding: 7px 27px;
   font-family: 'MuseoSans_900', sans-serif;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 20px;
+  line-height: 27px;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #ffffff;
+  text-transform: capitalize;
+  color: white;
   outline: none;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 1px solid #6a6a6a;
-  background-color: #777777;
+  border: 1px solid #79b731;
+  background-color: #79b731;
+  opacity: 1.0;
   font-size: 14px;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
-    font-size: 3.125vw;
+    font-size: 4.16666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
-    font-size: 18px;
+    font-size: 27px;
   }
 }
 form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button:hover,
 form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button:focus {
-  color: #777777;
-  background: none;
+  opacity: 0.6;
 }
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file {
   margin: 0;
@@ -10565,104 +11698,122 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
   display: inline-block;
   margin: 0;
-  padding: 6px 12px;
+  padding: 7px 27px;
   font-family: 'MuseoSans_900', sans-serif;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 20px;
+  line-height: 27px;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #ffffff;
+  text-transform: capitalize;
+  color: white;
   outline: none;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 1px solid #6a6a6a;
-  background-color: #777777;
+  border: 1px solid #79b731;
+  background-color: #79b731;
+  opacity: 1.0;
   font-size: 16px;
   z-index: 10;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
-    font-size: 3.125vw;
+    font-size: 4.16666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
-    font-size: 18px;
+    font-size: 27px;
   }
 }
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button:hover,
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button:focus {
-  color: #777777;
-  background: none;
+  opacity: 0.6;
 }
 form.webform-client-form .webform-component {
   margin: 0 auto 30px;
   padding: 0;
   max-width: 100%;
-  background-color: #fff;
+  background: none;
+}
+form.webform-client-form .webform-component[class*="-plz"] {
+  display: inline-block;
+  margin: 0 -2px 30px;
+  padding-right: 20px;
+  width: 30%;
+}
+form.webform-client-form .webform-component[class*="-city"] {
+  display: inline-block;
+  margin: 0 -2px 30px;
+  width: 70%;
 }
 form.webform-client-form .webform-component label {
   width: auto;
   font-family: 'MuseoSans_700', sans-serif;
-  font-size: 15px;
-  letter-spacing: 1.2px;
+  font-size: 14px;
+  letter-spacing: normal;
   text-align: left;
-  text-transform: uppercase;
+  text-transform: none;
   color: #444444;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form .webform-component label {
-    font-size: 3.125vw;
+    font-size: 2.91666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   form.webform-client-form .webform-component label {
-    font-size: 21px;
+    font-size: 19px;
   }
 }
 form.webform-client-form .webform-component label span.form-required {
-  color: #444444;
+  color: #79b731;
 }
 form.webform-client-form .webform-component div.description {
   display: block;
   margin: 10px 0 0;
+  font-family: 'MuseoSans_300', sans-serif;
+  color: #444444;
+  font-size: 13px;
+  line-height: 17px;
+}
+form.webform-client-form .webform-component div.description strong {
   font-family: 'MuseoSans_700', sans-serif;
-  font-size: 14px;
 }
 form.webform-client-form .webform-component .form-control,
 form.webform-client-form .webform-component .form-managed-file {
-  height: 36px;
+  height: 30px;
 }
 form.webform-client-form .webform-component input.form-text,
 form.webform-client-form .webform-component textarea {
-  padding: 2px 10px 0;
-  font-family: 'MuseoSans_700', sans-serif;
-  font-size: 15px;
-  letter-spacing: 1.1px;
-  text-align: left;
+  padding: 0 10px;
+  font-family: 'MuseoSans_300', sans-serif;
+  font-size: 14px;
   color: #444444;
+  line-height: 22px;
+  letter-spacing: normal;
+  text-align: left;
   box-shadow: none;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #777777;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #ebf0f8;
+  background-color: #ebf0f8;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form .webform-component input.form-text,
   form.webform-client-form .webform-component textarea {
-    font-size: 3.125vw;
+    font-size: 2.91666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   form.webform-client-form .webform-component input.form-text,
   form.webform-client-form .webform-component textarea {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 form.webform-client-form .webform-component input.form-text:focus,
 form.webform-client-form .webform-component textarea:focus {
-  border: 1px solid #337ab7;
+  border: 1px solid #0e659d;
   -webkit-box-shadow: 0 0 3px #eeeeee;
   box-shadow: 0 0 3px #eeeeee;
 }
@@ -10670,34 +11821,43 @@ form.webform-client-form .webform-component .form-textarea-wrapper div.grippie {
   display: none;
 }
 form.webform-client-form .webform-component select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   padding: 5px 10px;
   height: auto;
   font-family: 'MuseoSans_300', sans-serif;
-  font-size: 15px;
-  line-height: 1.2em;
-  text-align: left;
+  font-size: 14px;
   color: #444444;
+  line-height: 22px;
+  letter-spacing: normal;
+  text-align: left;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 1px solid #777777;
-  background-color: #eeeeee;
+  border: 1px solid #ebf0f8;
+  background-color: #ebf0f8;
   outline: none;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form .webform-component select {
-    font-size: 3.125vw;
+    font-size: 2.91666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   form.webform-client-form .webform-component select {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 form.webform-client-form .webform-component select:focus,
 form.webform-client-form .webform-component select:active {
   outline: none;
-  border: 1px solid #337ab7;
+  border: 1px solid #0e659d;
+}
+form.webform-client-form .webform-component select:before {
+  content: '\f0d7';
+  font-family: 'fontawesome';
+  color: #79b731;
 }
 form.webform-client-form .webform-component .form-radios {
   vertical-align: top;
@@ -10705,19 +11865,19 @@ form.webform-client-form .webform-component .form-radios {
 form.webform-client-form .webform-component .form-radios .radio > label {
   padding-left: 20px;
   font-family: 'MuseoSans_700', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: normal;
   text-align: left;
   vertical-align: top;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form .webform-component .form-radios .radio > label {
-    font-size: 3.125vw;
+    font-size: 2.91666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   form.webform-client-form .webform-component .form-radios .radio > label {
-    font-size: 18px;
+    font-size: 19px;
   }
 }
 form.webform-client-form .webform-component .form-radios .radio > label > input.form-radio {
@@ -10729,27 +11889,28 @@ form.webform-client-form .webform-component .form-managed-file {
   position: relative;
   overflow-x: auto;
   white-space: nowrap;
-  border: 1px solid #777777;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: none;
 }
 form.webform-client-form .webform-component .form-managed-file input {
   position: relative;
   float: none;
   padding: 0;
-  font-size: 15px;
+  font-size: 14px;
   text-align: left;
   border: none;
+  background-color: #ebf0f8;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form .webform-component .form-managed-file input {
-    font-size: 3.125vw;
+    font-size: 2.91666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   form.webform-client-form .webform-component .form-managed-file input {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 form.webform-client-form .webform-component .form-managed-file button.btn {
@@ -10759,72 +11920,68 @@ form.webform-client-form .webform-component .form-managed-file button.btn {
   bottom: 3px;
   display: inline-block;
   margin: 0;
-  padding: 6px 12px;
+  padding: 7px 27px;
   font-family: 'MuseoSans_900', sans-serif;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 20px;
+  line-height: 27px;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #ffffff;
+  text-transform: capitalize;
+  color: white;
   outline: none;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 1px solid #0c5686;
-  background-color: #0e659d;
+  border: 1px solid #79b731;
+  background-color: #79b731;
+  opacity: 1.0;
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 17px;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form .webform-component .form-managed-file button.btn {
-    font-size: 3.125vw;
+    font-size: 4.16666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   form.webform-client-form .webform-component .form-managed-file button.btn {
-    font-size: 18px;
+    font-size: 27px;
   }
 }
 form.webform-client-form .webform-component .form-managed-file button.btn:hover,
 form.webform-client-form .webform-component .form-managed-file button.btn:focus {
-  color: #0e659d;
-  background: none;
+  opacity: 0.6;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form .webform-component .form-managed-file button.btn {
+    font-size: 2.91666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form .webform-component .form-managed-file button.btn {
+    font-size: 17px;
+  }
 }
 form.webform-client-form .webform-component.webform-component-markup {
   margin-bottom: 25px;
   padding-top: 15px;
 }
-form.webform-client-form .webform-component.webform-component-markup h2 {
-  font-family: 'MuseoSans_900', sans-serif;
+form.webform-client-form .webform-component.webform-component-markup h2,
+form.webform-client-form .webform-component.webform-component-markup strong {
+  font-family: 'MuseoSans_700', sans-serif;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 1em;
+  color: #444444;
+  font-size: 13px;
+  line-height: 17px;
   text-align: left;
-}
-@media screen and (min-width: 30em) {
-  form.webform-client-form .webform-component.webform-component-markup h2 {
-    font-size: 3.33333333vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  form.webform-client-form .webform-component.webform-component-markup h2 {
-    font-size: 21px;
-  }
 }
 form.webform-client-form .webform-component.webform-component-markup p {
   font-family: 'MuseoSans_300', sans-serif;
-  font-size: 15px;
-  line-height: 20px;
-  text-align: left;
+  font-size: 13px;
   color: #444444;
-}
-@media screen and (min-width: 30em) {
-  form.webform-client-form .webform-component.webform-component-markup p {
-    font-size: 3.125vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  form.webform-client-form .webform-component.webform-component-markup p {
-    font-size: 18px;
-  }
+  line-height: 17px;
+  text-align: left;
+  background: none;
 }
 form.webform-client-form .webform-component.webform-container-inline {
   position: relative;
@@ -10873,34 +12030,34 @@ form.webform-client-form .webform-component.webform-container-inline .form-radio
 form.webform-client-form div.form-actions button.webform-submit {
   display: inline-block;
   margin: 0;
-  padding: 6px 12px;
+  padding: 7px 27px;
   font-family: 'MuseoSans_900', sans-serif;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 20px;
+  line-height: 27px;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #ffffff;
+  text-transform: capitalize;
+  color: white;
   outline: none;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: 1px solid #0c5686;
-  background-color: #0e659d;
+  border: 1px solid #79b731;
+  background-color: #79b731;
+  opacity: 1.0;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form div.form-actions button.webform-submit {
-    font-size: 3.125vw;
+    font-size: 4.16666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   form.webform-client-form div.form-actions button.webform-submit {
-    font-size: 18px;
+    font-size: 27px;
   }
 }
 form.webform-client-form div.form-actions button.webform-submit:hover,
 form.webform-client-form div.form-actions button.webform-submit:focus {
-  color: #0e659d;
-  background: none;
+  opacity: 0.6;
 }
 /*
  *  Webform confirmation component

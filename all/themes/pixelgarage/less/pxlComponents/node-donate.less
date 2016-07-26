@@ -1,5 +1,5 @@
 /*
- *  Node page component
+ *  Node donate component
  * --------------------------------------------------*/
 
 // Variables
@@ -13,28 +13,14 @@
 
 // General settings
 // -------------------------
-.node-page {
+.node.node-donate {
   margin-bottom: 50px;
 
-  @media @narrow {
-    margin: 0 auto 50px;
-    width: 80%;
-  }
-  @media @tablet {
-    margin: 0 auto 50px;
-    width: 75%;
-  }
-  @media @normal {
-    margin: 0 auto 50px;
-    width: 70%;
-  }
-  @media @wide {
-    margin: 0 auto 50px;
-    width: 60%;
-  }
-
   .row {
-    div.col-sm-12, .col-sm-6 {
+    .col-sm-12, .col-sm-6 {
+      @media @tablet {
+        padding-right: 10%;
+      }
 
       .field-name-title {
         h2 {
@@ -50,20 +36,20 @@
         #pxl-mixins.wysiwyg-body(17px);
 
         p {
-          margin-bottom: 30px;
           line-height: 22px;
         }
+      }
 
-        a {
-          font-family: @pxl-text-font-bold;
-          color: @text-color;
+      .field-name-field-account-details {
+        margin: 30px auto 0;
+        #pxl-mixins.wysiwyg-body(17px);
 
-          &:focus, &:hover {
-            color: @pxl-color-green;
-          }
+        p {
+          font-family: @pxl-text-font-light;
+          line-height: 22px;
         }
-
       }
     }
   }
 }
+

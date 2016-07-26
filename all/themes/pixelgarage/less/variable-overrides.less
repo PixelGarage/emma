@@ -7,19 +7,6 @@
 
 //== Colors
 //
-@gray-base:              #000;
-@gray-darker:            lighten(@gray-base, 13.5%); // #222
-@gray-dark:              lighten(@gray-base, 20%);   // #333
-@gray:                   lighten(@gray-base, 33.5%); // #555
-@gray-light:             lighten(@gray-base, 46.7%); // #777
-@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
-
-@brand-primary:         darken(#428bca, 6.5%); // #337ab7
-@brand-success:         #5cb85c;
-@brand-info:            #5bc0de;
-@brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
-
 @pxl-color-blue: #0e659d;
 @pxl-color-blue-light: #ebf0f8;
 @pxl-color-green: #79B731;
@@ -29,6 +16,19 @@
 @pxl-color-border-active: @pxl-color-blue;
 @pxl-color-main: @pxl-color-blue;
 
+
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+@brand-primary:         @pxl-color-blue; // #337ab7
+@brand-success:         @pxl-color-green-light;
+@brand-info:            @pxl-color-blue-light;
+@brand-warning:         #f0ad4e;
+@brand-danger:          #d9534f;
 
 
 //== Scaffolding
@@ -61,15 +61,15 @@
 // responsive font sizes
 @resp-font-size:          2vw;
 @resp-font-size-min:      12px;
-@resp-font-size-max:      16px;
+@resp-font-size-max:      17px;
 
 @resp-subtitle-size:      2.6vw;
 @resp-subtitle-size-min:  18px;
-@resp-subtitle-size-max:  20px;
+@resp-subtitle-size-max:  24px;
 
 @resp-title-size:         3.125vw;
-@resp-title-size-min:     20px;
-@resp-title-size-max:     24px;
+@resp-title-size-min:     22px;
+@resp-title-size-max:     30px;
 
 //
 // selected element font size

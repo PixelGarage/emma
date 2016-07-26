@@ -31,8 +31,3 @@
 <div class="links">
   <a href="<?php print $url; ?>"><?php print t('Go back to the form') ?></a>
 </div>
-<div class="<?php print $post_category_class ?>">
-  <?php if ($post): ?>
-    <?php print render($post) ?>
-  <?php endif; ?>
-</div>

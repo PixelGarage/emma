@@ -11,35 +11,20 @@ if(typeof(CKEDITOR) !== 'undefined') {
     CKEDITOR.addStylesSet( 'drupal',
     [
             /* Kulturfolger styles */
-            { name : 'kf-normal',
+            { name : 'Green title',
                     element : 'p',
                     attributes : {
-                            'class' : 'kf-normal' }
+                            'class' : 'green-title' }
             },
-            { name : 'kf-style1',
+            { name : 'Green text block',
                     element : 'p',
                     attributes : {
-                            'class' : 'kf-style1' }
+                            'class' : 'green-text-block' }
             },
-            { name : 'kf-style2',
-                    element : 'p',
+            { name : 'Green numbered list',
+                    element : 'ol',
                     attributes : {
-                            'class' : 'kf-style2' }
-            },
-            { name : 'kf-style3',
-                    element : 'p',
-                    attributes : {
-                            'class' : 'kf-style3' }
-            },
-            { name : 'kf-style4',
-                    element : 'p',
-                    attributes : {
-                            'class' : 'kf-style4' }
-            },
-            { name : 'kf-style5',
-                    element : 'p',
-                    attributes : {
-                            'class' : 'kf-style5' }
+                            'class' : 'green-numbered-list' }
             }
 
             /* Block Styles */

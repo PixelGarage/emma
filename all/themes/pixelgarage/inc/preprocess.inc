@@ -69,10 +69,10 @@ function pixelgarage_preprocess_webform_confirmation(&$vars) {
  * in the masonry.
  */
 function pixelgarage_preprocess_views_view_proximity (&$vars) {
-  //$vars['testimonials'] = _random_testimonials();
+  $vars['testimonials'] = _random_testimonials($vars);
 }
 
-function _random_testimonials() {
+function _random_testimonials(&$vars) {
   static $testimonials = array();
   if (empty($testimonials)) {
     // get the published testimonials
@@ -86,12 +86,18 @@ function _random_testimonials() {
     }
   }
 
-  // return a random testimonial
-  $keys = array_rand($testimonials, 2);
-  $i1 = mt_rand(0, 9);
+  // chose random testimonial from list
+  $keys = array_rand($testimonials, 3);
+  $row_count = $vars['view']->total_rows - 1;
+  $i1 = mt_rand(0, $row_count);
+  $i2 = mt_rand(0, $row_count);
+  $i3 = mt_rand(0, $row_count);
+
+  // return the testimonials at random place in grid
   return array(
-    0 => node_view($testimonials[$keys[0]], 'teaser'),
-    $i1 => node_view($testimonials[$keys[1]], 'teaser'),
+    $i1 => node_view($testimonials[$keys[0]], 'teaser'),
+    $i2 => node_view($testimonials[$keys[1]], 'teaser'),
+    $i3 => node_view($testimonials[$keys[2]], 'teaser'),
   );
 }
 

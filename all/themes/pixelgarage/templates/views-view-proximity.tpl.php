@@ -12,6 +12,16 @@
   <div class="stamp stamp1"></div>
 
   <?php foreach ($rows as $id => $row): ?>
+    <!--
+    Add randomly chosen testimonials to the list
+    -->
+    <?php if (isset($testimonials[$id])): ?>
+      <div class="pe-item">
+        <div class="pe-item-inner">
+          <?php print render($testimonials[$id]); ?>
+        </div>
+      </div>
+    <?php endif; ?>
 
     <div
       class="pe-item pe-item-no-ajax <?php print 'pe-item-' . $ajax_load_params[$id]; ?> <?php if ($classes_array[$id]) print $classes_array[$id]; ?>"

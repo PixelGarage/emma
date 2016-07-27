@@ -151,10 +151,10 @@ function postcard_webform_master_form($node) {
 }
 
 /**
- * Creates a HTML link to a specific submission, that can be access by an anonymous user.
- * The created link is language aware, meaning the form is opened in the current language.
+ * Creates a URL to a specific submission, that can be access by an anonymous user.
+ * The created url is language aware, meaning the form is opened in the current language.
  *
- * If html flag is set to false, a plain text url is returned.
+ * If html flag is set, a HTML link with the created url is returned.
  *
  * @param $nid   int
  *    The master webform node id
@@ -162,10 +162,14 @@ function postcard_webform_master_form($node) {
  *    The submission id
  * @param $op   string
  *    Operation to be performed on submission, e.g. anonym_view, anonym_edit, anonym_delete
- * @return string
- *    HTML or plain text string containing a link to the submission accessible by anonymous users.
+ * @param bool $html
+ *    Flag indicating if the output link is html or plain text, default = plain text
+ * @param bool $title
+ *    Set a link title for an html link (button).
+ * @return string HTML or plain text string containing a link to the submission accessible by anonymous users.
+ * HTML or plain text string containing a link to the submission accessible by anonymous users.
  */
-function postcard_create_anonym_submission_link($nid, $sid, $op, $html = true, $title = false) {
+function postcard_create_anonym_submission_link($nid, $sid, $op, $html = false, $title = false) {
   global $language;
 
   $node = node_load($nid);
@@ -179,7 +183,11 @@ function postcard_create_anonym_submission_link($nid, $sid, $op, $html = true, $
   $url = "postcard/{$lang_nid}/submission/{$sid}/" . $op;
   if ($html) {
     $text = $title ? t($title) : t('Back');
-    return l($text, $url, array('query' => array('token' => $token)));
+    return l($text, $url, array(
+      'query' => array('token' => $token),
+      'attributes' => array('class' => array('back-link'))
+      )
+    );
   }
   else {
     return $url . '?token=' . $token;

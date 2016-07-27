@@ -25,7 +25,7 @@
   width: 80%;
   font-family: 'MuseoSans_900', sans-serif !important;
   font-size: 22px !important;
-  line-height: 30px;
+  line-height: 30px !important;
   text-align: center;
   color: #fff;
   border: 1px solid #79b731;

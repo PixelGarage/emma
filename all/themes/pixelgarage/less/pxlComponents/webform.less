@@ -123,10 +123,12 @@ form.webform-client-form {
       }
 
       fieldset.panel {
+        // second level
         margin-top: 80px;
 
         .panel-body {
           fieldset.panel {
+            // third level
             margin-top: 30px;
           }
         }
@@ -470,6 +472,14 @@ form.webform-client-form {
   div.form-actions {
     button.webform-submit {
       .resp-submit-button();
+    }
+    a.back-link {
+      .resp-submit-button(@text-color);
+      vertical-align: middle;
+      padding-left: 0;
+      border: none;
+      background: none;
+      text-decoration: none;
     }
   }
 }

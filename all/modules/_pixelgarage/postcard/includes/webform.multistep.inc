@@ -104,11 +104,9 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
   //
   // define the back link, if a previous webform exists in the multi-step process
   if ($prev_step) {
+    $button_title = t('Edit postcard');
     $form['actions']['back'] = array(
-      '#markup' => postcard_create_anonym_submission_link($prev_step['nid'], $prev_step['sid'], 'anonym_edit'),
-      '#attributes' => array(
-        'class' => array('back-link', 'button-primary'),
-      ),
+      '#markup' => postcard_create_anonym_submission_link($prev_step['nid'], $prev_step['sid'], 'anonym_edit', true, $button_title),
     );
   }
   else if (!$submission) {
@@ -122,7 +120,7 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
   // set the language dependent redirect url of the form. Set anonymous link, if next step is known!
   if ($next_step) {
     $form['#node']->webform['redirect_url'] =
-      postcard_create_anonym_submission_link($next_step['nid'], $next_step['sid'], 'anonym_edit', false);
+      postcard_create_anonym_submission_link($next_step['nid'], $next_step['sid'], 'anonym_edit');
 
   }
   else if ($next_step = _get_step_info($master, 'next')) {

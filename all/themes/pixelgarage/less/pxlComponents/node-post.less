@@ -97,7 +97,7 @@
 
       .field-name-field-name {
         position: absolute;
-        top: 70%;
+        top: 69.5%;
         left: 50%;
         #pxl-mixins.transform(translate(-50%) rotate(-2deg));
         z-index: 10;
@@ -109,6 +109,7 @@
           letter-spacing: 1px;
           line-height: 1.1;
           color: @pxl-color-green;
+          white-space: nowrap;
 
           @media @mobile {
             font-size: 6.5vw;
@@ -186,12 +187,28 @@
       }
 
       .slogan-wrapper {
-        img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: auto;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        padding: 10px;
+        font-family: @pxl-text-font-bold;
+        #pxl-mixins.font-size-responsive(22px, 17px);
+        color: white;
+        line-height: 1.1;
+        text-align: center;
+        #gradient.vertical(rgba(0,0,0,0.5), rgba(0,0,0,0.0), 0%, 75%);
+
+        @media @mobile {
+          font-size: 6.5vw;
+        }
+        @media @tablet {
+          font-size: 18px;
+        }
+        @media @normal {
+          font-size: 24px;
+        }
+        @media @wide {
+          font-size: 28px;
         }
       }
 
@@ -217,9 +234,6 @@
         .field-name-field-name {
           .field-item {
             @media @narrow {
-              font-size: 4.5vw;
-            }
-            @media @tablet {
               font-size: 35px;
             }
           }
@@ -228,9 +242,6 @@
         .field-name-field-your-name {
           .field-item {
             @media @narrow {
-              font-size: 3vw;
-            }
-            @media @tablet {
               font-size: 18px;
             }
           }
@@ -239,14 +250,16 @@
         .field-name-field-quote {
           .field-item {
             @media @narrow {
-              font-size: 3.25vw;
-            }
-            @media @tablet {
               font-size: 25px;
             }
           }
         }
 
+        .slogan-wrapper {
+          @media @narrow {
+            font-size: 37px;
+          }
+        }
       }
     }
   }

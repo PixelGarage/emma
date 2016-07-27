@@ -11,15 +11,12 @@ switch ($language->language) {
   case 'de':
   default:
     $banner_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner_d.png';
-    $slogan_path = drupal_get_path('theme', 'pixelgarage') . '/images/post_header_d.png';
     break;
   case 'fr':
     $banner_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner_f.png';
-    $slogan_path = drupal_get_path('theme', 'pixelgarage') . '/images/post_header_f.png';
     break;
   case 'en':
     $banner_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner_e.png';
-    $slogan_path = drupal_get_path('theme', 'pixelgarage') . '/images/post_header_e.png';
     break;
 }
 $params = array(
@@ -31,19 +28,11 @@ $params = array(
 );
 $banner_img = theme_image($params);
 
-$slogan_params = array(
-  'path' => $slogan_path,
-  'width' => '100%',
-  'height' => 'auto',
-  'alt' => 'sustainable until 2050',
-  'attributes' => array('class' => array('img', 'img-slogan')),
-);
-$slogan_img = theme_image($slogan_params);
-
 //
 // set language dependent heading
 $post_title = t('Do you like it?');
-$post_heading = t('Share this post with your friends and family members!')
+$post_heading = t('Share this post with your friends and family members!');
+$post_slogan = t(' - Nachhaltig bis 2050 - ');
 ?>
 
 
@@ -76,7 +65,7 @@ $post_heading = t('Share this post with your friends and family members!')
   <div class="row">
     <<?php print $central_wrapper; ?> class="col-sm-12 <?php print $central_classes; ?>">
       <?php print $central; ?>
-      <div class="slogan-wrapper"><?php print $slogan_img; ?></div>
+      <div class="slogan-wrapper"><?php print $post_slogan; ?></div>
       <div class="banner-wrapper"><?php print $banner_img; ?></div>
     </<?php print $central_wrapper; ?>>
   </div>

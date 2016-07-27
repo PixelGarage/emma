@@ -9131,7 +9131,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 }
 .node.node-post div.row div.col-sm-12 .field-name-field-name {
   position: absolute;
-  top: 70%;
+  top: 69.5%;
   left: 50%;
   -webkit-transform: translate(-50%) rotate(-2deg);
   -moz-transform: translate(-50%) rotate(-2deg);
@@ -9147,6 +9147,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   letter-spacing: 1px;
   line-height: 1.1;
   color: #9bc31b;
+  white-space: nowrap;
 }
 @media screen and (min-width: 30em) {
   .node.node-post div.row div.col-sm-12 .field-name-field-name .field-item {
@@ -9273,12 +9274,51 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
     font-size: 17px;
   }
 }
-.node.node-post div.row div.col-sm-12 .slogan-wrapper img {
+.node.node-post div.row div.col-sm-12 .slogan-wrapper {
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: auto;
+  padding: 10px;
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 17px;
+  color: white;
+  line-height: 1.1;
+  text-align: center;
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 75%);
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 75%);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 75%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=0);
+}
+@media screen and (min-width: 30em) {
+  .node.node-post div.row div.col-sm-12 .slogan-wrapper {
+    font-size: 3.54166667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-post div.row div.col-sm-12 .slogan-wrapper {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 29.9375em) {
+  .node.node-post div.row div.col-sm-12 .slogan-wrapper {
+    font-size: 6.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-post div.row div.col-sm-12 .slogan-wrapper {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 64em) {
+  .node.node-post div.row div.col-sm-12 .slogan-wrapper {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 80em) {
+  .node.node-post div.row div.col-sm-12 .slogan-wrapper {
+    font-size: 28px;
+  }
 }
 .node.node-post div.row div.col-sm-12 .banner-wrapper img {
   position: absolute;
@@ -9289,32 +9329,22 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 }
 @media screen and (min-width: 30em) {
   .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-name .field-item {
-    font-size: 4.5vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-name .field-item {
     font-size: 35px;
   }
 }
 @media screen and (min-width: 30em) {
-  .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-your-name .field-item {
-    font-size: 3vw;
-  }
-}
-@media screen and (min-width: 48em) {
   .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-your-name .field-item {
     font-size: 18px;
   }
 }
 @media screen and (min-width: 30em) {
   .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-quote .field-item {
-    font-size: 3.25vw;
+    font-size: 25px;
   }
 }
-@media screen and (min-width: 48em) {
-  .node.node-post.view-mode-full div.row div.col-sm-12 .field-name-field-quote .field-item {
-    font-size: 25px;
+@media screen and (min-width: 30em) {
+  .node.node-post.view-mode-full div.row div.col-sm-12 .slogan-wrapper {
+    font-size: 37px;
   }
 }
 /*

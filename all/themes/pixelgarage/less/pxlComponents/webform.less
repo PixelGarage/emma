@@ -17,7 +17,9 @@
 @webform-color-input-bg: @pxl-color-blue-light;
 @webform-color-border: @pxl-color-blue-light;
 @webform-color-border-active: @pxl-color-blue;
-// field border
+
+// field box
+@webform-control-height: 30px;
 @webform-border-radius: @border-radius-small;
 @webform-color-shadow: @gray-lighter;
 
@@ -275,7 +277,7 @@ form.webform-client-form {
 
     .form-control,
     .form-managed-file {
-      height: 30px;
+      height: @webform-control-height;
     }
 
     input.form-text, textarea {
@@ -303,30 +305,45 @@ form.webform-client-form {
       }
     }
 
-    select {
-      #pxl-mixins.no-appearance();
-      padding: 5px 10px;
-      height: auto;
-      font-family: @pxl-text-font-light;
-      #pxl-mixins.font-size-responsive(17px, 14px);
-      color: @webform-color-input;
-      line-height: 22px;
-      letter-spacing: normal;
-      text-align: left;
-      #pxl-mixins.border-radius(@webform-border-radius);
-      border: 1px solid @webform-color-border;
-      background-color: @webform-color-input-bg;
-      outline: none;
+    &.webform-component-select {
+      position: relative;
 
-      &:focus, &:active {
+      select {
+        #pxl-mixins.no-appearance();
+        position: absolute;
+        right: 0;
+        padding: 5px 10px;
+        height: auto;
+        font-family: @pxl-text-font-light;
+        #pxl-mixins.font-size-responsive(17px, 14px);
+        color: @webform-color-input;
+        line-height: 22px;
+        letter-spacing: normal;
+        text-align: left;
+        #pxl-mixins.border-radius(@webform-border-radius);
+        border: 1px solid @webform-color-border;
+        background-color: @webform-color-input-bg;
         outline: none;
-        border: 1px solid @webform-color-border-active;
+
+        &:focus, &:active {
+          outline: none;
+          border: 1px solid @webform-color-border-active;
+        }
       }
 
-      &:before {
+      //
+      // custom style ofselect box
+      &:after {
         content: '\f0d7';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 5px;
+        bottom: 0;
         font-family: @pxl-icon-font;
         color: @pxl-color-green;
+        line-height: @webform-control-height;
+        pointer-events: none; // let mouse clicks through
       }
     }
 

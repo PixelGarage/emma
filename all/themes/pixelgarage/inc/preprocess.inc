@@ -27,6 +27,10 @@ function pixelgarage_preprocess_page(&$vars) {
   $vars['logo'] = str_replace('.jpg', '.svg', $vars['logo']);
 }
 
+
+/* =============================================================================
+ *      Exposed form
+ * ========================================================================== */
 /**
  * Implements template_preprocess_views_exposed_form().
  *
@@ -52,6 +56,11 @@ function pixelgarage_preprocess_views_exposed_form(&$vars) {
   }
 
 }
+
+
+/* =============================================================================
+ *      Webform preprocessing
+ * ========================================================================== */
 
 /**
  * Implements template_preprocess_webform_confirmation().

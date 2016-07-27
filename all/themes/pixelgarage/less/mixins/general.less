@@ -107,27 +107,29 @@
   //
   // Views pager
   //
-  .view-pager(@fsize: @font-size-base; @color: @text-color; @hcolor: @text-color; @border: none) {
-    ul.pagination {
-      display: inline-block;
-      margin: 20px 0;
+  .view-pager(@fsize: @font-size-base; @color: @link-color; @hcolor: @link-hover-color; @border: none) {
+    ul.pagination, ul.pager {
+      margin: 20px 0 50px;
       text-align: center;
 
       li {
+        display: inline-block;
+        min-width: (@fsize + 20px);
+
         a, span {
+          padding: 2px 10px;
           font-family: @pxl-text-font;
           font-size: @fsize;
+          line-height: @fsize;
+          text-align: center;
           text-decoration: none;
           color: @color;
           border: @border;
           background: none;
         }
 
-        &:hover, &:focus, &.active {
-          a, span {
-            color: @hcolor;
-            text-decoration: none;
-          }
+        &.pager-current {
+
         }
 
         &.pager-first,
@@ -135,14 +137,21 @@
 
         }
 
-        &.prev,
-        &.next {
+        &.prev, &.pager-previous
+        &.next, &.pager-next {
 
         }
 
         &.ellipsis {
           span {
 
+          }
+        }
+
+        &:hover, &:focus, &.active {
+          a, span {
+            color: @hcolor;
+            text-decoration: none;
           }
         }
       }

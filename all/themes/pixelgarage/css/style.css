@@ -1081,7 +1081,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #222222;
+  color: #79b731;
   text-decoration: underline;
 }
 a:focus {
@@ -3294,7 +3294,7 @@ fieldset[disabled] .btn-link {
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: #222222;
+  color: #79b731;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -9483,7 +9483,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 .node.node-webform .row .col-sm-6 .field-name-body a:hover,
 .node.node-webform .row .col-sm-12 .field-name-body a:focus,
 .node.node-webform .row .col-sm-6 .field-name-body a:focus {
-  color: #222222;
+  color: #79b731;
   text-decoration: none;
   background: none;
 }
@@ -9734,7 +9734,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 .node-page .row .col-sm-6 .field-name-body a:hover,
 .node-page .row div.col-sm-12 .field-name-body a:focus,
 .node-page .row .col-sm-6 .field-name-body a:focus {
-  color: #222222;
+  color: #79b731;
   text-decoration: none;
   background: none;
 }
@@ -10284,7 +10284,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 .node.node-donate .row .col-sm-6 .field-name-body a:hover,
 .node.node-donate .row .col-sm-12 .field-name-body a:focus,
 .node.node-donate .row .col-sm-6 .field-name-body a:focus {
-  color: #222222;
+  color: #79b731;
   text-decoration: none;
   background: none;
 }
@@ -10488,7 +10488,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 .node.node-donate .row .col-sm-6 .field-name-field-account-details a:hover,
 .node.node-donate .row .col-sm-12 .field-name-field-account-details a:focus,
 .node.node-donate .row .col-sm-6 .field-name-field-account-details a:focus {
-  color: #222222;
+  color: #79b731;
   text-decoration: none;
   background: none;
 }
@@ -10730,7 +10730,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 .node.node-testimonial .row .col-sm-6 .field-name-body a:hover,
 .node.node-testimonial .row .col-sm-12 .field-name-body a:focus,
 .node.node-testimonial .row .col-sm-6 .field-name-body a:focus {
-  color: #222222;
+  color: #79b731;
   text-decoration: none;
   background: none;
 }
@@ -10942,7 +10942,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 .node.node-testimonial .row .col-sm-6 .campaign-claim a:hover,
 .node.node-testimonial .row .col-sm-12 .campaign-claim a:focus,
 .node.node-testimonial .row .col-sm-6 .campaign-claim a:focus {
-  color: #222222;
+  color: #79b731;
   text-decoration: none;
   background: none;
 }
@@ -11346,6 +11346,95 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 .view-post-grid .view-content > .pe-container .modal .modal-dialog .modal-content .modal-footer .body-fading {
   display: none;
 }
+.view-post-grid ul.pagination,
+.view-post-grid ul.pager {
+  margin: 20px 0 50px;
+  text-align: center;
+}
+.view-post-grid ul.pagination li,
+.view-post-grid ul.pager li {
+  display: inline-block;
+  min-width: 36px;
+}
+.view-post-grid ul.pagination li a,
+.view-post-grid ul.pager li a,
+.view-post-grid ul.pagination li span,
+.view-post-grid ul.pager li span {
+  padding: 2px 10px;
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #444444;
+  border: none;
+  background: none;
+}
+.view-post-grid ul.pagination li:hover a,
+.view-post-grid ul.pager li:hover a,
+.view-post-grid ul.pagination li:focus a,
+.view-post-grid ul.pager li:focus a,
+.view-post-grid ul.pagination li.active a,
+.view-post-grid ul.pager li.active a,
+.view-post-grid ul.pagination li:hover span,
+.view-post-grid ul.pager li:hover span,
+.view-post-grid ul.pagination li:focus span,
+.view-post-grid ul.pager li:focus span,
+.view-post-grid ul.pagination li.active span,
+.view-post-grid ul.pager li.active span {
+  color: #444444;
+  text-decoration: none;
+}
+.view-post-grid ul.pagination li:hover a,
+.view-post-grid ul.pagination li:focus a,
+.view-post-grid ul.pagination li.active a,
+.view-post-grid ul.pagination li:hover span,
+.view-post-grid ul.pagination li:focus span,
+.view-post-grid ul.pagination li.active span {
+  font-family: 'MuseoSans_900', sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+  background: none;
+}
+.view-post-grid ul.pagination li.pager-first:hover a,
+.view-post-grid ul.pagination li.pager-last:hover a,
+.view-post-grid ul.pagination li.prev:hover a,
+.view-post-grid ul.pagination li.pager-previous:hover a,
+.view-post-grid ul.pagination li.next:hover a,
+.view-post-grid ul.pagination li.pager-next:hover a,
+.view-post-grid ul.pagination li.pager-first:focus a,
+.view-post-grid ul.pagination li.pager-last:focus a,
+.view-post-grid ul.pagination li.prev:focus a,
+.view-post-grid ul.pagination li.pager-previous:focus a,
+.view-post-grid ul.pagination li.next:focus a,
+.view-post-grid ul.pagination li.pager-next:focus a,
+.view-post-grid ul.pagination li.pager-first.active a,
+.view-post-grid ul.pagination li.pager-last.active a,
+.view-post-grid ul.pagination li.prev.active a,
+.view-post-grid ul.pagination li.pager-previous.active a,
+.view-post-grid ul.pagination li.next.active a,
+.view-post-grid ul.pagination li.pager-next.active a,
+.view-post-grid ul.pagination li.pager-first:hover span,
+.view-post-grid ul.pagination li.pager-last:hover span,
+.view-post-grid ul.pagination li.prev:hover span,
+.view-post-grid ul.pagination li.pager-previous:hover span,
+.view-post-grid ul.pagination li.next:hover span,
+.view-post-grid ul.pagination li.pager-next:hover span,
+.view-post-grid ul.pagination li.pager-first:focus span,
+.view-post-grid ul.pagination li.pager-last:focus span,
+.view-post-grid ul.pagination li.prev:focus span,
+.view-post-grid ul.pagination li.pager-previous:focus span,
+.view-post-grid ul.pagination li.next:focus span,
+.view-post-grid ul.pagination li.pager-next:focus span,
+.view-post-grid ul.pagination li.pager-first.active span,
+.view-post-grid ul.pagination li.pager-last.active span,
+.view-post-grid ul.pagination li.prev.active span,
+.view-post-grid ul.pagination li.pager-previous.active span,
+.view-post-grid ul.pagination li.next.active span,
+.view-post-grid ul.pagination li.pager-next.active span {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 16px;
+}
 .view-post-grid .pager.pager--infinite-scroll .pager__item a {
   display: inline-block;
   padding: 8px 20px 10px;
@@ -11363,142 +11452,6 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 .view-post-grid .pager.pager--infinite-scroll .pager__item a.active {
   color: #fff;
   background-color: #444444;
-}
-/*
- *  Exposed form
- * --------------------------------------------------*/
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form {
-  padding: 0;
-  width: 100%;
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets {
-  margin: 0 auto;
-  padding: 10px 0 0;
-}
-@media screen and (min-width: 30em) {
-  form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets {
-    padding: 20px 0 0;
-  }
-}
-@media screen and (min-width: 64em) {
-  form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets {
-    padding: 30px 0 0;
-  }
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget {
-  display: inline-block;
-  float: none;
-  padding: 0;
-  vertical-align: top;
-  text-align: center;
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-widget-filter-combine > label {
-  display: none;
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-widget-filter-combine .views-widget .form-item input.form-text {
-  padding: 3px 10px 0;
-  height: 24px;
-  max-width: 200px;
-  font-family: 'MuseoSans_300', sans-serif;
-  font-size: 12px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  border: 1px solid #0e659d;
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-widget-filter-combine .views-widget .form-item input.form-text::-moz-placeholder {
-  color: #0e659d;
-  opacity: 1;
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-widget-filter-combine .views-widget .form-item input.form-text:-ms-input-placeholder {
-  color: #0e659d;
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-widget-filter-combine .views-widget .form-item input.form-text::-webkit-input-placeholder {
-  color: #0e659d;
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-widget-filter-combine .views-widget .form-item input.form-text:focus {
-  -webkit-box-shadow: 0 0 2px #0e659d inset;
-  -moz-box-shadow: 0 0 2px #0e659d inset;
-  box-shadow: 0 0 2px #0e659d inset;
-}
-@media screen and (min-width: 30em) {
-  form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-widget-filter-combine .views-widget .form-item input.form-text {
-    height: 28px;
-    font-size: 14px;
-  }
-}
-@media screen and (min-width: 64em) {
-  form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-widget-filter-combine .views-widget .form-item input.form-text {
-    height: 32px;
-    font-size: 17px;
-  }
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-submit-button {
-  margin: 0 0 0 -4px;
-  padding: 0;
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-submit-button button {
-  display: inline-block;
-  margin: 0;
-  padding: 3px 10px 0;
-  height: 24px;
-  font-family: 'MuseoSans_900', sans-serif;
-  font-size: 12px;
-  line-height: 1;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #fff;
-  outline: none;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  border: 1px solid #0e659d;
-  background-color: #0e659d;
-}
-@media screen and (min-width: 30em) {
-  form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-submit-button button {
-    padding: 4px 12px 0;
-    height: 28px;
-    font-size: 14px;
-  }
-}
-@media screen and (min-width: 64em) {
-  form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-submit-button button {
-    padding: 6px 15px 0;
-    height: 32px;
-    font-size: 17px;
-  }
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-submit-button button:hover {
-  color: #0e659d;
-  background: none;
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-total-rows {
-  height: 24px;
-  padding: 3px 0 0 10px;
-  font-family: 'MuseoSans_300', sans-serif;
-  font-size: 12px;
-}
-@media screen and (min-width: 30em) {
-  form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-total-rows {
-    padding: 6px 0 0 10px;
-    height: 28px;
-    font-size: 14px;
-  }
-}
-@media screen and (min-width: 64em) {
-  form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-total-rows {
-    padding: 6px 0 0 10px;
-    height: 32px;
-    font-size: 17px;
-  }
-}
-form#views-exposed-form-post-grid-page-clickcard .views-exposed-form .views-exposed-widgets .views-exposed-widget.views-total-rows em {
-  font-style: normal;
 }
 /*
  *  Webform Addons component
@@ -11820,10 +11773,15 @@ form.webform-client-form .webform-component textarea:focus {
 form.webform-client-form .webform-component .form-textarea-wrapper div.grippie {
   display: none;
 }
-form.webform-client-form .webform-component select {
+form.webform-client-form .webform-component.webform-component-select {
+  position: relative;
+}
+form.webform-client-form .webform-component.webform-component-select select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  position: absolute;
+  right: 0;
   padding: 5px 10px;
   height: auto;
   font-family: 'MuseoSans_300', sans-serif;
@@ -11840,24 +11798,31 @@ form.webform-client-form .webform-component select {
   outline: none;
 }
 @media screen and (min-width: 30em) {
-  form.webform-client-form .webform-component select {
+  form.webform-client-form .webform-component.webform-component-select select {
     font-size: 2.91666667vw;
   }
 }
 @media screen and (min-width: 48em) {
-  form.webform-client-form .webform-component select {
+  form.webform-client-form .webform-component.webform-component-select select {
     font-size: 17px;
   }
 }
-form.webform-client-form .webform-component select:focus,
-form.webform-client-form .webform-component select:active {
+form.webform-client-form .webform-component.webform-component-select select:focus,
+form.webform-client-form .webform-component.webform-component-select select:active {
   outline: none;
   border: 1px solid #0e659d;
 }
-form.webform-client-form .webform-component select:before {
+form.webform-client-form .webform-component.webform-component-select:after {
   content: '\f0d7';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 5px;
+  bottom: 0;
   font-family: 'fontawesome';
   color: #79b731;
+  line-height: 30px;
+  pointer-events: none;
 }
 form.webform-client-form .webform-component .form-radios {
   vertical-align: top;

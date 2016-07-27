@@ -63,22 +63,23 @@ function postcard_webform_submission_title($node, $submission) {
  */
 
 function postcard_form_webform_client_form_alter (&$form, &$form_state) {
-  $session_data = &postcard_session_data();
   $node = $form['#node'];
-  $submission = $form['#submission'];
   $master = postcard_webform_master_form($node);
-
-  // return, if form is not part of a mult-step form
   $tnids = _get_all_multistep_webforms();
+
+  //
+  // return, if form is not part of a mult-step form
   if (!in_array($master->nid, $tnids)) return;
 
   //
   // find the previous / next step (webform) of the multi-step webform
+  $session_data = &postcard_session_data();
+  $submission = $form['#submission'];
   $prev_step = false;
   $next_step = false;
   if ($submission) {
     //
-    // OPENED VIA ANONYMOUS ACCESS LINK
+    // OPENED VIA ANONYMOUS ACCESS LINK (submission available)
     // get previous and next step from database, if available
     $prev_step = _get_previous_step_submission($master->nid, $submission->sid);
     $next_step = _get_next_step_submission($master->nid, $submission->sid);
@@ -110,8 +111,9 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
       ),
     );
   }
-  else {
-    // cleanup session data in first step
+  else if (!$submission) {
+    // cleanup session data at the opening step of a multi-step process
+    // do not clean up during editing (submission exists)
     unset($session_data['multistep']);
 
   }

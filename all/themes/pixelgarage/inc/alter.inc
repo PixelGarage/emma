@@ -134,6 +134,13 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
     $post = node_load($post_nid);
     $post->status = 0;
 
+    // delete an existing postcard, it wil be newly generated
+    $file = !empty($post->field_postcard) ? $post->field_postcard[$post->language][0] : false;
+    if ($file) {
+      file_delete($file, true);
+      $post->field_postcard[$post->language][0]['fid'] = null;
+    }
+
   } else {
     // create post node and save it in the submission
     $post = new stdClass();
@@ -154,7 +161,7 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
   $post->field_your_name[$post->language][0]['value'] = $submission->data[17][0]; // your name
   $post->field_quote[$post->language][0]['value'] = substr($submission->data[5][0], 0, 100); // Quote
   $post->field_image[$post->language][0]['fid'] = $submission->data[1][0]; // fid image
-  $post->field_hires_image[$post->language][0]['fid'] = $submission->data[1][0]; // fid image (for high resolution image)
+  $post->field_hires_image[$post->language][0]['fid'] = null; // fid image (for high resolution image)
   $post = node_submit($post);
   node_save($post);
 

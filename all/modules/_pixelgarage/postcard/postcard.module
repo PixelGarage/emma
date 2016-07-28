@@ -5,6 +5,10 @@
 */
 
 //
+// implements a postcard pdf creator
+require_once 'includes/postcard.lib.inc';
+
+//
 // implements a multi-step webform with anonymous access rights
 require_once 'includes/webform.multistep.inc';
 
@@ -77,6 +81,15 @@ function postcard_menu() {
     'access arguments' => array(1, 3, 'anonym_delete'),
     'weight' => 2,
     'file' => 'includes/webform.submission.inc',
+    'type' => MENU_CALLBACK,
+  );
+  //
+  // debug menu to show postcard pdf
+  $items['show_postcard/%'] = array(
+    'title' => 'Create and show postcard PDF',
+    'page callback' => '_postcard_show_pdf',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
     'type' => MENU_CALLBACK,
   );
 

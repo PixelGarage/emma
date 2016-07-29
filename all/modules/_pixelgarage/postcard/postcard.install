@@ -53,3 +53,16 @@ function postcard_schema()
   );
   return $schema;
 }
+
+
+/**
+ * Implements hook_uninstall().
+ */
+function postcard_uninstall() {
+  variable_del('postcard_convert_path');
+  variable_del('postcard_pdf_dpi');
+  variable_del('postcard_img_quality');
+  variable_del('postcard_img_sharpen');
+  variable_del('postcard_debug');
+}
+

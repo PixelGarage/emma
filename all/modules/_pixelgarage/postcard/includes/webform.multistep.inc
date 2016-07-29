@@ -29,12 +29,14 @@ function postcard_webform_submission_presave($node, &$submission) {
   //
   // perform the submission presave for the specific step (webform node)
   $master = postcard_webform_master_form($node);
-  $step_key = _get_step_key($master);
-  $step_info = _get_step_info($master);
 
   //
   // alter submission before saving
-  drupal_alter('postcard_multi_step_submission_presave', $step_key, $step_info, $node, $submission);
+  $step_options = array(
+    'step_key' => _get_step_key($master),
+    'step_info' => _get_step_info($master),
+  );
+  drupal_alter('postcard_multi_step_submission_presave', $step_options, $node, $submission);
 
 }
 

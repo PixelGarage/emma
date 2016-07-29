@@ -66,15 +66,21 @@ function pixelgarage_proximity_render_item_alter($container_index, $param, &$ren
  *     Multi-step webform hooks
  * ========================================================================== */
 
+define('POSTCARD_DATA_WEBFORM_ID', 18);
+
+define('POSTCARD_DELIVERY_WEBFORM_ID', 789);
+
 /**
  * Defines the available multi-step webform process(es).
  *
  * The process contains a postcard data collection step and a postcard delivery step.
  */
 function pixelgarage_postcard_multi_step_webform_info_alter(&$info) {
+  //
+  // create the steps with its specific parameters
   $info['postcard data'] = array(
     // webform node id
-    'nid' =>  18,
+    'nid' =>  POSTCARD_DATA_WEBFORM_ID,
     // previous step
     'prev step' => null,
     // next step id
@@ -84,7 +90,7 @@ function pixelgarage_postcard_multi_step_webform_info_alter(&$info) {
   );
   $info['postcard delivery'] = array(
     // delivery webform node id
-    'nid' =>  789,
+    'nid' =>  POSTCARD_DELIVERY_WEBFORM_ID,
     // previous step
     'prev step' => 'postcard data',
     // next step id
@@ -95,25 +101,34 @@ function pixelgarage_postcard_multi_step_webform_info_alter(&$info) {
 }
 
 /**
- * Implements the postcard data collection submission presave step.
+ * Alter a specific step submission of a multi-step webform,  prior to saving it in the database.
  *
- * A post node is created out of the submission and the node id added to the submission.
+ * @param $step_options array
+ *    An array holding all step options to be transferred between the steps. This array can be altered between steps.
+ *    The initial array holds two parameters:
+ *      step_key: The key of the step.
+ *      step_info: The step info array.
+ * @param $node     object
+ *    The webform node of the particular step
+ * @param $submission   object
+ *    The submission of the particular step
  */
-function pixelgarage_postcard_multi_step_submission_presave_alter($step, $step_info, $node, &$submission) {
+function pixelgarage_postcard_multi_step_submission_presave_alter(&$step_options, $node, &$submission) {
   //
   // process the multi-step webform submissions according to the step
+  $step = $step_options['step_key'];
   switch ($step) {
     case 'postcard data':
-      _post_data_step_presave($step, $step_info, $node, $submission);
+      _post_data_step_presave($step_options, $node, $submission);
       break;
     case 'postcard delivery':
-      _post_delivery_step_presave($step, $step_info, $node, $submission);
+      _post_delivery_step_presave($step_options, $node, $submission);
       break;
   }
 
 }
 
-function _post_data_step_presave($step, $step_info, $node, &$submission) {
+function _post_data_step_presave(&$step_options, $node, &$submission) {
   //
   // POSTCARD DATA SUBMISSION PRESAVE:
   // create or update submission related node with submitted values
@@ -132,19 +147,24 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
   if ($post_nid) {
     // update existing post
     $post = node_load($post_nid);
-    $post->status = 0;
+    $post->status = $status;
 
-    // delete an existing postcard, it wil be newly generated
-    $file = !empty($post->field_postcard) ? $post->field_postcard[$post->language][0] : false;
-    if ($file) {
-      file_delete($file, true);
+    // delete an existing postcard, it will be newly generated
+    $pdf_file = (object)$post->field_postcard[$post->language][0];
+    if ($pdf_file) {
+      file_delete($pdf_file);
       $post->field_postcard[$post->language][0]['fid'] = null;
+    }
+    $img_file = (object)$post->field_hires_image[$post->language][0];
+    if ($img_file) {
+      file_delete($img_file);
+      $post->field_hires_image[$post->language][0]['fid'] = null;
     }
 
   } else {
     // create post node and save it in the submission
     $post = new stdClass();
-    $post->type = $step_info['related node type'];
+    $post->type = $step_options['step_info']['related node type'];
     $post->language = LANGUAGE_NONE;
     $post->uid = 1;
     $post->status = 0;
@@ -154,17 +174,63 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
 
   }
   //
-  // update submission data on the offer and save it
-  // fill the node properties and save it to the database
+  // update submission data on the post and save it
   $post->title = t('@you for @name', array('@you' => $submission->data[17][0], '@name' => $submission->data[4][0])); // create node title
   $post->field_name[$post->language][0]['value'] = $submission->data[4][0]; // child name
   $post->field_your_name[$post->language][0]['value'] = $submission->data[17][0]; // your name
   $post->field_quote[$post->language][0]['value'] = substr($submission->data[5][0], 0, 100); // Quote
   $post->field_image[$post->language][0]['fid'] = $submission->data[1][0]; // fid image
-  $post->field_hires_image[$post->language][0]['fid'] = null; // fid image (for high resolution image)
   $post = node_submit($post);
   node_save($post);
 
+  //
+  // add step options about created post
+  $step_options['post_nid'] = $post->nid;
+  $step_options['post_status'] = $status;
+
+  //
+  // create postcard and high resolution image and add it to post node, if available
+  $pdf_name = $post->title . '_' . time() . '.pdf';
+  $options = array(
+    'post_node' => $post,
+  );
+  $pdf_uri = postcard_create_pdf($pdf_name, $options);
+
+  if ($pdf_uri) {
+    //
+    // manage created pdf file in post
+    $pdf_file = new stdClass();
+    $pdf_file->fid = NULL;
+    $pdf_file->uri = $pdf_uri;
+    $pdf_file->filename = drupal_basename($pdf_uri);
+    $pdf_file->filemime = file_get_mimetype($pdf_uri);
+    $pdf_file->status   = FILE_STATUS_PERMANENT;
+    $pdf_file->uid      = 1;
+    $pdf_file->display  = 1;
+    $pdf_file = file_save($pdf_file);
+
+    $post->field_postcard[$node->language][0]['fid'] = $pdf_file->fid;
+    $post->field_postcard[$node->language][0]['display'] = $pdf_file->display;
+    $step_options['postcard_fid'] = $pdf_file->fid;
+
+    // manage created hires image in node, if any
+    if ($options['postcard_image_type']) {
+      $pdf_img_uri = $options['postcard_image_uri'];
+      $pdf_img = new stdClass();
+      $pdf_img->fid = NULL;
+      $pdf_img->uri = $pdf_img_uri;
+      $pdf_img->filename = trim(drupal_basename($pdf_img_uri));
+      $pdf_img->filemime = file_get_mimetype($pdf_img_uri);
+      $pdf_img->status   = FILE_STATUS_PERMANENT;
+      $pdf_img = file_save($pdf_img);
+
+      $node->field_hires_image[$node->language][0]['fid'] = $pdf_img->fid;
+      $step_options['postcard_img_fid'] = $pdf_img->fid;
+    }
+    node_save($post);
+
+  }
+  
   //
   // add related post id to submission
   foreach ($master->webform['components'] as $key => $data) {
@@ -173,41 +239,127 @@ function _post_data_step_presave($step, $step_info, $node, &$submission) {
       break;
     }
   }
-  
-  //
-  // add post node to session (with status)
-  $session_data = &pixelgarage_session_data();
-  $session_data['post_info'] = array(
-    'nid' => $post->nid,
-    'status' => $status,
-  );
-  
+
   //
   // add postcard to next webform node
-  
+  if ($step_options['postcard_img_fid']) {
+    $next_node = node_load(POSTCARD_DELIVERY_WEBFORM_ID);
+    $next_node->field_image_postcard[$node->language][0]['fid'] = $step_options['postcard_img_fid'];
+  }
 
 }
 
-function _post_delivery_step_presave($step, $step_info, $node, $submission) {
+function _post_delivery_step_presave(&$step_options, $node, &$submission) {
   //
   // POSTCARD DELIVERY SUBMISSION PRESAVE:
   // multi-step form is finished, publish post
-  $session_data = &pixelgarage_session_data();
-  $post_info = $session_data['post_info'];
-
-  if (!empty($post_info)) {
+  if (isset($step_options['post_nid'])) {
     //
     // publish existing post
-    $post = node_load($post_info['nid']);
-    $post->status = $post_info['status'] ? $post_info['status'] : 0;
+    $post = node_load($step_options['post_nid']);
+    $post->status = $step_options['post_status'] ? $step_options['post_status'] : 0;
     $post->field_e_mail[$post->language][0]['email'] = $submission->data[20][0]; // email
     node_save($post);
 
     //
-    // update submission with postcard data
+    // update delivery submission with postcard data
   }
 
-  // cleanup session dat
-  unset($session_data['post_info']);
+}
+
+
+/* =============================================================================
+ *     Postcard hooks
+ * ========================================================================== */
+
+/**
+ * Allows to draw to a fully initialised pdf. Only the postcard itself has to be drawn here.
+ * The initialisation and storage of the TCPDF object is done in the postcard_create_pdf() function.
+ * (See https://tcpdf.org for more details about PDF creation.)
+ *
+ * Additionally the PDF postcard can be converted (ImageMagick need to be installed) to a high resolution image,
+ * if an image file path with an image type extension is returned.
+ *
+ * @param $tcpdf_obj  object
+ *    A fully initialized TCPDF object. Use this object to draw your pdf.
+ * @param $pdf_uri string
+ *    Alter the predefined pdf uri (schema://target.pdf), if needed.
+ * @param $options array
+ *    The options array passed to the postcard_create_pdf() function.
+ *
+ *    The options array has an additional parameter added.
+ *    options['postcard_image_type']:
+ *      Indicates the file type of the high resolution postcard image to be created from the pdf (default .png).
+ *      You can alter the predefined image type, e.g. '.jpg', '.png' etc. or set it to FALSE to prevent image creation.
+ *
+ *    Image creation prerequisites:
+ *      ImageMagick has to be installed (convert binary)
+ */
+function pixelgarage_postcard_draw_pdf_alter(&$tcpdf_obj, &$pdf_uri, &$options) {
+  //
+  // get post node from options
+  $post = $options['post_node'];
+
+  //
+  // create hires image from node image (pdf resolution), if possible
+  $image_fid = $post->field_image[$post->language][0]['fid'];
+  $file_img = file_load($image_fid);
+
+  $style = image_style_load('post_hires_image');
+  $img_style_uri = image_style_path($style['name'], $file_img->uri);
+  if (!image_style_create_derivative($style, $file_img->uri, $img_style_uri)) {
+    // hires image could not be created, take lowres image
+    $img_style_uri = image_style_path('post_image', $file_img->uri);
+  }
+  $img_style_sw = file_stream_wrapper_get_instance_by_uri($img_style_uri);
+  $img_style_path = $img_style_sw->realpath();
+
+  //
+  // get banner image path from theme
+  global $language;
+  switch($language->language) {
+    case 'de':
+    default:
+      $ext = '_d.png';
+      break;
+    case 'fr':
+      $ext = '_f.png';
+      break;
+    case 'en':
+      $ext = '_e.png';
+      break;
+  }
+  $banner_img_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner' . $ext;
+
+  //
+  // get strings from post
+  $name = $post->field_name[$post->language][0]['value'];
+  $your_name = $post->field_your_name[$post->language][0]['value'];
+  $quote = $post->field_quote[$post->language][0]['value'];
+  $slogan = t('- Nachhaltig bis 2050 -');
+
+
+  //
+  // Draw the postcard
+  //
+  // set pdf info
+  $tcpdf_obj->SetCreator(PDF_CREATOR);
+  $tcpdf_obj->SetAuthor('FürDich.org');
+  $tcpdf_obj->SetTitle('Postcard created by FürDich.org');
+  $tcpdf_obj->SetSubject('Ja zur Grünen Wirtschaft');
+  $tcpdf_obj->SetKeywords('Postcard, Grüne Wirtschaft, tcpdf, PDF, Drupal, Pixelgarage');
+
+  // fill background with green (disable auto-page-break)
+  $bMargin = $tcpdf_obj->getBreakMargin();
+  $tcpdf_obj->SetAutoPageBreak(false, 0);
+  $bg_color = array(155, 195, 27); // green (#9bc31b)
+  $tcpdf_obj->Rect(0, 0, 105, 148, 'F', array(), $bg_color);
+
+  // draw post image (high-resolution)
+  $tcpdf_obj->Image($img_style_path, 0, 0, 105, 105, '', '', '', false, 300, '', false, false, 0, 'CT');
+
+  // restore auto-page-break status
+  $tcpdf_obj->SetAutoPageBreak(true, $bMargin);
+  $tcpdf_obj->setPageMark();
 
 }

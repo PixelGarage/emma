@@ -75,10 +75,10 @@ class PDFDocument extends TCPDF {
    */
   function InitializeDocument($options = array(), $font_family = 'helvetica') {
     // default meta data
-    $title = isset($options['title']) ? $options['title'] : variable_get('site_name', 'Title');
-    $author = isset($options['author']) ? $options['author'] : variable_get('site_name', 'Drupal');
+    $title = isset($options['title']) ? $options['title'] : variable_get('site_name', PDF_HEADER_TITLE);
+    $author = isset($options['author']) ? $options['author'] : variable_get('site_name', 'Pixelgarage');
     $subject = isset($options['subject']) ? $options['subject'] : variable_get('site_name', 'Subject') ;
-    $keywords = isset($options['keywords']) ? $options['keywords'] : 'pdf, Drupal, TCPDF, Pixelgarage';
+    $keywords = isset($options['keywords']) ? $options['keywords'] : 'Pixelgarage, PDF, Drupal, TCPDF';
 
     // define header / footer creation
     $no_header = false;

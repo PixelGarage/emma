@@ -47,6 +47,17 @@ function &postcard_session_data() {
  */
 function postcard_menu() {
   //
+  // postcard settings form
+  $items['admin/config/media/postcard'] = array(
+    'title' => 'Postcard settings',
+    'description' => t('Configure the postcard creation process.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('postcard_settings_form'),
+    'access arguments' => array('administer postcard'),
+    'file' => 'postcard.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+  //
   // view / edit / delete webform submission by anonymous user (submission token needed)
   $items['postcard/%postcard_menu/submission/%postcard_menu_submission/anonym_view'] = array(
     'title' => 'View',
@@ -89,7 +100,7 @@ function postcard_menu() {
     'title' => 'Create and show postcard PDF',
     'page callback' => '_postcard_show_pdf',
     'page arguments' => array(1),
-    'access callback' => TRUE,
+    'access arguments' => array('administer postcard'),
     'type' => MENU_CALLBACK,
   );
 
@@ -138,6 +149,18 @@ function postcard_anonym_submission_access($node, $submission, $op = 'anonym_vie
       return $anonymous_access;
   }
   return false;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function postcard_permission() {
+  return array(
+    'administer postcard' => array(
+      'title' => t('Administer postcard'),
+      'description' => t('Allows to administer the creation of postcard PDFs.'),
+    ),
+  );
 }
 
 

@@ -11,121 +11,117 @@
  */
 
 /**
- * Creates a postcard in pdf format from a post node.
- * 
- * This function needs the tcpdf_document module installed.
+ * Performs a PDF postcard creation.
+ * The function calls the hook_postcard_draw_pdf_alter() hook where the PDF can be drawn.
+ *
+ * This function needs the tcpdf_document module installed for PDF creation (TCPDF library wrapper).
+ *
+ * @param $pdf_name string
+ *    The name of the pdf to be created.
+ * @param $options array
+ *    An array of caller options to be used in the postcard hooks. This array is passed to all postcard hooks.
+ *
+ *    The options array has additional parameters added during PDF creation.
+ *    postcard_image_type:
+ *      Indicates the file type of the high resolution postcard image to be created from the pdf (default .png).
+ *      You can alter the predefined image type in the hook_postcard_draw_pdf_alter() function to define the image type.
+ *    postcard_image_uri:
+ *      Holds the high resolution image uri after the file has been created.
+ *
+ * @return string
+ *    Returns the pdf uri of the created postcard pdf.
+ * @throws Exception
+ *
  * @see tcpdf_document_instance()
  */
-function postcard_create_pdf(&$node) {
+function postcard_create_pdf($pdf_name, &$options) {
   //
-  // create the postcard file uri and path
-  $uri = 'private://postcards';
-  $filename = _file_check_name($node->title . '_' . time() . '.pdf');
-  $file_uri = $uri . '/' . $filename;
-  $file_sw = file_stream_wrapper_get_instance_by_uri($file_uri);
-  $filepath = $file_sw->realpath();
+  // create default pdf and pdf-image path and make sure the directory exists and is writable
+  $pdf_dir = 'private://postcards';
+  file_prepare_directory($pdf_dir, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  $pdf_name = _file_check_name($pdf_name);
+  $pdf_uri = $pdf_dir . '/' . $pdf_name;
 
-  //
-  // create hires image from node image (pdf resolution), if possible
-  $style = image_style_load('post_hires_image');
-  $image_fid = $node->field_image[$node->language][0]['fid'];
-  $node_img = file_load($image_fid);
+  try {
+    //
+    // create postcard tcpdf object
+    $pdf = tcpdf_document_instance(array(), 'P', 'mm', 'A6'); //105 x 148 mm
 
-  if (!empty($style) && $node_img) {
-    $hires_img_uri = image_style_path($style['name'], $node_img->uri);
-    if (!image_style_create_derivative($style, $node_img->uri, $hires_img_uri)) {
-      // hires image could not be created, take lowres image
-      $hires_img_uri = image_style_path('post_image', $node_img->uri);
+    //
+    // allow others to draw a custom pdf, pass options
+    $options['postcard_image_type'] = '.png';
+    drupal_alter('postcard_draw_pdf', $pdf, $pdf_uri, $options);
+
+    // finish pdf writing and save pdf to given location
+    if ($pdf_sw = file_stream_wrapper_get_instance_by_uri($pdf_uri)) {
+      $pdf_path = $pdf_sw->realpath();
     }
+    else {
+      $pdf_path = $pdf_uri;
+    }
+
+    $pdf->lastPage();
+    $pdf->Output($pdf_path, 'F');
+
+    //
+    // convert postcard pdf to high resolution image, if requested
+    if ($options['postcard_image_type']) {
+      $img_uri = str_replace('.pdf', $options['postcard_image_type'], $pdf_uri);
+      //$img_uri = str_replace('private://', 'public://', $img_uri);
+      if ($img_sw = file_stream_wrapper_get_instance_by_uri($img_uri)) {
+        $img_path = $img_sw->realpath();
+      }
+      else {
+        $img_path = $img_uri;
+      }
+      if (_postcard_convert_to_image($pdf_path, $img_path)) {
+        $options['postcard_image_uri'] = $img_uri;
+      }
+    }
+
   }
-  else {
-    // no image or style available, don't create pdf
-    watchdog('Postcard PDF creation', 'No user image file available. PDF not created', array(), WATCHDOG_ALERT);
-    return;
+  catch (Exception $e) {
+    watchdog('Postcard PDF creation', 'Postcard PDF creation error: @err_msg.', array('@err_msg' => $e->getMessage()), WATCHDOG_ERROR);
+    $pdf_uri = false;
   }
-  $hires_img_sw = file_stream_wrapper_get_instance_by_uri($hires_img_uri);
-  $hires_img_path = $hires_img_sw->realpath();
 
   //
-  // get banner image path from theme
-  global $language;
-  switch($language->language) {
-    case 'de':
-    default:
-      $ext = '_d.png';
-      break;
-    case 'fr':
-      $ext = '_f.png';
-      break;
-    case 'en':
-      $ext = '_e.png';
-      break;
-  }
-  $banner_img_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner' . $ext;
-
-  //
-  // create strings from node
-  $name = $node->field_name[$node->language][0]['value'];
-  $your_name = $node->field_your_name[$node->language][0]['value'];
-  $quote = $node->field_quote[$node->language][0]['value'];
-  $slogan = t('- Nachhaltig bis 2050 -');
-
-
-  //
-  // create postcard and save it as pdf
-  $options = array(
-    'title' => 'Postcard created by FürDich.org',
-    'subject' => 'Ja zur Grünen Wirtschaft',
-    'author' => 'FürDich.org',
-    'keywords' => 'Postcard, Grüne Wirtschaft, tcpdf, PDF, Drupal, Pixelgarage',
-    'header' => null,
-    'footer' => null,
-  );
-  $pdf = tcpdf_document_instance($options, 'P', 'mm', 'A6'); //105 x 148 mm
-
-  // fill background with green (disable auto-page-break)
-  $bMargin = $pdf->getBreakMargin();
-  $pdf->SetAutoPageBreak(false, 0);
-  $bg_color = array(155, 195, 27); // #9bc31b
-  $pdf->Rect(0, 0, 105, 148, 'F', array(), $bg_color);  //
-  
-  // draw post image (high-resolution)
-  $pdf->Image($hires_img_path, 0, 0, 105, 105, '', '', '', false, 300, '', false, false, 0, 'CT');
-
-  // restore auto-page-break status
-  $pdf->SetAutoPageBreak(true, $bMargin);
-  $pdf->setPageMark();
-
-
-  // write pdf to file
-  $pdf->lastPage();
-  $pdf->Output($filepath, 'F');
-
-
-  //
-  // save pdf file (managed)
-  $file = new stdClass();
-  $file->fid = NULL;
-  $file->uri = $file_uri;
-  $file->filename = $filename;
-  $file->filemime = file_get_mimetype($file_uri);
-  $file->status   = FILE_STATUS_PERMANENT;
-  $file->uid      = 1;
-  $file = file_save($file);
-
-  $node->field_postcard[$node->language][0]['fid'] = $file->fid;
-  $node->field_postcard[$node->language][0]['display'] = 1;
-
-  //
-  // convert postcard pdf to image
-  //_postcard_convert_to_image($node, '.png');
-
-  //
-  node_save($node);
+  // return the pdf path
+  return $pdf_uri;
 }
 
 /**
- * Helper function to created a valid file name.
+ * Converts a pdf file into a high resolution image file at the given path.
+ * The image extension defines the type of the created image, e.g. '.jpg', '.png'...
+ *
+ * @param $pdf_path string
+ *    The path of the pdf file to be converted
+ * @param $img_path string
+ *    The image file path, where the created image is stored.
+ * @return mixed
+ *    True, if conversion was successful, false or an error code otherwise.
+ */
+function _postcard_convert_to_image($pdf_path, $img_path) {
+  //
+  // set conversion parameter
+  $args['quality'] = '-quality ' . escapeshellarg(variable_get('postcard_img_quality', 75));
+  $args['sharpen'] = '-sharpen ' . escapeshellarg(variable_get('postcard_img_sharpen', '0x1.0'));
+
+  //
+  // set the convert arguments for a high quality conversion
+  // and execute command (ImageMagick convert command)
+  //
+  // ImageMagick arguments: convert { [-setting]... "image"|-operation }... "output_image"
+  // @see http://www.imagemagick.org/Usage/basics/#cmdline
+  array_unshift($args, escapeshellarg($pdf_path));
+  array_unshift($args, '-density ' . escapeshellarg(variable_get('postcard_pdf_dpi', 150)));
+  $args[] = escapeshellarg($img_path);
+  $cmd_args = implode(' ', $args);
+  return _imagemagick_convert_exec($cmd_args);
+}
+
+/**
+ * Helper function to created a valid file name from a user input name.
  */
 function _file_check_name($name) {
   // Punctuation characters that are allowed, but not as first/last character.
@@ -137,60 +133,12 @@ function _file_check_name($name) {
     '!\.+!' => '.',
     // Remove characters that are not alphanumeric or the allowed punctuation.
     "![^0-9A-Za-z$punctuation]!" => '',
-    );
+  );
 
   // Apply the regex replacements. Remove any leading or hanging punctuation.
   return trim(preg_replace(array_keys($map), array_values($map), $name), $punctuation);
 }
 
-/**
- * Converts a pdf file into a high resolution image file of given format.
- *
- * @param $node
- *    The node holding the pdf to be converted
- * @param $img_format string
- *    The file extension of the requested image format, e.g. '.png', '.jpg'
- */
-function _postcard_convert_to_image(&$node, $img_format) {
-  //
-  // get pdf file form node
-  $pdf_fid = $node->field_postcard[$node->language][0]['fid'];
-  if (!$pdf_fid) return;
-
-  //
-  // create image path from pdf path
-  $pdf_file = file_load($pdf_fid);
-  $img_uri = str_replace('.pdf', $img_format, $pdf_file->uri);
-  $pdf_sw = file_stream_wrapper_get_instance_by_uri($pdf_file->uri);
-  $pdfpath = $pdf_sw->realpath();
-  $img_sw = file_stream_wrapper_get_instance_by_uri($img_uri);
-  $imgpath = $img_sw->realpath();
-
-  $dpi = 300;
-  $quality = 75;
-
-  //
-  // set the convert arguments for a high quality conversion
-  // and execute command (ImageMagick convert command)
-  //
-  // ImageMagick arguments: convert { [-setting]... "image"|-operation }... "output_image"
-  // @see http://www.imagemagick.org/Usage/basics/#cmdline
-  $args_String = "-density {$dpi} -trim {$pdfpath} -quality {$quality} -sharpen 0x1.0 {$imgpath}";
-  $convert_args = escapeshellarg($args_String);
-  if (_imagemagick_convert_exec($convert_args)) {
-    // store created hires image in node
-    $img = new stdClass();
-    $img->fid = NULL;
-    $img->uri = $img_uri;
-    $img->filename = trim(drupal_basename($img_uri));
-    $img->filemime = file_get_mimetype($img_uri);
-    $img->status   = FILE_STATUS_PERMANENT;
-    $img = file_save($img);
-
-    $node->field_hires_image[$node->language][0]['fid'] = $img->fid;
-  }
-
-}
 
 
 /* =============================================================================
@@ -198,23 +146,24 @@ function _postcard_convert_to_image(&$node, $img_format) {
  * ========================================================================== */
 
 /**
- * Menu callback of a PDF creation request.
+ * Menu callback of a PDF creation request with one menu parameter.
  *
- * @param $nid int
- *    Node ID of which the postcard pdf has to be created.
+ * @param $menu_param int
+ *    First menu parameter.
  */
-function _postcard_show_pdf($nid)
+function _postcard_show_pdf($menu_param)
 {
   // load post node
-  $post = node_load($nid);
+  $post = node_load($menu_param);
 
-  // create the pdf
-  postcard_create_pdf($post);
+  // create the pdf from the node
+  $pdf_name = 'test_pdf_' . time() . '.pdf';
+  $options = array('post_node' => $post);
+  $pdf_uri = postcard_create_pdf($pdf_name, $options);
 
-  // get created pdf file from node
-  $pdf_fid = $post->field_postcard[$post->language][0]['fid'];
-  if ($pdf_file = file_load($pdf_fid)) {
-    _postcard_transfer_pdf($pdf_file->uri, $pdf_file->filename, true);
+  // send pdf to client
+  if ($pdf_uri) {
+    postcard_transfer_pdf($pdf_uri, $pdf_name, true);
   }
 
   // file not found
@@ -234,7 +183,7 @@ function _postcard_show_pdf($nid)
  * @param int $valid_duration
  *    Duration during which the file is valid (default: -1 meaning no time limit)
  */
-function _postcard_transfer_pdf($pdf_uri, $filename, $show_file_inline = false, $valid_duration = -1)
+function postcard_transfer_pdf($pdf_uri, $filename, $show_file_inline = false, $valid_duration = -1)
 {
   // get stream wrapper instance for pdf
   $stream_wrapper = file_stream_wrapper_get_instance_by_uri($pdf_uri);
@@ -281,7 +230,7 @@ function _postcard_transfer_pdf($pdf_uri, $filename, $show_file_inline = false, 
  *   - Boolean FALSE if the shell process could not be executed.
  *   - Error exit status code integer returned by the executable.
  */
-function _imagemagick_convert_exec($command_args, &$output = NULL, &$error = NULL, $convert_path = '/usr/local/bin') {
+function _imagemagick_convert_exec($command_args, &$output = NULL, &$error = NULL, $convert_path = NULL) {
   // $convert_path is only passed from the system-wide image toolkit form, on
   // which the path to convert is configured.
   // @see _imagemagick_check_path()
@@ -289,7 +238,7 @@ function _imagemagick_convert_exec($command_args, &$output = NULL, &$error = NUL
     // By using a default of NULL, we force users to setup the toolkit through
     // the image toolkit administration UI. Sites enforcing a path via
     // settings.php should know what they are doing.
-    $convert_path = variable_get('imagemagick_convert_path', NULL);
+    $convert_path = variable_get('postcard_convert_path', NULL);
     if (!isset($convert_path)) {
       return FALSE;
     }
@@ -332,7 +281,7 @@ function _imagemagick_convert_exec($command_args, &$output = NULL, &$error = NUL
     $return_code = proc_close($h);
 
     // Display debugging information to authorized users.
-    if (variable_get('imagemagick_debug', FALSE) && user_access('administer site configuration')) {
+    if (variable_get('postcard_debug', FALSE) && user_access('administer postcard')) {
       debug($command, t('ImageMagick command'), TRUE);
       if ($output !== '') {
         debug($output, t('ImageMagick output'), TRUE);
@@ -350,19 +299,14 @@ function _imagemagick_convert_exec($command_args, &$output = NULL, &$error = NUL
       if ($error === '') {
         $error = t('No error message.');
       }
-      // Format $error with as full message, passed by reference.
-      $error = t('ImageMagick error @code: !error', array(
-        '@code' => $return_code,
-        '!error' => $error,
-      ));
-      watchdog('Postcard creation', 'ImageMagick error @code: !error', array('@code' => $return_code, '!error' => $error), WATCHDOG_ERROR);
-      return $return_code;
+      watchdog('Postcard image creation', 'ImageMagick error @code: !error', array('@code' => $return_code, '!error' => $error), WATCHDOG_ERROR);
+      return FALSE;
     }
     // The shell command was executed successfully.
     return TRUE;
   }
   // The shell command could not be executed.
-  watchdog('Postcard creation', 'The ImageMagick command could not be executed due to an unknown error.', array(), WATCHDOG_ERROR);
+  watchdog('Postcard image creation', 'The ImageMagick command could not be executed due to an unknown error.', array(), WATCHDOG_ERROR);
   return FALSE;
 }
 

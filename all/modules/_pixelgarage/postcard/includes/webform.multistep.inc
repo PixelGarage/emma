@@ -31,12 +31,30 @@ function postcard_webform_submission_presave($node, &$submission) {
   $master = postcard_webform_master_form($node);
 
   //
+  // handle step options in session
+  $session_data = &postcard_session_data();
+  if (_is_first_step($master)) {
+    $step_options = array(
+      'step_key' => _get_step_key($master),
+      'step_info' => _get_step_info($master),
+    );
+  }
+  else {
+    $step_options = $session_data['step_options'];
+    $step_options['step_key'] = _get_step_key($master);
+    $step_options['step_info'] = _get_step_info($master);
+  }
+
+  //
   // alter submission before saving
-  $step_options = array(
-    'step_key' => _get_step_key($master),
-    'step_info' => _get_step_info($master),
-  );
   drupal_alter('postcard_multi_step_submission_presave', $step_options, $node, $submission);
+  $session_data['step_options'] = $step_options;
+
+  //
+  // cleanup session data
+  if (_is_last_step($master)) {
+    unset($session_data['step_options']);
+  }
 
 }
 
@@ -262,6 +280,23 @@ function _is_first_step($master) {
     }
   }
 }
+
+/**
+ * Returns true, if given webform is last step of a multi-step webform. False otherwise.
+ */
+function _is_last_step($master) {
+  $steps = _multi_step_webform_info();
+  foreach($steps as $key => $step_info) {
+    // load step webform master
+    $step_form = node_load($step_info['nid']);
+    $step_master = postcard_webform_master_form($step_form);
+
+    if ($master->nid == $step_master->nid) {
+      return !isset($step_info['next step']);
+    }
+  }
+}
+
 
 /* --------------------------------------------------
  * Multi-step db access helper

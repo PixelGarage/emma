@@ -149,18 +149,6 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
     $post = node_load($post_nid);
     $post->status = $status;
 
-    // delete an existing postcard, it will be newly generated
-    $pdf_file = (object)$post->field_postcard[$post->language][0];
-    if ($pdf_file) {
-      file_delete($pdf_file);
-      $post->field_postcard[$post->language][0]['fid'] = null;
-    }
-    $img_file = (object)$post->field_hires_image[$post->language][0];
-    if ($img_file) {
-      file_delete($img_file);
-      $post->field_hires_image[$post->language][0]['fid'] = null;
-    }
-
   } else {
     // create post node and save it in the submission
     $post = new stdClass();
@@ -198,6 +186,16 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
 
   if ($pdf_uri) {
     //
+    // delete old pdf, if any
+    $old_pdf_fid = $post->field_postcard[$post->language][0]['fid'];
+    if (isset($old_pdf_fid)) {
+      $old_pdf_file = file_load($old_pdf_fid);
+      if ($old_pdf_file) {
+        file_delete($old_pdf_file);
+      }
+    }
+
+    //
     // manage created pdf file in post
     $pdf_file = new stdClass();
     $pdf_file->fid = NULL;
@@ -209,12 +207,24 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
     $pdf_file->display  = 1;
     $pdf_file = file_save($pdf_file);
 
-    $post->field_postcard[$node->language][0]['fid'] = $pdf_file->fid;
-    $post->field_postcard[$node->language][0]['display'] = $pdf_file->display;
+    $post->field_postcard[$post->language][0]['fid'] = $pdf_file->fid;
+    $post->field_postcard[$post->language][0]['display'] = $pdf_file->display;
     $step_options['postcard_fid'] = $pdf_file->fid;
 
     // manage created hires image in node, if any
-    if ($options['postcard_image_type']) {
+    if ($options['postcard_image_uri']) {
+      //
+      // delete old image, if any
+      $old_img_fid = $post->field_hires_image[$post->language][0]['fid'];
+      if (isset($old_img_fid)) {
+        $old_img_file = file_load($old_img_fid);
+        if ($old_img_file) {
+          file_delete($old_img_file);
+        }
+      }
+
+      //
+      // manage created image file in post
       $pdf_img_uri = $options['postcard_image_uri'];
       $pdf_img = new stdClass();
       $pdf_img->fid = NULL;
@@ -224,7 +234,7 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
       $pdf_img->status   = FILE_STATUS_PERMANENT;
       $pdf_img = file_save($pdf_img);
 
-      $node->field_hires_image[$node->language][0]['fid'] = $pdf_img->fid;
+      $post->field_hires_image[$post->language][0]['fid'] = $pdf_img->fid;
       $step_options['postcard_img_fid'] = $pdf_img->fid;
     }
     node_save($post);
@@ -244,7 +254,7 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
   // add postcard to next webform node
   if ($step_options['postcard_img_fid']) {
     $next_node = node_load(POSTCARD_DELIVERY_WEBFORM_ID);
-    $next_node->field_image_postcard[$node->language][0]['fid'] = $step_options['postcard_img_fid'];
+    $next_node->field_image_postcard[$next_node->language][0]['fid'] = $step_options['postcard_img_fid'];
   }
 
 }
@@ -260,9 +270,23 @@ function _post_delivery_step_presave(&$step_options, $node, &$submission) {
     $post->status = $step_options['post_status'] ? $step_options['post_status'] : 0;
     $post->field_e_mail[$post->language][0]['email'] = $submission->data[20][0]; // email
     node_save($post);
+  }
 
-    //
-    // update delivery submission with postcard data
+  //
+  // update delivery submission pdf link component with postcard data
+  if ($step_options['postcard_fid']) {
+    $pdf_file = file_load($step_options['postcard_fid']);
+    $vars = array('file' => $pdf_file);
+    $pdf_link = theme_file_link($vars);
+
+    // set submission value
+    $master = postcard_webform_master_form($node);
+    foreach ($master->webform['components'] as $key => $data) {
+      if ($data['form_key'] == 'pdf_link') {
+        $submission->data[$key][0] = $pdf_link;
+        break;
+      }
+    }
   }
 
 }

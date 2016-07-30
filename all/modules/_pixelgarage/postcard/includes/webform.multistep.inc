@@ -27,7 +27,13 @@
  */
 function postcard_webform_submission_presave($node, &$submission) {
   //
+  // return, if form is not part of a mult-step form
+  if (!_is_multistep_webform($node)) return;
+
+
+  //
   // perform the submission presave for the specific step (webform node)
+  // and the session data exchanged between steps
   $master = postcard_webform_master_form($node);
 
   //
@@ -64,6 +70,11 @@ function postcard_webform_submission_presave($node, &$submission) {
  */
 function postcard_webform_submission_insert($node, $submission) {
   //
+  // return, if form is not part of a mult-step form
+  if (!_is_multistep_webform($node)) return;
+
+
+  //
   // create multi-step submission chain in db for later use
   _save_step_submission($node, $submission);
 }
@@ -83,18 +94,16 @@ function postcard_webform_submission_title($node, $submission) {
  */
 
 function postcard_form_webform_client_form_alter (&$form, &$form_state) {
-  $node = $form['#node'];
-  $master = postcard_webform_master_form($node);
-  $tnids = _get_all_multistep_webforms();
-
   //
   // return, if form is not part of a mult-step form
-  if (!in_array($master->nid, $tnids)) return;
+  $node = $form['#node'];
+  if (!_is_multistep_webform($node)) return;
 
   //
   // cleanup session data at the opening step of a multi-step process
   // do not clean up during editing (submission exists)
   $session_data = &postcard_session_data();
+  $master = postcard_webform_master_form($node);
   $submission = $form['#submission'];
   if (!$submission && _is_first_step($master)) {
     unset($session_data['multistep']);
@@ -184,6 +193,25 @@ function _multi_step_webform_info() {
 }
 
 /**
+ * Returns the tnid's from all multi-step webforms.
+ * @return array
+ *    An array of all tnid's.
+ */
+function _is_multistep_webform($node) {
+  $master = postcard_webform_master_form($node);
+  $steps = _multi_step_webform_info();
+  $tnids = array();
+  foreach($steps as $key => $step_info) {
+    // load step webform master
+    $step_form = node_load($step_info['nid']);
+    $step_master = postcard_webform_master_form($step_form);
+    $tnids[] = $step_master->nid;
+  }
+  return in_array($master->nid, $tnids);
+
+}
+
+/**
  * Gets the step key of the given master node (language independent)
  *
  * @param $master   object
@@ -249,23 +277,6 @@ function _get_step_info($master, $step = 'current') {
 }
 
 /**
- * Returns the tnid's from all multi-step webforms.
- * @return array
- *    An array of all tnid's.
- */
-function _get_all_multistep_webforms() {
-  $steps = _multi_step_webform_info();
-  $tnids = array();
-  foreach($steps as $key => $step_info) {
-    // load step webform master
-    $step_form = node_load($step_info['nid']);
-    $step_master = postcard_webform_master_form($step_form);
-    $tnids[] = $step_master->nid;
-  }
-  return $tnids;
-}
-
-/**
  * Returns true, if given webform is first step of a multi-step webform. False otherwise.
  */
 function _is_first_step($master) {
@@ -279,6 +290,7 @@ function _is_first_step($master) {
       return !isset($step_info['prev step']);
     }
   }
+  return false;
 }
 
 /**
@@ -295,6 +307,7 @@ function _is_last_step($master) {
       return !isset($step_info['next step']);
     }
   }
+  return false;
 }
 
 

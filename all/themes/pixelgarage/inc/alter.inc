@@ -316,7 +316,7 @@ function pixelgarage_postcard_draw_pdf_alter(&$tcpdf_obj, &$pdf_uri, &$options) 
 
   //
   // get banner image path from theme
-  global $language;
+  global $language, $base_url;
   switch($language->language) {
     case 'de':
     default:
@@ -332,31 +332,97 @@ function pixelgarage_postcard_draw_pdf_alter(&$tcpdf_obj, &$pdf_uri, &$options) 
   $banner_img_path = drupal_get_path('theme', 'pixelgarage') . '/images/logo_banner' . $ext;
 
   //
+  // get gradient image
+  $gradient_img_path = drupal_get_path('theme', 'pixelgarage') . '/images/gradient_bg.png';
+
+  //
   // get strings from post
+  $slogan = t('Nachhaltig bis 2050');
   $name = $post->field_name[$post->language][0]['value'];
-  $your_name = $post->field_your_name[$post->language][0]['value'];
   $quote = $post->field_quote[$post->language][0]['value'];
-  $slogan = t('- Nachhaltig bis 2050 -');
+  $your_name = '- ' . $post->field_your_name[$post->language][0]['value'] . ' -';
 
 
   //
   // Draw the postcard
   //
-  // set pdf info
+  // set pdf specifc settings
   $tcpdf_obj->SetCreator(PDF_CREATOR);
   $tcpdf_obj->SetAuthor('FürDich.org');
   $tcpdf_obj->SetTitle('Postcard created by FürDich.org');
   $tcpdf_obj->SetSubject('Ja zur Grünen Wirtschaft');
   $tcpdf_obj->SetKeywords('Postcard, Grüne Wirtschaft, tcpdf, PDF, Drupal, Pixelgarage');
+  $tcpdf_obj->SetMargins(0, 0, 0);
 
-  // fill background with green (disable auto-page-break)
+  // disable auto-page-break status
   $bMargin = $tcpdf_obj->getBreakMargin();
   $tcpdf_obj->SetAutoPageBreak(false, 0);
+
+  // line and fill color
+  //$tcpdf_obj->SetFillColor(128, 128, 128);
+  //$tcpdf_obj->SetDrawColor(128);
+  $tcpdf_obj->SetLineWidth(0.8);
+  $line_style = array('width' => 0.6, 'cap' => 'round', 'join' => 'miter', 'dash' => 0, 'color' => array(255, 255, 255));
+
+  // fill background with green
   $bg_color = array(155, 195, 27); // green (#9bc31b)
   $tcpdf_obj->Rect(0, 0, 105, 148, 'F', array(), $bg_color);
 
   // draw post image (high-resolution)
   $tcpdf_obj->Image($img_style_path, 0, 0, 105, 105, '', '', '', false, 300, '', false, false, 0, 'CT');
+
+  // draw banner image (418x161px)
+  $tcpdf_obj->Image($banner_img_path, 5.25, 82.88, 94.5, 0, '', '', '', false, 300, '', false, false, 0);
+
+  // draw linear gradient background
+  $tcpdf_obj->Image($gradient_img_path,0, 0, 105, 0, '', '', '', false, 300, '', false, false, 0);
+
+
+  // draw slogan with dashes
+  $tcpdf_obj->Line(5, 7, 10, 7, $line_style);
+  $tcpdf_obj->Line(95, 7, 100, 7, $line_style);
+  $tcpdf_obj->addFont('museosans_900', '', 'museosans_900');
+  $tcpdf_obj->setFont('museosans_900');//, null, 'museosans_900', false);
+  $tcpdf_obj->setFontSize(22);
+  $tcpdf_obj->SetTextColor(255, 255, 255);
+  $tcpdf_obj->setXY(0,2);
+  // Format: Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M')
+  $tcpdf_obj->Cell(0, 0, $slogan, 0, 0, 'C', false);
+
+  // draw quote
+  // Format: writeHTML($html, $ln=true, $fill=false, $reseth=false, $cell=false, $align='')
+  // Format: writeHTMLCell($w, $h, $x, $y, $html='', $border=0, $ln=0, $fill=false, $reseth=true, $align='', $autopadding=true)
+  $tcpdf_obj->addFont('museosans_900', '', 'museosans_900');
+  $tcpdf_obj->setFont('museosans_900', 'B');//, null, 'museosans_900', false);
+  $tcpdf_obj->setFontSize(17);
+  $tcpdf_obj->SetTextColor(255, 255, 255);
+  $tcpdf_obj->setCellHeightRatio(1.1);
+  $tcpdf_obj->setXY(5.25,118.4);
+  // Format: MultiCell($w, $h, $txt, $border=0, $align='J', $fill=false, $ln=1, $x='', $y='', $reseth=true, $stretch=0, $ishtml=false, $autopadding=true, $maxh=0, $valign='T', $fitcell=false)
+  $tcpdf_obj->MultiCell(94.5, 17, $quote, 0, 'C', false, 1);
+
+  // draw your name
+  $tcpdf_obj->addFont('MuseoSans_300', '', 'museosans_300');
+  $tcpdf_obj->setFont('MuseoSans_300', '', null, 'museosans_300', false);
+  $tcpdf_obj->setFontSize(10);
+  $tcpdf_obj->SetTextColor(255, 255, 255);
+  $tcpdf_obj->setXY(0,140);
+  // Format: Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M')
+  $tcpdf_obj->Cell(0, 0, $your_name, 0, 0, 'C', false);
+
+  // draw child name
+  $tcpdf_obj->addFont('Pacifico', '', 'pacifico');
+  $tcpdf_obj->setFont('Pacifico');
+  $tcpdf_obj->SetTextColor(155, 195, 27); // green (#9bc31b)
+  $tcpdf_obj->setFontSize(35);
+  $tcpdf_obj->StartTransform();
+  $tcpdf_obj->setXY(5.25,101);
+  $tcpdf_obj->Rotate(2);
+  // Format: Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M')
+  $tcpdf_obj->Cell(94.5, 0, $name, 0, 0, 'C', false);
+  // rotate the text
+  $tcpdf_obj->StopTransform();
+
 
   // restore auto-page-break status
   $tcpdf_obj->SetAutoPageBreak(true, $bMargin);

@@ -74,9 +74,16 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
   if (!in_array($master->nid, $tnids)) return;
 
   //
-  // find the previous / next step (webform) of the multi-step webform
+  // cleanup session data at the opening step of a multi-step process
+  // do not clean up during editing (submission exists)
   $session_data = &postcard_session_data();
   $submission = $form['#submission'];
+  if (!$submission && _is_first_step($master)) {
+    unset($session_data['multistep']);
+  }
+
+  //
+  // find the previous / next step (webform) of the multi-step webform
   $prev_step = false;
   $next_step = false;
   if ($submission) {
@@ -110,12 +117,6 @@ function postcard_form_webform_client_form_alter (&$form, &$form_state) {
     $form['actions']['back'] = array(
       '#markup' => postcard_create_anonym_submission_link($prev_step['nid'], $prev_step['sid'], 'anonym_edit', true, $button_title),
     );
-  }
-  else if (!$submission) {
-    // cleanup session data at the opening step of a multi-step process
-    // do not clean up during editing (submission exists)
-    unset($session_data['multistep']);
-
   }
 
   //
@@ -244,6 +245,22 @@ function _get_all_multistep_webforms() {
     $tnids[] = $step_master->nid;
   }
   return $tnids;
+}
+
+/**
+ * Returns true, if given webform is first step of a multi-step webform. False otherwise.
+ */
+function _is_first_step($master) {
+  $steps = _multi_step_webform_info();
+  foreach($steps as $key => $step_info) {
+    // load step webform master
+    $step_form = node_load($step_info['nid']);
+    $step_master = postcard_webform_master_form($step_form);
+
+    if ($master->nid == $step_master->nid) {
+      return !isset($step_info['prev step']);
+    }
+  }
 }
 
 /* --------------------------------------------------

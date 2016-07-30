@@ -9952,16 +9952,16 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   color: white;
   text-align: right;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form {
   padding: 0;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform label,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform label {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form label,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form label {
   display: block;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform input.email,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform input.email {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form input.email,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form input.email {
   display: inline-block;
   vertical-align: top;
   padding: 0 10px;
@@ -9982,51 +9982,51 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform input.email::-moz-placeholder,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform input.email::-moz-placeholder {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form input.email::-moz-placeholder,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form input.email::-moz-placeholder {
   color: #5f5e5e;
   opacity: 1;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform input.email:-ms-input-placeholder,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform input.email:-ms-input-placeholder {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form input.email:-ms-input-placeholder,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form input.email:-ms-input-placeholder {
   color: #5f5e5e;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform input.email::-webkit-input-placeholder,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform input.email::-webkit-input-placeholder {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form input.email::-webkit-input-placeholder,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form input.email::-webkit-input-placeholder {
   color: #5f5e5e;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform input.email:focus,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform input.email:focus {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form input.email:focus,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form input.email:focus {
   border: 1px solid #9bc31b;
   -webkit-box-shadow: 0 0 2px #9bc31b inset;
   -moz-box-shadow: 0 0 2px #9bc31b inset;
   box-shadow: 0 0 2px #9bc31b inset;
 }
 @media screen and (min-width: 30em) {
-  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform input.email,
-  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform input.email {
+  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form input.email,
+  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form input.email {
     height: 28px;
     font-size: 14px;
     line-height: 14px;
   }
 }
 @media screen and (min-width: 64em) {
-  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform input.email,
-  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform input.email {
+  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form input.email,
+  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form input.email {
     height: 32px;
     font-size: 17px;
     line-height: 17px;
   }
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .clear,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .clear {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .clear,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .clear {
   display: inline-block;
   margin: 0 0 0 -4px;
   padding: 0;
   vertical-align: top;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .clear input,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .clear input {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .clear input,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .clear input {
   margin: 0;
   padding: 3px 10px 0;
   height: 24px;
@@ -10046,13 +10046,13 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   background-color: #9bc31b;
   opacity: 1.0;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .clear input:hover,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .clear input:hover {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .clear input:hover,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .clear input:hover {
   opacity: 0.6;
 }
 @media screen and (min-width: 30em) {
-  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .clear input,
-  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .clear input {
+  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .clear input,
+  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .clear input {
     padding: 0 12px;
     height: 28px;
     font-size: 14px;
@@ -10060,28 +10060,28 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   }
 }
 @media screen and (min-width: 64em) {
-  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .clear input,
-  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .clear input {
+  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .clear input,
+  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .clear input {
     padding: 0 15px;
     height: 32px;
     font-size: 17px;
     line-height: 17px;
   }
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .webform-client-form,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .webform-client-form {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .webform-client-form,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .webform-client-form {
   margin: 0;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .webform-component-email,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .webform-component-email {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .webform-component-email,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .webform-component-email {
   margin: 0;
   padding: 0;
   display: inline-block;
   width: 80%;
   background: #3b7da9 none;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .form-actions,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .form-actions {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .form-actions,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .form-actions {
   display: inline-block;
   margin: 0 0 0 -4px;
   padding: 0;
@@ -10089,8 +10089,8 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   width: 20%;
   background: #3b7da9 none;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .form-actions button.btn,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .form-actions button.btn {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .form-actions button.btn,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .form-actions button.btn {
   margin: 0;
   padding: 3px 10px 0;
   height: 24px;
@@ -10111,13 +10111,13 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   opacity: 1.0;
   width: 100%;
 }
-.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .form-actions button.btn:hover,
-.node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .form-actions button.btn:hover {
+.node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .form-actions button.btn:hover,
+.node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .form-actions button.btn:hover {
   opacity: 0.6;
 }
 @media screen and (min-width: 30em) {
-  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .form-actions button.btn,
-  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .form-actions button.btn {
+  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .form-actions button.btn,
+  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .form-actions button.btn {
     padding: 0 12px;
     height: 28px;
     font-size: 14px;
@@ -10125,8 +10125,8 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   }
 }
 @media screen and (min-width: 64em) {
-  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .node-webform .form-actions button.btn,
-  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .node-webform .form-actions button.btn {
+  .node.node-footer div.col-sm-12 .field-name-newsletter .field-item .webform-client-form .form-actions button.btn,
+  .node.node-footer .col-sm-6 .field-name-newsletter .field-item .webform-client-form .form-actions button.btn {
     padding: 0 15px;
     height: 32px;
     font-size: 17px;

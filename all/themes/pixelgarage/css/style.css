@@ -11887,7 +11887,7 @@ form.webform-client-form .webform-component .form-managed-file {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  border: none;
+  background-color: #ebf0f8;
 }
 form.webform-client-form .webform-component .form-managed-file input {
   position: relative;
@@ -12094,53 +12094,52 @@ form.webform-client-form div.form-actions a.back-link:focus {
 /*
  *  Webform confirmation component
  * --------------------------------------------------*/
+.webform-confirmation {
+  margin: 50px auto;
+  padding: 15px 30px;
+  width: 80%;
+  color: #fff;
+  border: 1px solid #9bc31b;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #9bc31b;
+}
+.webform-confirmation .confirmation-title {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+}
+@media screen and (min-width: 30em) {
+  .webform-confirmation .confirmation-title {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .webform-confirmation .confirmation-title {
+    font-size: 25px;
+  }
+}
 .webform-confirmation .confirmation-message {
-  padding: 50px 20px 50px;
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
 }
 @media screen and (min-width: 30em) {
   .webform-confirmation .confirmation-message {
-    padding: 50px 30px 50px;
+    font-size: 2.91666667vw;
   }
 }
 @media screen and (min-width: 48em) {
   .webform-confirmation .confirmation-message {
-    padding: 75px 80px 50px;
+    font-size: 18px;
   }
-}
-@media screen and (min-width: 64em) {
-  .webform-confirmation .confirmation-message {
-    padding: 75px 100px 50px;
-  }
-}
-.webform-confirmation .confirmation-message .first-paragraph,
-.webform-confirmation .confirmation-message .second-paragraph,
-.webform-confirmation .confirmation-message .third-paragraph,
-.webform-confirmation .confirmation-message p {
-  font-family: 'MuseoSans_900', sans-serif;
-  font-size: 30px;
-  line-height: 1.2;
-  text-align: center;
-  color: #3b7da9;
-}
-@media screen and (min-width: 48em) {
-  .webform-confirmation .confirmation-message .first-paragraph,
-  .webform-confirmation .confirmation-message .second-paragraph,
-  .webform-confirmation .confirmation-message .third-paragraph,
-  .webform-confirmation .confirmation-message p {
-    font-size: 40px;
-    text-align: left;
-  }
-}
-.webform-confirmation .confirmation-message .second-paragraph,
-.webform-confirmation .confirmation-message p {
-  color: #000000;
-}
-.webform-confirmation .confirmation-message .third-paragraph {
-  color: #3b7da9;
 }
 .links {
   text-align: center;
-  margin: 10px 20px;
+  margin: 30px 20px 50px;
 }
 @media screen and (min-width: 48em) {
   .links {
@@ -12157,42 +12156,52 @@ form.webform-client-form div.form-actions a.back-link:focus {
  *  Webform submission component
  * --------------------------------------------------*/
 .webform-submission {
-  padding: 20px 0 100px;
+  margin: 20px auto 100px;
+  width: 100%;
 }
 @media screen and (min-width: 30em) {
   .webform-submission {
-    padding: 20px 30px 100px;
+    margin: 20px auto 100px;
+    max-width: 600px;
   }
 }
-ul.webform-submission-actions {
-  margin: 10px 0;
+.submission-actions {
+  text-align: center;
+}
+.submission-actions > ul.webform-submission-actions {
+  display: inline-block;
+  float: none;
+  margin: 10px auto;
   padding: 0;
   width: 100%;
   text-align: right;
 }
 @media screen and (min-width: 30em) {
-  ul.webform-submission-actions {
-    padding: 0 30px;
+  .submission-actions > ul.webform-submission-actions {
+    margin: 20px auto;
+    max-width: 600px;
   }
 }
-ul.webform-submission-actions li {
+.submission-actions > ul.webform-submission-actions li {
   display: inline-block;
+  margin: 0;
+  padding: 0;
 }
-ul.webform-submission-actions li a {
+.submission-actions > ul.webform-submission-actions li a {
   padding: 5px 10px;
   font-family: 'MuseoSans_700', sans-serif;
   font-size: 16px;
-  color: #444444;
+  color: #9bc31b;
   text-decoration: none;
   border-radius: 3px;
-  border: 2px solid #444444;
+  border: 2px solid #9bc31b;
   background: none;
   outline: none;
 }
-ul.webform-submission-actions li a:hover,
-ul.webform-submission-actions li a:active {
+.submission-actions > ul.webform-submission-actions li a:hover,
+.submission-actions > ul.webform-submission-actions li a:active {
   color: #fff;
-  background: #444444 none;
+  background: #9bc31b none;
   outline: none;
 }
 /*

@@ -59,18 +59,6 @@ function pixelgarage_preprocess_views_exposed_form(&$vars) {
 
 
 /* =============================================================================
- *      Webform preprocessing
- * ========================================================================== */
-
-/**
- * Implements template_preprocess_webform_confirmation().
- */
-function pixelgarage_preprocess_webform_confirmation(&$vars) {
-
-}
-
-
-/* =============================================================================
  *      Front Masonry
  * ========================================================================== */
 /**

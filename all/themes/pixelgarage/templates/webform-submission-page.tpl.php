@@ -16,7 +16,7 @@
 ?>
 
 <?php if ($mode == 'display' || $mode == 'form'): ?>
-  <div class="clearfix">
+  <div class="submission-actions clearfix">
     <?php print $submission_actions; ?>
   </div>
 <?php endif; ?>

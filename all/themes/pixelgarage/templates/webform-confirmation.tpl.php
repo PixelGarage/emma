@@ -18,16 +18,38 @@
  * - $sid: The unique submission ID of this submission.
  * - $url: The URL of the form (or for in-block confirmations, the same page).
  */
+
+// Donate confirmation
+$current_tnid = $node->tnid ? $node->tnid : $node->nid;
+$delivery_tnid = 789;
+$donation_tnid = 782;
+$newsletter_tnid = 61;
+
+$title = t('Thank you,');
+
+switch ($current_tnid) {
+  case $delivery_tnid:
+    $message = t('for your investment into the green economy! We will send you the postcards in about a week!');
+    break;
+  case $donation_tnid:
+    $message = t('for your investment into the green economy!');
+    break;
+  case $newsletter_tnid:
+    $message = t('you have been successfully added to our newsletter.');
+    break;
+  default:
+    $message = $confirmation_message;
+    break;
+}
+
+$url = '/';
 ?>
-<?php print $progressbar; ?>
 
 <div class="webform-confirmation">
-  <?php if ($confirmation_message): ?>
-    <?php print $confirmation_message ?>
-  <?php else: ?>
-    <p><?php print t('Thank you, your submission has been received.'); ?></p>
-  <?php endif; ?>
+  <div class="confirmation-title"><?php print $title; ?></div>
+  <div class="confirmation-message"><?php print $message; ?></div>
 </div>
+
 <div class="links">
-  <a href="<?php print $url; ?>"><?php print t('Go back to the form') ?></a>
+  <a href="<?php print $url; ?>"><?php print t('Go back to home') ?></a>
 </div>

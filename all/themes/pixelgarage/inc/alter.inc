@@ -187,7 +187,7 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
   if ($pdf_uri) {
     //
     // delete old pdf, if any
-    $old_pdf_fid = $post->field_postcard[$post->language][0]['fid'];
+    $old_pdf_fid = !empty($post->field_postcard) ? $post->field_postcard[$post->language][0]['fid'] : null;
     if (isset($old_pdf_fid)) {
       $old_pdf_file = file_load($old_pdf_fid);
       if ($old_pdf_file) {
@@ -212,10 +212,10 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
     $step_options['postcard_fid'] = $pdf_file->fid;
 
     // manage created hires image in node, if any
-    if ($options['postcard_image_uri']) {
+    if (isset($options['postcard_image_uri'])) {
       //
       // delete old image, if any
-      $old_img_fid = $post->field_hires_image[$post->language][0]['fid'];
+      $old_img_fid = !empty($post->field_hires_image) ? $post->field_hires_image[$post->language][0]['fid'] : null;
       if (isset($old_img_fid)) {
         $old_img_file = file_load($old_img_fid);
         if ($old_img_file) {
@@ -252,9 +252,13 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
 
   //
   // add postcard to next webform node
-  if ($step_options['postcard_img_fid']) {
-    $next_node = node_load(POSTCARD_DELIVERY_WEBFORM_ID);
-    $next_node->field_image_postcard[$next_node->language][0]['fid'] = $step_options['postcard_img_fid'];
+  if (isset($step_options['postcard_img_fid'])) {
+    $transl_nodes = translation_node_get_translations(POSTCARD_DELIVERY_WEBFORM_ID);
+    foreach ($transl_nodes as $transl_node) {
+      $next_node = node_load($transl_node->nid);
+      $next_node->field_image_postcard[LANGUAGE_NONE][0]['fid'] = $step_options['postcard_img_fid'];
+      node_save($next_node);
+    }
   }
 
 }
@@ -270,25 +274,23 @@ function _post_delivery_step_presave(&$step_options, $node, &$submission) {
     $post->status = $step_options['post_status'] ? $step_options['post_status'] : 0;
     $post->field_e_mail[$post->language][0]['email'] = $submission->data[20][0]; // email
     node_save($post);
-  }
 
-  //
-  // update delivery submission pdf link component with postcard data
-  if ($step_options['postcard_fid']) {
-    $pdf_file = file_load($step_options['postcard_fid']);
-    $vars = array('file' => $pdf_file);
-    $pdf_link = theme_file_link($vars);
-
-    // set submission value
+    //
+    // add post id and name to submission
     $master = postcard_webform_master_form($node);
     foreach ($master->webform['components'] as $key => $data) {
-      if ($data['form_key'] == 'pdf_link') {
-        $submission->data[$key][0] = $pdf_link;
-        break;
+      if ($data['form_key'] == 'post_nid') {
+        $submission->data[$key][0] = $post->nid;
+        continue;
+      }
+      if ($data['form_key'] == 'full_name') {
+        if (empty($submission->data[$key][0])) {
+          $submission->data[$key][0] = $post->field_your_name[$post->language][0]['value'];
+          continue;
+        }
       }
     }
   }
-
 }
 
 

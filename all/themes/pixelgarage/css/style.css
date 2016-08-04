@@ -9581,9 +9581,16 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   overflow: hidden;
   margin: 20px auto;
   padding: 15px;
-  width: 100%;
+  width: 100% !important;
   max-width: 100%;
-  height: auto;
+  height: auto !important;
+}
+.node.node-webform .row .col-sm-12 .field-name-body embed,
+.node.node-webform .row .col-sm-6 .field-name-body embed,
+.node.node-webform .row .col-sm-12 .field-name-body video,
+.node.node-webform .row .col-sm-6 .field-name-body video,
+.node.node-webform .row .col-sm-12 .field-name-body iframe,
+.node.node-webform .row .col-sm-6 .field-name-body iframe {
   min-height: 350px;
 }
 .node.node-webform .row .col-sm-12 .field-name-body p,
@@ -9832,9 +9839,16 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   overflow: hidden;
   margin: 20px auto;
   padding: 15px;
-  width: 100%;
+  width: 100% !important;
   max-width: 100%;
-  height: auto;
+  height: auto !important;
+}
+.node-page .row div.col-sm-12 .field-name-body embed,
+.node-page .row .col-sm-6 .field-name-body embed,
+.node-page .row div.col-sm-12 .field-name-body video,
+.node-page .row .col-sm-6 .field-name-body video,
+.node-page .row div.col-sm-12 .field-name-body iframe,
+.node-page .row .col-sm-6 .field-name-body iframe {
   min-height: 350px;
 }
 .node-page .row div.col-sm-12 .field-name-body p,
@@ -10382,9 +10396,16 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   overflow: hidden;
   margin: 20px auto;
   padding: 15px;
-  width: 100%;
+  width: 100% !important;
   max-width: 100%;
-  height: auto;
+  height: auto !important;
+}
+.node.node-donate .row .col-sm-12 .field-name-body embed,
+.node.node-donate .row .col-sm-6 .field-name-body embed,
+.node.node-donate .row .col-sm-12 .field-name-body video,
+.node.node-donate .row .col-sm-6 .field-name-body video,
+.node.node-donate .row .col-sm-12 .field-name-body iframe,
+.node.node-donate .row .col-sm-6 .field-name-body iframe {
   min-height: 350px;
 }
 .node.node-donate .row .col-sm-12 .field-name-body p,
@@ -10586,9 +10607,16 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   overflow: hidden;
   margin: 20px auto;
   padding: 15px;
-  width: 100%;
+  width: 100% !important;
   max-width: 100%;
-  height: auto;
+  height: auto !important;
+}
+.node.node-donate .row .col-sm-12 .field-name-field-account-details embed,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details embed,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details video,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details video,
+.node.node-donate .row .col-sm-12 .field-name-field-account-details iframe,
+.node.node-donate .row .col-sm-6 .field-name-field-account-details iframe {
   min-height: 350px;
 }
 .node.node-donate .row .col-sm-12 .field-name-field-account-details p,
@@ -10828,9 +10856,16 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   overflow: hidden;
   margin: 20px auto;
   padding: 15px;
-  width: 100%;
+  width: 100% !important;
   max-width: 100%;
-  height: auto;
+  height: auto !important;
+}
+.node.node-testimonial .row .col-sm-12 .field-name-body embed,
+.node.node-testimonial .row .col-sm-6 .field-name-body embed,
+.node.node-testimonial .row .col-sm-12 .field-name-body video,
+.node.node-testimonial .row .col-sm-6 .field-name-body video,
+.node.node-testimonial .row .col-sm-12 .field-name-body iframe,
+.node.node-testimonial .row .col-sm-6 .field-name-body iframe {
   min-height: 350px;
 }
 .node.node-testimonial .row .col-sm-12 .field-name-body p,
@@ -11040,9 +11075,16 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   overflow: hidden;
   margin: 20px auto;
   padding: 15px;
-  width: 100%;
+  width: 100% !important;
   max-width: 100%;
-  height: auto;
+  height: auto !important;
+}
+.node.node-testimonial .row .col-sm-12 .campaign-claim embed,
+.node.node-testimonial .row .col-sm-6 .campaign-claim embed,
+.node.node-testimonial .row .col-sm-12 .campaign-claim video,
+.node.node-testimonial .row .col-sm-6 .campaign-claim video,
+.node.node-testimonial .row .col-sm-12 .campaign-claim iframe,
+.node.node-testimonial .row .col-sm-6 .campaign-claim iframe {
   min-height: 350px;
 }
 /*

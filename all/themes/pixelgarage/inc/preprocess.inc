@@ -72,11 +72,13 @@ function pixelgarage_preprocess_views_view_proximity (&$vars) {
 function _random_testimonials(&$vars) {
   static $testimonials = array();
   if (empty($testimonials)) {
+    global $language;
     // get the published testimonials
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'node')
       ->entityCondition('bundle', 'testimonial')
-      ->propertyCondition('status', NODE_PUBLISHED);
+      ->propertyCondition('status', NODE_PUBLISHED)
+      ->propertyCondition('language', $language->language);
     $result = $query->execute();
     if ($result && !empty($result['node'])) {
       $testimonials = node_load_multiple(array_keys($result['node']));
@@ -84,7 +86,7 @@ function _random_testimonials(&$vars) {
   }
 
   // chose random testimonial from list
-  $keys = array_rand($testimonials, 3);
+  $keys = array_keys($testimonials);
   $row_count = $vars['view']->total_rows - 1;
   $i1 = mt_rand(0, $row_count);
   $i2 = mt_rand(0, $row_count);

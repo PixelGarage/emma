@@ -11966,8 +11966,10 @@ form.webform-client-form .webform-component.webform-component-select select {
   -moz-appearance: none;
   appearance: none;
   position: absolute;
+  top: 0;
   right: 0;
   padding: 5px 10px;
+  width: 60px;
   height: auto;
   font-family: 'MuseoSans_300', sans-serif;
   font-size: 14px;
@@ -11981,6 +11983,8 @@ form.webform-client-form .webform-component.webform-component-select select {
   border: 1px solid #ebf0f8;
   background-color: #ebf0f8;
   outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form .webform-component.webform-component-select select {

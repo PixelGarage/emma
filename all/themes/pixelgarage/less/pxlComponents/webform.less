@@ -313,8 +313,10 @@ form.webform-client-form {
       select {
         #pxl-mixins.no-appearance();
         position: absolute;
+        top: 0;
         right: 0;
         padding: 5px 10px;
+        width: 60px;
         height: auto;
         font-family: @pxl-text-font-light;
         #pxl-mixins.font-size-responsive(17px, 14px);
@@ -326,6 +328,7 @@ form.webform-client-form {
         border: 1px solid @webform-color-border;
         background-color: @webform-color-input-bg;
         outline: none;
+        .box-shadow(none);
 
         &:focus, &:active {
           outline: none;

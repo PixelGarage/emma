@@ -104,7 +104,7 @@ function _social_items(&$vars) {
   $social_items = array();
   $timestamp = time();
   if (isset($session_data['$social_items']) && isset($session_data['social_timestamp']) &&
-    ($timestamp - $session_data['social_timestamp']) < 900) {
+    ($timestamp - $session_data['social_timestamp']) < 300) {
     $social_items = $session_data['$social_items'];
   }
   else {
@@ -144,6 +144,7 @@ function _social_items(&$vars) {
     }
   }
   $vars['social_items'] = $items;
+  $vars['social_items_rest'] = array();
 
   // last page, add rest of items
   if ($total_posts < (($current_page + 1) * $posts_per_page)) {

@@ -23,6 +23,24 @@
       </div>
     <?php endif; ?>
 
+    <!--
+    Add a set of SOME items to the list
+    -->
+    <?php if (isset($social_items[$id])): ?>
+      <div class="pe-item pe-item-ajax <?php print 'pe-item-' . $social_items[$id]['nid']; ?>" style="margin: 0 -2px">
+        <div class="pe-item-inner">
+          <!-- modal trigger -->
+          <a class="button" role="button" href="<?php print $item_base_url . $social_items[$id]['nid']; ?>"
+             data-ajax-load-param="<?php print $social_items[$id]['nid']; ?>" <?php print drupal_attributes($toggle_attributes); ?>>
+            <?php print $social_items[$id]['rendered_entity']; ?>
+          </a>
+        </div>
+      </div>
+    <?php endif; ?>
+
+    <!--
+    Add non-ajax posts to the list
+    -->
     <div
       class="pe-item pe-item-no-ajax <?php print 'pe-item-' . $ajax_load_params[$id]; ?> <?php if ($classes_array[$id]) print $classes_array[$id]; ?>"
       style="margin: 0 -2px">
@@ -35,6 +53,21 @@
       </div>
     </div>
 
+  <?php endforeach; ?>
+
+  <!--
+  Add the rest of the SOME items to the end of the list
+  -->
+  <?php foreach ($social_items_rest as $social_item): ?>
+    <div class="pe-item pe-item-ajax <?php print 'pe-item-' . $social_item['nid']; ?>" style="margin: 0 -2px">
+      <div class="pe-item-inner">
+        <!-- modal trigger -->
+        <a class="button" role="button" href="<?php print $item_base_url . $social_item['nid']; ?>"
+           data-ajax-load-param="<?php print $social_item['nid']; ?>" <?php print drupal_attributes($toggle_attributes); ?>>
+          <?php print $social_item['rendered_entity']; ?>
+        </a>
+      </div>
+    </div>
   <?php endforeach; ?>
 
   <?php if ($use_modal_dlg): ?>

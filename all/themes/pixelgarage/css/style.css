@@ -11197,6 +11197,934 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   min-height: 350px;
 }
 /*
+ *  Node facebook component
+ * --------------------------------------------------*/
+.node.node-facebook-post.view-mode-teaser {
+  padding: 20px;
+  background-color: #ebf0f8;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 {
+  width: 100%;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-picture {
+  margin: -20px -20px 20px;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-picture .field-item img {
+  width: 100%;
+  height: auto;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-title h2 {
+  margin-top: 0;
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 14px;
+  color: #3b7da9;
+  line-height: 1.5;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-title h2 {
+    font-size: 2.91666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-title h2 {
+    font-size: 17px;
+  }
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body {
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h3,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h4,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h5,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h6 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h3,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h4,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h5,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h6 {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h3,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h4,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h5,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h6 {
+    font-size: 14px;
+  }
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h3 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body h3 {
+    font-size: 16px;
+  }
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body p,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body tbody td {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body p,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body tbody td {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body p,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body tbody td {
+    font-size: 14px;
+  }
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body a {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body a {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body a {
+    font-size: 14px;
+  }
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body a:hover,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body a:focus {
+  color: #9bc31b;
+  text-decoration: none;
+  background: none;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body pre,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body address {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body pre,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body address {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body pre,
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body address {
+    font-size: 14px;
+  }
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body strong {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 16px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body strong {
+    font-size: 3.33333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body strong {
+    font-size: 16px;
+  }
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body hr {
+  border: 0;
+  border-bottom: 2px solid #444444;
+  background: none;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body img,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body embed,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body video,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body audio,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body embed,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body video,
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-body iframe {
+  min-height: 350px;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-link {
+  padding: 10px;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-link .field-item a {
+  font-family: 'MuseoSans_300', sans-serif;
+  font-size: 14px;
+  text-align: left;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-link .field-item a:hover {
+  font-family: 'MuseoSans_700', sans-serif;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-name-from {
+  display: none;
+  padding: 0 0 10px;
+  width: 100%;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-name-from .field-item {
+  font-family: 'MuseoSans_300', sans-serif;
+  font-size: 14px;
+  text-align: left;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-created-time {
+  margin-right: -20px;
+  padding: 10px;
+  width: 100%;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-created-time .field-item {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 10px;
+  text-align: right;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-created-time .field-item:after {
+  content: '\f09a';
+  margin-left: 10px;
+  font-family: 'fontawesome';
+  font-size: 16px;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-likes_count {
+  margin: -20px 0 0 -20px;
+  padding: 10px;
+  width: 100%;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-likes_count .field-item {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 10px;
+  text-align: left;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-teaser .row div.col-sm-12 .field-name-field-likes_count .field-item:after {
+  content: 'Likes';
+  margin-left: 10px;
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 10px;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 {
+  width: 100%;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-title h2 {
+  margin: 0;
+  padding: 15px 0;
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 18px;
+  color: #3b7da9;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-title h2 {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-title h2 {
+    font-size: 25px;
+  }
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-picture {
+  margin: 0 0 20px;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-picture .field-item img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  min-width: 30%;
+  height: auto;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body {
+  margin: 0 0 20px;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h1,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h2,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h3,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h4,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h5,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h6 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h1,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h2,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h3,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h4,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h5,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h6 {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h1,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h2,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h3,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h4,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h5,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h6 {
+    font-size: 17px;
+  }
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h1,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h2,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h1,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h2,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h3 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h1,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h2,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body h3 {
+    font-size: 20px;
+  }
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body p,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body tbody td {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body p,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body tbody td {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body p,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body tbody td {
+    font-size: 17px;
+  }
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body a {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body a {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body a {
+    font-size: 17px;
+  }
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body a:hover,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body a:focus {
+  color: #9bc31b;
+  text-decoration: none;
+  background: none;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body pre,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body address {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body pre,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body address {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body pre,
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body address {
+    font-size: 17px;
+  }
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body strong {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 16px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body strong {
+    font-size: 3.33333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body strong {
+    font-size: 19px;
+  }
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body hr {
+  border: 0;
+  border-bottom: 2px solid #444444;
+  background: none;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body img,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body embed,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body video,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body audio,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body embed,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body video,
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body iframe {
+  min-height: 350px;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body a {
+  text-decoration: underline;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-body a:hover {
+  color: #9bc31b;
+  text-decoration: none;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-link {
+  margin: 0 0 20px;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-link .field-item a {
+  font-size: 12px;
+  text-align: left;
+  text-decoration: underline;
+  color: #3b7da9;
+}
+@media screen and (min-width: 30em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-link .field-item a {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-link .field-item a {
+    font-size: 17px;
+  }
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-link .field-item a:hover {
+  color: #9bc31b;
+  text-decoration: none;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-name-from {
+  display: none;
+  padding: 0 0 10px;
+  width: 100%;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-name-from .field-item {
+  font-family: 'MuseoSans_300', sans-serif;
+  font-size: 14px;
+  text-align: left;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-created-time {
+  margin: 10px 0 20px;
+  width: 100%;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-created-time .field-item {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  text-align: right;
+  line-height: 1;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-created-time .field-item:before {
+  content: '\f09a';
+  margin-right: 10px;
+  font-family: 'fontawesome';
+  font-size: 16px;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-likes-count {
+  margin: -34px 0 0;
+  padding: 0;
+  width: 100%;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-likes-count .field-item {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  text-align: left;
+  line-height: 1;
+  color: #3b7da9;
+}
+.node.node-facebook-post.view-mode-full .row div.col-sm-12 .field-name-field-likes-count .field-item:after {
+  content: 'Likes';
+  margin-left: 10px;
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  color: #3b7da9;
+}
+/*
+ *  Node tweet component
+ * --------------------------------------------------*/
+.node.node-twitter-tweet-feed.view-mode-teaser {
+  padding: 20px 20px 0;
+  background-color: #ebf0f8;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 {
+  width: 100%;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-title {
+  display: inline-block;
+  vertical-align: top;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-title h2 {
+  margin: 15px;
+  font-family: 'MuseoSans_300', sans-serif;
+  font-size: 12px;
+  color: #444444;
+}
+@media screen and (min-width: 30em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-title h2 {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-title h2 {
+    font-size: 16px;
+  }
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-field-profile-image {
+  display: inline-block;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-field-screen-name {
+  padding: 10px 0;
+  width: 100%;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-field-screen-name .field-item {
+  font-family: 'MuseoSans_300', sans-serif;
+  font-size: 16px;
+  text-align: left;
+  color: #444444;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-field-screen-name .field-item:before {
+  content: '@';
+  font-size: 16px;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-field-created-time {
+  margin-right: -20px;
+  padding: 10px;
+  width: 100%;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-field-created-time .field-item {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 10px;
+  text-align: right;
+  color: #444444;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-field-created-time .field-item:after {
+  content: '\f099';
+  font-family: 'fontawesome';
+  font-size: 16px;
+  margin-left: 10px;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h3,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h4,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h5,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h6 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h3,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h4,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h5,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h6 {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h3,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h4,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h5,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h6 {
+    font-size: 14px;
+  }
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h3 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h1,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h2,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body h3 {
+    font-size: 16px;
+  }
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body p,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body tbody td {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 30em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body p,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body tbody td {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body p,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body tbody td {
+    font-size: 14px;
+  }
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body a {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body a {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body a {
+    font-size: 14px;
+  }
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body a:hover,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body a:focus {
+  color: #9bc31b;
+  text-decoration: none;
+  background: none;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body pre,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body address {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body pre,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body address {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body pre,
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body address {
+    font-size: 14px;
+  }
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body strong {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 16px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body strong {
+    font-size: 3.33333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body strong {
+    font-size: 16px;
+  }
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body hr {
+  border: 0;
+  border-bottom: 2px solid #444444;
+  background: none;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body img,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body embed,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body video,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body audio,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+}
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body embed,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body video,
+.node.node-twitter-tweet-feed.view-mode-teaser .row div.col-sm-12 .field-name-body iframe {
+  min-height: 350px;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 {
+  width: 100%;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .avatar {
+  display: inline-block;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .title-tweet {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .title-tweet h2 {
+  margin: 0;
+  padding: 10px 0;
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 18.75px;
+  color: #444444;
+}
+@media screen and (min-width: 30em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .title-tweet h2 {
+    font-size: 3.90625vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .title-tweet h2 {
+    font-size: 30px;
+  }
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-field-created-time {
+  margin: 10px 0 20px;
+  width: 100%;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-field-created-time .field-item {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  text-align: right;
+  color: #444444;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-field-created-time .field-item:before {
+  content: '\f099';
+  font-family: 'fontawesome';
+  font-size: 16px;
+  margin-right: 10px;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .screen-name {
+  margin: 0 0 20px;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body {
+  margin: 0 0 20px;
+  color: #444444;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h1,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h2,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h3,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h4,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h5,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h6 {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h1,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h2,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h3,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h4,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h5,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h6 {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h1,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h2,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h3,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h4,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h5,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h6 {
+    font-size: 14px;
+  }
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h1,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h2,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h3 {
+  font-size: 22px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h1,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h2,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h3 {
+    font-size: 4.58333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h1,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h2,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body h3 {
+    font-size: 16px;
+  }
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body p,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body tbody td {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+@media screen and (min-width: 30em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body p,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body tbody td {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body p,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body tbody td {
+    font-size: 14px;
+  }
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body a {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body a {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body a {
+    font-size: 14px;
+  }
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body a:hover,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body a:focus {
+  color: #9bc31b;
+  text-decoration: none;
+  background: none;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body pre,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body address {
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 12px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body pre,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body address {
+    font-size: 2.5vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body pre,
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body address {
+    font-size: 14px;
+  }
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body strong {
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 16px;
+}
+@media screen and (min-width: 30em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body strong {
+    font-size: 3.33333333vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  .node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body strong {
+    font-size: 16px;
+  }
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body hr {
+  border: 0;
+  border-bottom: 2px solid #444444;
+  background: none;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body img,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body embed,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body video,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body audio,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body iframe {
+  display: block;
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px;
+  width: 100% !important;
+  max-width: 100%;
+  height: auto !important;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body embed,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body video,
+.node.node-tweet.view-mode-full .row div.col-sm-12 .field-name-body iframe {
+  min-height: 350px;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 ul.actions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 ul.actions li {
+  display: inline-block;
+  margin: 0 5px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.node.node-tweet.view-mode-full .row div.col-sm-12 ul.actions li a {
+  padding: 5px 12px 7px;
+}
+/*
  *  Posting view component
  * --------------------------------------------------*/
 .view-post-grid {
@@ -11434,10 +12362,10 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 }
 .view-post-grid .view-content > .pe-container .modal .modal-backdrop {
   bottom: 0;
-  background-color: #aaa;
+  background-color: #000;
 }
 .view-post-grid .view-content > .pe-container .modal .modal-backdrop.in {
-  opacity: 0.7;
+  opacity: 0.9;
 }
 .view-post-grid .view-content > .pe-container .modal .modal-dialog {
   margin: 0 auto;
@@ -11448,20 +12376,24 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 }
 @media screen and (min-width: 30em) {
   .view-post-grid .view-content > .pe-container .modal .modal-dialog {
+    margin: 30px auto;
     min-width: 480px;
     width: 90%;
-    max-width: 690px;
+    max-width: 600px;
+  }
+  .admin-menu .view-post-grid .view-content > .pe-container .modal .modal-dialog {
+    margin: 59px auto 0;
   }
 }
 @media screen and (min-width: 48em) {
   .view-post-grid .view-content > .pe-container .modal .modal-dialog {
     width: 90%;
-    max-width: 800px;
+    max-width: 700px;
   }
 }
 @media screen and (min-width: 64em) {
   .view-post-grid .view-content > .pe-container .modal .modal-dialog {
-    width: 800px;
+    width: 700px;
   }
 }
 .view-post-grid .view-content > .pe-container .modal .modal-dialog .modal-content {
@@ -11486,14 +12418,14 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   top: 0;
   right: 10px;
   opacity: 1.0;
-  z-index: 1;
+  z-index: 10;
 }
 .view-post-grid .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header button.close span {
   padding: 0;
   font-family: 'MuseoSans_700', sans-serif;
   font-size: 60px;
   font-weight: normal;
-  color: #444444;
+  color: #3b7da9;
 }
 .view-post-grid .view-content > .pe-container .modal .modal-dialog .modal-content .modal-header .body-fading {
   display: none;
@@ -12018,24 +12950,13 @@ form.webform-client-form .webform-component .form-radios {
 }
 form.webform-client-form .webform-component .form-radios .radio > label {
   padding-left: 20px;
-  font-family: 'MuseoSans_700', sans-serif;
-  font-size: 14px;
-  font-weight: normal;
+  font-family: 'MuseoSans_300', sans-serif;
+  font-size: 13px;
   text-align: left;
   vertical-align: top;
 }
-@media screen and (min-width: 30em) {
-  form.webform-client-form .webform-component .form-radios .radio > label {
-    font-size: 2.91666667vw;
-  }
-}
-@media screen and (min-width: 48em) {
-  form.webform-client-form .webform-component .form-radios .radio > label {
-    font-size: 19px;
-  }
-}
 form.webform-client-form .webform-component .form-radios .radio > label > input.form-radio {
-  margin: 3px 10px 0 -20px;
+  margin: 3px 7px 0 -20px;
   vertical-align: top;
 }
 form.webform-client-form .webform-component .form-managed-file {

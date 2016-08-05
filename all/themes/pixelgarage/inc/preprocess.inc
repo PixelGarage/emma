@@ -43,18 +43,6 @@ function pixelgarage_preprocess_views_exposed_form(&$vars) {
     $placeholder = 'placeholder="' . $filter->label . '"/>';
     $filter->widget = str_replace('/>', $placeholder, $filter->widget);
   }
-
-  if (empty($vars['form']['combine']['#value'])) return;
-
-  $page_total = count($view->result);
-  if(isset($view->total_rows)){
-    $text = ($view->total_rows == 1) ? '%hits hit' : '%hits hits';
-    $vars['total_rows'] = t($text, array('%hits' => $view->total_rows));
-  } else {
-    $text = ($page_total == 1) ? '%hits hit' : '%hits hits';
-    $vars['total_rows'] = t($text, array('%hits' => $page_total));
-  }
-
 }
 
 
@@ -66,9 +54,17 @@ function pixelgarage_preprocess_views_exposed_form(&$vars) {
  * in the masonry.
  */
 function pixelgarage_preprocess_views_view_proximity (&$vars) {
-  $vars['testimonials'] = _random_testimonials($vars);
+  //
+  // do not inject SOME items when filtering
+  if (!empty($vars['view']->exposed_data['combine'])) return;
+
+  _random_testimonials($vars);
+  _social_items($vars);
 }
 
+/**
+ * Creates an associative array with randomly chosen testimonials to be added at random places in the view.
+ */
 function _random_testimonials(&$vars) {
   static $testimonials = array();
   if (empty($testimonials)) {
@@ -86,17 +82,90 @@ function _random_testimonials(&$vars) {
   }
 
   // chose random testimonial from list
+  $view = $vars['view'];
   $keys = array_keys($testimonials);
-  $row_count = $vars['view']->total_rows - 1;
+  $row_count = count($view->result) - 1;
   $i1 = mt_rand(0, $row_count);
   $i2 = mt_rand(0, $row_count);
   $i3 = mt_rand(0, $row_count);
 
   // return the testimonials at random place in grid
-  return array(
+  $vars['testimonials'] = array(
     $i1 => node_view($testimonials[$keys[0]], 'teaser'),
     $i2 => node_view($testimonials[$keys[1]], 'teaser'),
     $i3 => node_view($testimonials[$keys[2]], 'teaser'),
   );
 }
 
+function _social_items(&$vars) {
+  //
+  // get the SOME items
+  $session_data = &pixelgarage_session_data();
+  $social_items = array();
+  $timestamp = time();
+  if (isset($session_data['$social_items']) && isset($session_data['social_timestamp']) &&
+    ($timestamp - $session_data['social_timestamp']) < 900) {
+    $social_items = $session_data['$social_items'];
+  }
+  else {
+    $view_object = views_get_view("some_posts");
+    $view_object->set_display("block");
+    $view_object->pre_execute();
+    $view_object->execute();
+    $view_object->render();
+
+    $rendered_fields = $view_object->style_plugin->rendered_fields;
+    foreach ($rendered_fields as $index => $rendered_field) {
+      $rendered_field['nid'] = $view_object->result[$index]->nid;
+      $social_items[$index] = $rendered_field;
+    }
+    $session_data['$social_items'] = $social_items;
+    $session_data['social_timestamp'] = $timestamp;
+  }
+
+  //
+  // create random SOME array
+  $view = $vars['view'];
+  $total_posts = $view->query->pager->total_items;
+  $current_page = $view->query->pager->current_page;
+  $posts_per_page = (int)$view->query->pager->options['items_per_page'];
+
+  $total_items = count($social_items);
+  $social_items_per_page = 5;
+  $start_index = $current_page * $social_items_per_page;
+  $end_index =  ($current_page + 1) * $social_items_per_page - 1;
+
+  // get items for current page
+  $items = array();
+  $keys = _distinct_random_numbers(0, $posts_per_page-1, $social_items_per_page);
+  foreach ($keys as $index => $key) {
+    if ($total_items > ($start_index + $index)) {
+      $items[$key] = $social_items[$start_index + $index];
+    }
+  }
+  $vars['social_items'] = $items;
+
+  // last page, add rest of items
+  if ($total_posts < (($current_page + 1) * $posts_per_page)) {
+    $vars['social_items_rest'] = array_slice($social_items, $end_index+1, null, true);
+  }
+
+}
+
+
+function _distinct_random_numbers($min, $max, $count) {
+  $result = array();
+  $range = $max - $min;
+  if ($range < $count) {
+    for ($i = 0; $i < $range; $i++) {
+      $result[$i] = '';
+    }
+  }
+  else {
+    while (count($result) < $count) {
+      $i = mt_rand($min, $max);
+      $result[$i] = '';
+    }
+  }
+  return array_keys($result);
+}

@@ -56,9 +56,9 @@
 
     .modal-backdrop {
       bottom: 0;
-      background-color: #aaa;
+      background-color: #000;
       &.in {
-        opacity: 0.7;
+        opacity: 0.9;
       }
     }
 
@@ -71,16 +71,21 @@
       }
 
       @media @narrow {
+        margin: 30px auto;
         min-width: 480px;
         width: 90%;
-        max-width: 690px;
+        max-width: 600px;
+
+        .admin-menu & {
+          margin: 59px auto 0;
+        }
       }
       @media @tablet {
         width: 90%;
-        max-width: 800px;
+        max-width: 700px;
       }
       @media @normal {
-        width: 800px;
+        width: 700px;
       }
 
       .modal-content {
@@ -106,14 +111,14 @@
             top: 0;
             right: 10px;
             opacity: 1.0;
-            z-index: 1; // has to be above body
+            z-index: 10; // has to be above body
 
             span {
               padding: 0;
               font-family: @pxl-text-font;
               font-size: 60px;
               font-weight: normal;
-              color: @text-color;
+              color: @pxl-color-main;
             }
           }
 

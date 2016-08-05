@@ -283,6 +283,12 @@ function _post_delivery_step_presave(&$step_options, $node, &$submission) {
           continue;
         }
       }
+      if ($data['form_key'] == 'postcard_pdf') {
+        if (empty($submission->data[$key][0])) {
+          $submission->data[$key][0] = $post->field_postcard[$post->language][0]['fid'];
+          continue;
+        }
+      }
     }
   }
 }

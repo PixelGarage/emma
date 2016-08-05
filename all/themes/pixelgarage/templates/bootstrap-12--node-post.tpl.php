@@ -30,7 +30,7 @@ $banner_img = theme_image($params);
 
 //
 // set language dependent heading
-$post_title = t('Do you like it?');
+$post_title = t('Support campaign!');
 $post_heading = t('Share this post with your friends and family members!');
 $post_slogan = t(' - Nachhaltig bis 2050 - ');
 ?>

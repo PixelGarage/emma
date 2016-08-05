@@ -12945,17 +12945,24 @@ form.webform-client-form .webform-component.webform-component-select:after {
   line-height: 30px;
   pointer-events: none;
 }
-form.webform-client-form .webform-component .form-radios {
+form.webform-client-form .webform-component .form-radios,
+form.webform-client-form .webform-component .form-checkboxes {
   vertical-align: top;
 }
-form.webform-client-form .webform-component .form-radios .radio > label {
+form.webform-client-form .webform-component .form-radios .radio > label,
+form.webform-client-form .webform-component .form-checkboxes .radio > label,
+form.webform-client-form .webform-component .form-radios .checkbox > label,
+form.webform-client-form .webform-component .form-checkboxes .checkbox > label {
   padding-left: 20px;
   font-family: 'MuseoSans_300', sans-serif;
   font-size: 13px;
   text-align: left;
   vertical-align: top;
 }
-form.webform-client-form .webform-component .form-radios .radio > label > input.form-radio {
+form.webform-client-form .webform-component .form-radios .radio > label > input.form-radio,
+form.webform-client-form .webform-component .form-checkboxes .radio > label > input.form-radio,
+form.webform-client-form .webform-component .form-radios .checkbox > label > input.form-radio,
+form.webform-client-form .webform-component .form-checkboxes .checkbox > label > input.form-radio {
   margin: 3px 7px 0 -20px;
   vertical-align: top;
 }

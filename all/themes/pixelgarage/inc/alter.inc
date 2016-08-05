@@ -155,7 +155,7 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
     $post->type = $step_options['step_info']['related node type'];
     $post->language = LANGUAGE_NONE;
     $post->uid = 1;
-    $post->status = 0;
+    $post->status = $status;
     $post->comment = 0;
     $post->promote = 0;
     node_object_prepare($post);
@@ -164,6 +164,7 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
   //
   // update submission data on the post and save it
   $post->title = t('@you for @name', array('@you' => $submission->data[17][0], '@name' => $submission->data[4][0])); // create node title
+  $post->field_e_mail[$post->language][0]['email'] = $submission->data[19][0]; // email
   $post->field_name[$post->language][0]['value'] = $submission->data[4][0]; // child name
   $post->field_your_name[$post->language][0]['value'] = $submission->data[17][0]; // your name
   $post->field_quote[$post->language][0]['value'] = substr($submission->data[5][0], 0, 100); // Quote
@@ -252,13 +253,12 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
 
   //
   // add postcard to next webform node
-  if (isset($step_options['postcard_img_fid'])) {
-    $transl_nodes = translation_node_get_translations(POSTCARD_DELIVERY_WEBFORM_ID);
-    foreach ($transl_nodes as $transl_node) {
-      $next_node = node_load($transl_node->nid);
-      $next_node->field_image_postcard[LANGUAGE_NONE][0]['fid'] = $step_options['postcard_img_fid'];
-      node_save($next_node);
-    }
+  $transl_nodes = translation_node_get_translations(POSTCARD_DELIVERY_WEBFORM_ID);
+  $postcard_img_fid = isset($step_options['postcard_img_fid']) ? $step_options['postcard_img_fid'] : null;
+  foreach ($transl_nodes as $transl_node) {
+    $next_node = node_load($transl_node->nid);
+    $next_node->field_image_postcard[LANGUAGE_NONE][0]['fid'] = $postcard_img_fid;
+    node_save($next_node);
   }
 
 }
@@ -269,14 +269,8 @@ function _post_delivery_step_presave(&$step_options, $node, &$submission) {
   // multi-step form is finished, publish post
   if (isset($step_options['post_nid'])) {
     //
-    // publish existing post
-    $post = node_load($step_options['post_nid']);
-    $post->status = $step_options['post_status'] ? $step_options['post_status'] : 0;
-    $post->field_e_mail[$post->language][0]['email'] = $submission->data[20][0]; // email
-    node_save($post);
-
-    //
     // add post id and name to submission
+    $post = node_load($step_options['post_nid']);
     $master = postcard_webform_master_form($node);
     foreach ($master->webform['components'] as $key => $data) {
       if ($data['form_key'] == 'post_nid') {

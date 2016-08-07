@@ -46,6 +46,7 @@
 
 .resp-submit-button(@color: @webform-color-submit; @bg-color: @webform-color-submit-bg; @radius: @webform-border-radius) {
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: @pxl-text-font-bold;
@@ -478,7 +479,16 @@ form.webform-client-form {
     }
     a.back-link {
       .resp-submit-button(@text-color);
-      vertical-align: middle;
+      #pxl-mixins.font-size-responsive(24px, 18px);
+      padding-left: 0;
+      border: none;
+      background: none;
+      text-decoration: none;
+    }
+    a.done-link {
+      .resp-submit-button(@text-color);
+      #pxl-mixins.font-size-responsive(24px, 18px);
+      color: @pxl-color-green;
       padding-left: 0;
       border: none;
       background: none;

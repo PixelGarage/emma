@@ -12409,7 +12409,9 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
 .view-post-grid .view-content > .pe-container .pe-item.shown {
   opacity: 1.0;
 }
-.view-post-grid .view-content > .pe-container .pe-item.pe-item-ajax {
+.view-post-grid .view-content > .pe-container .pe-item.pe-item-ajax,
+.view-post-grid .view-content > .pe-container .pe-item.pe-item-no-ajax,
+.view-post-grid .view-content > .pe-container .pe-item.pe-item-linked {
   cursor: pointer;
 }
 .view-post-grid .view-content > .pe-container .modal.modal-fixed-height {
@@ -12668,6 +12670,137 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   background-color: #444444;
 }
 /*
+ *  Confirm form component
+ * --------------------------------------------------*/
+form.confirmation div {
+  margin: 30px auto 50px;
+  width: 90%;
+  font-family: 'MuseoSans_700', sans-serif;
+  font-size: 14px;
+  letter-spacing: normal;
+  text-align: center;
+  text-transform: none;
+  color: #444444;
+}
+@media screen and (min-width: 30em) {
+  form.confirmation div {
+    font-size: 2.91666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.confirmation div {
+    font-size: 19px;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.confirmation div {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.confirmation div {
+    width: 70%;
+  }
+}
+form.confirmation div .form-actions button#edit-actions-submit {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 7px 27px;
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  color: white;
+  outline: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #9bc31b;
+  background-color: #9bc31b;
+  opacity: 1.0;
+  margin-right: 20px;
+}
+@media screen and (min-width: 30em) {
+  form.confirmation div .form-actions button#edit-actions-submit {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.confirmation div .form-actions button#edit-actions-submit {
+    font-size: 27px;
+  }
+}
+form.confirmation div .form-actions button#edit-actions-submit:hover,
+form.confirmation div .form-actions button#edit-actions-submit:focus {
+  opacity: 0.6;
+}
+@media screen and (min-width: 30em) {
+  form.confirmation div .form-actions button#edit-actions-submit {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.confirmation div .form-actions button#edit-actions-submit {
+    font-size: 27px;
+  }
+}
+form.confirmation div .form-actions button#edit-actions-submit:hover,
+form.confirmation div .form-actions button#edit-actions-submit:focus {
+  opacity: 0.6;
+}
+form.confirmation div .form-actions a#edit-actions-cancel {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 7px 27px;
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  color: #444444;
+  outline: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #9bc31b;
+  background-color: #9bc31b;
+  opacity: 1.0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+@media screen and (min-width: 30em) {
+  form.confirmation div .form-actions a#edit-actions-cancel {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.confirmation div .form-actions a#edit-actions-cancel {
+    font-size: 27px;
+  }
+}
+form.confirmation div .form-actions a#edit-actions-cancel:hover,
+form.confirmation div .form-actions a#edit-actions-cancel:focus {
+  opacity: 0.6;
+}
+@media screen and (min-width: 30em) {
+  form.confirmation div .form-actions a#edit-actions-cancel {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.confirmation div .form-actions a#edit-actions-cancel {
+    font-size: 27px;
+  }
+}
+form.confirmation div .form-actions a#edit-actions-cancel:hover,
+form.confirmation div .form-actions a#edit-actions-cancel:focus {
+  opacity: 0.6;
+}
+/*
  *  Webform Addons component
  * --------------------------------------------------*/
 form.webform-client-form {
@@ -12814,6 +12947,7 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   width: auto;
   height: auto;
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'MuseoSans_900', sans-serif;
@@ -12830,6 +12964,20 @@ form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.dra
   background-color: #9bc31b;
   opacity: 1.0;
   font-size: 14px;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
+    font-size: 27px;
+  }
+}
+form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button:hover,
+form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button:focus {
+  opacity: 0.6;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form [id$=ajax-wrapper] .table-responsive table tbody tr.draggable td button {
@@ -12864,6 +13012,7 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
 }
 form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'MuseoSans_900', sans-serif;
@@ -12881,6 +13030,20 @@ form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .fo
   opacity: 1.0;
   font-size: 16px;
   z-index: 10;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
+    font-size: 27px;
+  }
+}
+form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button:hover,
+form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button:focus {
+  opacity: 0.6;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form [id$=ajax-wrapper] .webform-component-multiple-file .form-managed-file .input-group-btn button {
@@ -13098,6 +13261,7 @@ form.webform-client-form .webform-component .form-managed-file button.btn {
   right: 3px;
   bottom: 3px;
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'MuseoSans_900', sans-serif;
@@ -13116,6 +13280,20 @@ form.webform-client-form .webform-component .form-managed-file button.btn {
   padding: 0 12px;
   font-size: 14px;
   line-height: 17px;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form .webform-component .form-managed-file button.btn {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form .webform-component .form-managed-file button.btn {
+    font-size: 27px;
+  }
+}
+form.webform-client-form .webform-component .form-managed-file button.btn:hover,
+form.webform-client-form .webform-component .form-managed-file button.btn:focus {
+  opacity: 0.6;
 }
 @media screen and (min-width: 30em) {
   form.webform-client-form .webform-component .form-managed-file button.btn {
@@ -13208,6 +13386,7 @@ form.webform-client-form .webform-component.webform-container-inline .form-radio
 }
 form.webform-client-form div.form-actions button.webform-submit {
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'MuseoSans_900', sans-serif;
@@ -13238,8 +13417,23 @@ form.webform-client-form div.form-actions button.webform-submit:hover,
 form.webform-client-form div.form-actions button.webform-submit:focus {
   opacity: 0.6;
 }
+@media screen and (min-width: 30em) {
+  form.webform-client-form div.form-actions button.webform-submit {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form div.form-actions button.webform-submit {
+    font-size: 27px;
+  }
+}
+form.webform-client-form div.form-actions button.webform-submit:hover,
+form.webform-client-form div.form-actions button.webform-submit:focus {
+  opacity: 0.6;
+}
 form.webform-client-form div.form-actions a.back-link {
   display: inline-block;
+  vertical-align: middle;
   margin: 0;
   padding: 7px 27px;
   font-family: 'MuseoSans_900', sans-serif;
@@ -13255,7 +13449,7 @@ form.webform-client-form div.form-actions a.back-link {
   border: 1px solid #9bc31b;
   background-color: #9bc31b;
   opacity: 1.0;
-  vertical-align: middle;
+  font-size: 18px;
   padding-left: 0;
   border: none;
   background: none;
@@ -13274,6 +13468,93 @@ form.webform-client-form div.form-actions a.back-link {
 form.webform-client-form div.form-actions a.back-link:hover,
 form.webform-client-form div.form-actions a.back-link:focus {
   opacity: 0.6;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form div.form-actions a.back-link {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form div.form-actions a.back-link {
+    font-size: 27px;
+  }
+}
+form.webform-client-form div.form-actions a.back-link:hover,
+form.webform-client-form div.form-actions a.back-link:focus {
+  opacity: 0.6;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form div.form-actions a.back-link {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form div.form-actions a.back-link {
+    font-size: 24px;
+  }
+}
+form.webform-client-form div.form-actions a.done-link {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 7px 27px;
+  font-family: 'MuseoSans_900', sans-serif;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 1.5px;
+  text-transform: capitalize;
+  color: #444444;
+  outline: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #9bc31b;
+  background-color: #9bc31b;
+  opacity: 1.0;
+  font-size: 18px;
+  color: #9bc31b;
+  padding-left: 0;
+  border: none;
+  background: none;
+  text-decoration: none;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 27px;
+  }
+}
+form.webform-client-form div.form-actions a.done-link:hover,
+form.webform-client-form div.form-actions a.done-link:focus {
+  opacity: 0.6;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 4.16666667vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 27px;
+  }
+}
+form.webform-client-form div.form-actions a.done-link:hover,
+form.webform-client-form div.form-actions a.done-link:focus {
+  opacity: 0.6;
+}
+@media screen and (min-width: 30em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 3.75vw;
+  }
+}
+@media screen and (min-width: 48em) {
+  form.webform-client-form div.form-actions a.done-link {
+    font-size: 24px;
+  }
 }
 /*
  *  Webform confirmation component
@@ -13709,6 +13990,9 @@ body.navbar-is-fixed-top.admin-menu {
   body.navbar-is-fixed-top.admin-menu {
     padding-top: 180px !important;
   }
+}
+body {
+  overflow-y: auto;
 }
 body .main-container #page-header .region-header h2.block-title {
   margin: 20px 0 10px;

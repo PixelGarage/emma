@@ -293,6 +293,45 @@ function _post_delivery_step_presave(&$step_options, $node, &$submission) {
   }
 }
 
+/**
+ * Alter a specific step removal of a multi-step webform, prior of the submission deletion, e.g. delete objects
+ * you have created in the submission presave step.
+ *
+ * @param $step_key   string
+ *    The step key indicating which submission of the multi-step webform is going to be deleted
+ * @param $node   object
+ *    The webform node (tnid)
+ * @param $submission  object
+ *    The submission object.
+ */
+function pixelgarage_postcard_multi_step_submission_remove_alter($step_key, $node, $submission) {
+  //
+  // remove step specific submitted data first
+  $master = postcard_webform_master_form($node);
+  switch ($step_key) {
+    case 'postcard data':
+      // unpublish post (no deletion to keep postcard information for delivery step)
+      $post_nid = false;
+      foreach ($master->webform['components'] as $key => $data) {
+        if ($data['form_key'] == 'post_nid') {
+          $post_nid = $submission->data[$key][0];
+          break;
+        }
+      }
+      if ($post_nid) {
+        $post = node_load($post_nid);
+        $post->status = 0;
+        node_save($post);
+      }
+      break;
+    case 'postcard delivery':
+      // nothing to do
+      break;
+  }
+
+}
+
+
 
 /* =============================================================================
  *     Postcard hooks

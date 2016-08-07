@@ -83,18 +83,13 @@ function _random_testimonials(&$vars) {
 
   // chose random testimonial from list
   $view = $vars['view'];
-  $keys = array_keys($testimonials);
   $row_count = count($view->result) - 1;
-  $i1 = mt_rand(0, $row_count);
-  $i2 = mt_rand(0, $row_count);
-  $i3 = mt_rand(0, $row_count);
-
-  // return the testimonials at random place in grid
-  $vars['testimonials'] = array(
-    $i1 => node_view($testimonials[$keys[0]], 'teaser'),
-    $i2 => node_view($testimonials[$keys[1]], 'teaser'),
-    $i3 => node_view($testimonials[$keys[2]], 'teaser'),
-  );
+  $keys = array_keys($testimonials);
+  foreach ($keys as $index => $key) {
+    $i = mt_rand(0, $row_count);
+    $testimonial = node_view($testimonials[$key], 'teaser');
+    $vars['testimonials'][$i] = render($testimonial);
+  }
 }
 
 function _social_items(&$vars) {

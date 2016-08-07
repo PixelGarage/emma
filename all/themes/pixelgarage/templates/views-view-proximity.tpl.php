@@ -16,9 +16,11 @@
     Add randomly chosen testimonials to the list
     -->
     <?php if (isset($testimonials[$id])): ?>
-      <div class="pe-item">
+      <div class="pe-item pe-item-linked">
         <div class="pe-item-inner">
-          <?php print render($testimonials[$id]); ?>
+          <a role="button" href="http://www.gruenewirtschaft.ch" target="_blank">
+            <?php print $testimonials[$id]; ?>
+          </a>
         </div>
       </div>
     <?php endif; ?>

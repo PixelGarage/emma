@@ -71,11 +71,19 @@
    */
   Drupal.behaviors.fullSizeClickableCards = {
     attach: function () {
-      var $clickableItems = $('.view-post-grid .pe-item-no-ajax');
+      var $clickableItems = $('.view-post-grid .pe-item-no-ajax'),
+          $linkedItems = $('.view-post-grid .pe-item-linked');
 
       $clickableItems.once('click', function () {
         $(this).on('click', function () {
           window.location = $(this).find(".node-post .field-name-field-image a").attr("href");
+          return false;
+        });
+      });
+      $linkedItems.once('click', function () {
+        $(this).on('click', function () {
+          var link = $(this).find(".pe-item-inner > a").attr("href");
+          window.open(link, '_blank');
           return false;
         });
       });

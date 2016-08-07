@@ -12460,6 +12460,10 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
   overflow-y: auto;
 }
 .view-post-grid .view-content > .pe-container .modal .modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
   background-color: #000;
 }
@@ -12481,7 +12485,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
     max-width: 600px;
   }
   .admin-menu .view-post-grid .view-content > .pe-container .modal .modal-dialog {
-    margin: 59px auto 0;
+    margin: 59px auto;
   }
 }
 @media screen and (min-width: 48em) {

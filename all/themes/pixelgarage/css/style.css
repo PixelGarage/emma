@@ -9178,7 +9178,7 @@ ul.language-switcher-locale-url > li span.locale-untranslated {
  *  Node post component
  * --------------------------------------------------*/
 .node-post-page-wrapper {
-  margin-bottom: 50px;
+  margin: 50px 0;
   width: 100%;
 }
 .node-post-page-wrapper .node-post-header {

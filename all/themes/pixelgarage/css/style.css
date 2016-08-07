@@ -13255,6 +13255,10 @@ form.webform-client-form .webform-component .form-managed-file input {
     font-size: 17px;
   }
 }
+form.webform-client-form .webform-component .form-managed-file span.file {
+  display: inline-block;
+  vertical-align: middle;
+}
 form.webform-client-form .webform-component .form-managed-file button.btn {
   position: absolute;
   top: 3px;
@@ -13632,7 +13636,7 @@ form.webform-client-form div.form-actions a.done-link:focus {
     max-width: 600px;
   }
 }
-.webform-submission .row .col-sm-6 img {
+.webform-submission .row .col-sm-6 > img {
   margin: 20px auto 0;
   width: 90%;
   height: auto;
@@ -13646,12 +13650,11 @@ form.webform-client-form div.form-actions a.done-link:focus {
   margin: 10px auto;
   padding: 0;
   width: 100%;
-  text-align: right;
+  text-align: left;
 }
 @media screen and (min-width: 30em) {
   .submission-actions > ul.webform-submission-actions {
     margin: 20px auto;
-    max-width: 600px;
   }
 }
 .submission-actions > ul.webform-submission-actions li {
@@ -13675,6 +13678,9 @@ form.webform-client-form div.form-actions a.done-link:focus {
   color: #fff;
   background: #9bc31b none;
   outline: none;
+}
+.submission-actions > ul.webform-submission-actions li.resend {
+  display: none;
 }
 /*
  *  Header section (navigation)

@@ -83,7 +83,12 @@ function postcard_webform_submission_insert($node, $submission) {
  * Menu title callback; Return the submission step as a title.
  */
 function postcard_webform_submission_title($node, $submission) {
-  return t('Edit @title', array('@title' => $node->title));
+  global $language;
+  $master = postcard_webform_master_form($node);
+  $transl_arr = translation_node_get_translations($master->nid);
+  $transl_nid = !empty($transl_arr) ? $transl_arr[$language->language]->nid : $master->nid;
+  $transl_node = node_load($transl_nid);
+  return t('Edit @title', array('@title' => $transl_node->title));
 }
 
 

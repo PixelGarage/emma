@@ -27,7 +27,7 @@
     }
 
     .col-sm-6 {
-      img {
+      > img {
         margin: 20px auto 0;
         width: 90%;
         height: auto;
@@ -46,11 +46,10 @@
     margin: 10px auto;
     padding: 0;
     width: 100%;
-    text-align: right;
+    text-align: left;
 
     @media @narrow {
       margin: 20px auto;
-      max-width: 600px;
     }
 
     li {
@@ -74,6 +73,11 @@
           background: @pxl-color-green none;
           outline: none;
         }
+      }
+
+      &.resend {
+        // hide resend emails
+        display: none;
       }
     }
   }

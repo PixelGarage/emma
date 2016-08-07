@@ -51,13 +51,14 @@ function pixelgarage_proximity_load_params_alter($container_index, $view, &$ajax
  */
 function pixelgarage_proximity_render_item_alter($container_index, $param, &$render_item) {
   // return the render array for the specific node, if available
+  global $language;
   if ($node= node_load($param)) {
     $view_mode = 'full';
     if (property_exists($node, 'ds_switch') && !empty($node->ds_switch)) {
       // take an alternate view mode set by the ds switch
       $view_mode = $node->ds_switch;
     }
-    $render_item = node_view($node, $view_mode);
+    $render_item = node_view($node, $view_mode, $language->language);
   }
 }
 

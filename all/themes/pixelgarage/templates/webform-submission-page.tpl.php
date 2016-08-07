@@ -23,7 +23,12 @@ $master = postcard_webform_master_form($node);
 if ($master->nid == 18) {
   //
   // POSTCARD DATA webform, get example image from webform
-  $img_uri = !empty($node->field_image) ? $node->field_image[LANGUAGE_NONE][0]['uri'] : false;
+  global $language;
+  $transl_arr = translation_node_get_translations($master->nid);
+  $transl_nid = !empty($transl_arr) ? $transl_arr[$language->language]->nid : $master->nid;
+  $transl_node = node_load($transl_nid);
+
+  $img_uri = !empty($transl_node->field_image) ? $transl_node->field_image[LANGUAGE_NONE][0]['uri'] : false;
   if ($img_uri) {
     $img_url = file_create_url($img_uri);
     $vars = array (

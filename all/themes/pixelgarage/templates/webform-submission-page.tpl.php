@@ -23,7 +23,7 @@ $master = postcard_webform_master_form($node);
 if ($master->nid == 18) {
   //
   // POSTCARD DATA webform, get example image from webform
-  $img_uri = !empty($master->field_image) ? $master->field_image[LANGUAGE_NONE][0]['uri'] : false;
+  $img_uri = !empty($node->field_image) ? $node->field_image[LANGUAGE_NONE][0]['uri'] : false;
   if ($img_uri) {
     $img_url = file_create_url($img_uri);
     $vars = array (

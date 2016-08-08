@@ -71,6 +71,7 @@ switch ($language->language) {
   <!--
   Add the rest of the SOME items to the end of the list
   -->
+  <?php if (isset($social_items_rest)): ?>
   <?php foreach ($social_items_rest as $social_item): ?>
     <div class="pe-item pe-item-ajax <?php print 'pe-item-' . $social_item['nid']; ?>" style="margin: 0 -2px">
       <div class="pe-item-inner">
@@ -82,6 +83,8 @@ switch ($language->language) {
       </div>
     </div>
   <?php endforeach; ?>
+  <?php endif; ?>
+
 
   <?php if ($use_modal_dlg): ?>
     <!--

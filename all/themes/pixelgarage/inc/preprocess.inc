@@ -59,7 +59,7 @@ function pixelgarage_preprocess_views_view_proximity (&$vars) {
   if (!empty($vars['view']->exposed_data['combine'])) return;
 
   _random_testimonials($vars);
-  _social_items($vars);
+  //_social_items($vars);
 }
 
 /**

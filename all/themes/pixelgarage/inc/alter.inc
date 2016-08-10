@@ -480,9 +480,9 @@ function pixelgarage_postcard_draw_pdf_alter(&$tcpdf_obj, &$pdf_uri, &$options) 
   $tcpdf_obj->addFont('Pacifico', '', 'pacifico');
   $tcpdf_obj->setFont('Pacifico');
   $tcpdf_obj->SetTextColor(155, 195, 27); // green (#9bc31b)
-  $tcpdf_obj->setFontSize(35);
+  $tcpdf_obj->setFontSize(24);
   $tcpdf_obj->StartTransform();
-  $tcpdf_obj->setXY(5.25,101);
+  $tcpdf_obj->setXY(5.25,103);
   $tcpdf_obj->Rotate(2);
   // Format: Cell($w, $h=0, $txt='', $border=0, $ln=0, $align='', $fill=false, $link='', $stretch=0, $ignore_min_height=false, $calign='T', $valign='M')
   $tcpdf_obj->Cell(94.5, 0, $name, 0, 0, 'C', false);

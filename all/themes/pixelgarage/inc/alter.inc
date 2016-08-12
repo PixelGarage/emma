@@ -180,7 +180,8 @@ function _post_data_step_presave(&$step_options, $node, &$submission) {
 
   //
   // create postcard and high resolution image and add it to post node, if available
-  $pdf_name = $post->title . '_' . time() . '.pdf';
+  global $language;
+  $pdf_name = $language->language . '_' . $post->title . '_' . time() . '.pdf';
   $options = array(
     'post_node' => $post,
   );

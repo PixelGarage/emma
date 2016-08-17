@@ -136,7 +136,7 @@ form.webform-client-form {
       }
 
       // add more buttons
-      .btn.btn-success, .btn.btn-danger {
+      .btn.btn-default {
         display: inline-block;
         vertical-align: middle;
         margin: 0;
@@ -164,10 +164,10 @@ form.webform-client-form {
           color: @pxl-color-green;
         }
       }
-      .btn.btn-success:before {
+      [id*='webform-addmore-add']:before {
         content: '\f0fe';
       }
-      .btn.btn-danger:before {
+      [id*='webform-addmore-remove']:before {
         content: '\f146';
       }
 
